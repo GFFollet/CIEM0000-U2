@@ -1,0 +1,1348 @@
+
+%-----General setup/geomtry-------------%
+\documentclass[a4paper, 11pt,article,oneside]{memoir}%,openany
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
+
+\checkandfixthelayout
+\usepackage[utf8]{inputenc} 
+\setcounter{tocdepth}{1}
+%--------------------------------------%
+
+%------Misc Packages-------------------%
+\usepackage[T1]{fontenc} 
+\usepackage{calrsfs}
+\usepackage{pifont}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[breakable]{tcolorbox}
+    \tcbuselibrary{skins}
+    \tcbuselibrary{breakable}
+\usepackage{stix}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage[final]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\bibliographystyle{plain}
+\renewcommand\bibname{References} 
+
+%-------------------------------------%
+
+%----- Defining tcolorboxes-----------%
+
+%Box for equations%
+\newtcolorbox{eqbox}{
+	colback=magenta!5!white,
+	boxrule=0pt,
+	frame hidden,
+	sharp corners,
+	enhanced,
+	borderline east={2pt}{0pt}{magenta}}
+
+%Box for equations with title%
+\newtcolorbox{eqbox2}[3][]
+{
+  boxrule=0pt,
+  fonttitle=\bfseries ,
+  frame hidden,
+  sharp corners,
+  enhanced,
+  borderline east ={2pt}{0pt}{magenta},
+  colbacktitle  = white,
+  colback  = magenta!5!white,
+  coltitle = magenta,  
+  title    = {#3},
+  #1}
+  
+  
+%Box for exercises%
+\newtcolorbox{exbox}[3][]{
+	breakable,
+	colback=orange!5!white,
+	boxrule=0pt,
+	frame hidden,
+	sharp corners,
+	enhanced,
+	borderline west={2pt}{0pt}{orange},
+	coltitle = orange,
+	title= {#3},
+	#1,
+	colbacktitle  = orange!5!white,
+	fonttitle=\bfseries}
+	
+	
+%Box for notes%
+\newtcolorbox{note}{
+	colback=cyan!5!white,
+	boxrule=0pt,
+	frame hidden,
+	sharp corners,
+	enhanced,
+	borderline west={2pt}{0pt}{cyan},
+	ragedleft}
+%----------------------------------------------%
+
+\begin{document}
+\noindent
+\setlength{\parindent}{0pt}
+
+%---------TITLE PAGE--------------------------------%
+\begin{titlingpage}
+	\raggedleft % ]
+	{\color{magenta}\rule{3 pt}{\textheight}} % Vertical line
+	\hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
+	\parbox[b]{0.9\textwidth}{ % Paragraph box for holding the title page text, adjust the width to move the title page left or right on the page
+	
+		{\\\Huge\bfseries{ CIEM0000 U2.\\
+		\textit{Mechanics for Civil Engineering}}}\\[3\baselineskip]  % Title
+		{\large\textit{Complement to class notes }}\\[4\baselineskip] % Subtitle or further description
+		 % Author name, lower case for consistent small caps\\
+      	\\[4\baselineskip] 
+		{\color{magenta}\textbf{Gabriel Follet}}
+		
+		\vspace{0.25\textheight} % Whitespace between the title block and the publisher
+			{\noindent MSc CE TU Delft  v1- Q1 2023}} % Publisher and logo		
+
+\end{titlingpage}
+%----------------------------------------------%
+
+\tableofcontents
+\newpage
+
+
+
+\chapter{Continuum Mechanics: Basics}
+Every continuum mechanics problem can be reduced to three basic steps
+
+\begin{enumerate}
+\item Kinematics
+\item Action-Deformation
+\item Equilibrium
+\end{enumerate}
+	
+
+\section{Kinematics}
+Let's consider the following expression
+\begin{align*}
+\varphi(\boldsymbol{X})=\boldsymbol{X}+\boldsymbol{u(X)}
+\end{align*}
+Where 
+\begin{align*}
+\boldsymbol{X}:& \text{Initial position}\\
+\boldsymbol{u (X)}:& \text{Displacement field}\\
+\varphi(\boldsymbol{X}):& \text{Final position}
+\end{align*}
+Then we can define 
+\begin{eqbox2}{red}{Lagrangian Strain Tensor}
+\begin{align*}
+\boldsymbol{E}:=\dfrac{1}{2}\left(\nabla\boldsymbol{u}+ \nabla\boldsymbol{u}^T+\nabla\boldsymbol{u}\nabla\boldsymbol{u}^T \right)
+\end{align*}
+\end{eqbox2}
+For \textit{small} displacement gradients
+\begin{eqbox2}{red}{Cauchy Strain Tensor}
+\begin{align*}\label{tensor}
+\boldsymbol{E} \simeq \boldysmbol{\varepsilon}:=&\dfrac{1}{2}\left(\nabla\boldsymbol{u}+\nabla\boldsymbol{u}^T \right)
+\end{align*}
+\end{eqbox2}
+\begin{note}
+In civil engineering, the Cauchy Tensor (Engineering tensor) is almost always used. See \cite{ICE2114} for rigorous definition/proof.
+\end{note}
+In matrix form
+\begin{align*}
+\boldsymbol{\varepsilon}=&\begin{bmatrix}
+\frac{\partial u_x}{\partial x}&\frac{1}{2}\left(\frac{\partial u_x}{\partial x}+\frac{\partial u_y}{\partial x}\right)&\frac{1}{2}\left(\frac{\partial u_x}{\partial z}+\frac{\partial u_z}{\partial x}\right)\\
+\frac{1}{2}\left(\frac{\partial u_y}{\partial x}+\frac{\partial u_x}{\partial y}\right)&\frac{\partial u_y}{\partial y}&\frac{1}{2}\left(\frac{\partial u_y}{\partial z}+\frac{\partial u_z}{\partial y}\right)\\
+\frac{1}{2}\left(\frac{\partial u_z}{\partial x}+\frac{\partial u_x}{\partial z}\right)&\frac{1}{2}\left(\frac{\partial u_z}{\partial y}+\frac{\partial u_y}{\partial z}\right)&\frac{\partial u_z}{\partial z}
+\end{bmatrix}
+\end{align*}
+We can also define the shear strain angle as
+\begin{align*}
+\gamma_{i,j}=\alpha+\beta\\
+\end{align*} 
+Where: 
+\begin{align*}
+\tan (\alpha)=\dfrac{\frac{\partial u_j}{\partial i}}{1+\frac{\partial i}{\partial u_i}}\qquad \qquad 
+\tan (\beta)=\dfrac{\frac{\partial u_i}{\partial j}}{1+\frac{\partial j}{\partial u_j}}
+\end{align*}
+For \textit{small angles}
+and \textit{small displacement gradients}, the shear strain angle is
+\begin{align*}
+\gamma_{i,j}=\gamma_{j,i}=\frac{\partial u_i}{\partial j}+\frac{\partial u_j}{\partial i}
+\end{align*}
+Then we can express the Cauchy Strain Tensor as
+\begin{eqbox}
+\begin{align*}
+\boldsymbol{\varepsilon}=&\begin{bmatrix}
+\varepsilon_{xx}&\dfrac{\gamma_{xy}}{2}&\dfrac{\gamma_{xz}}{2}\\
+\dfrac{\gamma_{yx}}{2}&\varepsilon_{yy}&\dfrac{\gamma_{yz}}{2}\\
+\dfrac{\gamma_{zx}}{2}&\dfrac{\gamma_{zy}}{2}&\varepsilon_{zz}
+\end{bmatrix}
+\end{align*}
+\end{eqbox}
+Because the Cauchy Strain Tensor is symmetrical we can express it as a vector using Voigt notation
+\begin{align*}
+\varepsilon=\begin{bmatrix}
+\varepsilon_{xx}\\
+\varepsilon_{yy}\\
+\varepsilon_{zz}\\
+\gamma_{xy}\\
+\gamma_{xz}\\
+\gamma_{yz}\\
+\end{bmatrix}
+\end{align*}
+In some cases it may be useful to compute the rigid body rotation 
+\begin{align*}\label{Rigid_body_rotation}
+\boldsymbol{\theta}=\nabla\times\varepsilon=&\begin{bmatrix}
+0&\frac{1}{2}\left(\frac{\partial u_x}{\partial x}-\frac{\partial u_y}{\partial x}\right)&\frac{1}{2}\left(\frac{\partial u_x}{\partial z}−\frac{\partial u_z}{\partial x}\right)\\
+-\frac{1}{2}\left(\frac{\partial u_y}{\partial x}-\frac{\partial u_x}{\partial y}\right)&0&\frac{1}{2}\left(\frac{\partial u_y}{\partial z}-\frac{\partial u_z}{\partial y}\right)\\
+-\frac{1}{2}\left(\frac{\partial u_z}{\partial x}-\frac{\partial u_x}{\partial z}\right)&-\frac{1}{2}\left(\frac{\partial u_z}{\partial y}-\frac{\partial u_y}{\partial z}\right)&0
+\end{bmatrix}
+\end{align*}
+Analogous to the Cauchy Strain Tensor, we define the Strain Rate
+Tensor
+
+
+\begin{eqbox2}{red}{Cauchy Strain Rate Tensor}
+\begin{align*}
+\boldysmbol{\dot{\varepsilon}}:=&\dfrac{1}{2}\left(\nabla\boldsymbol{\dot{u}}+\nabla\boldsymbol{\dot{u}}^T \right)
+\end{align*}
+\end{eqbox2}
+Then, the rotation of a fluid element is 
+\begin{align*}
+\boldsymbol{\Omega}=&\nabla \times \boldsymbol{v}
+\end{align*}
+From linear algebra we know that we can change basis such that
+\begin{align*}
+\boldsymbol{\varepsilon}'=Q\boldsymbol{\varepsilon}Q^T
+\end{align*} 
+If we use a unit vector ($\hat{n}$) instead of the basis matrix, ($Q$) we can obtain the deformation in the direction $\hat{n}$ we obtain the projection in that direction.
+
+\begin{equation*}
+\varepsilon_{axial}(\hat{n})=\hat{n}^T\varepsilon\hat{n}
+\end{equation*}
+If we want to obtain the principal directions, we need to solve the following minimization problem 
+\begin{align*}
+\text{max/min}\quad& (\hat{N}^T\epsilon\hat{N})\\
+\text{such that}\quad& \vert\hat{N}\vert=1
+\end{align*}
+Using the Lagrange multipliers method, we get the problem is equivalent to an eigenvalue problem
+\begin{eqbox}
+\begin{equation*}
+\left(\boldsymbol{\varepsilon-\lambda I} \right)N=0 \qquad \text{where} \vert N\vert=1
+\end{equation*}
+\end{eqbox}
+\begin{note}
+The fact that we can always find a basis such that we can diagonalize the strain/stress tensor, means that we can find a frame of reference (or direction) in which there is no shear or only shear. In many cases we can just reduce the problem to principal stresses.
+\end{note}
+As the name suggests, the invariants of a tensor are properties of the tensor that do not depend on the basis, the most common ones are
+\begin{align*}
+I_1 =&\,\text{tr}(\boldsymbol{\varepsilon})\\
+I_2=\, &\frac{1}{2}\left(\text{tr}(\boldsymbol{\varepsilon})^2-\text{tr}(\boldsymbol{\varepsilon^2})\right)\\
+I_3=\, &\text{det}(\boldsymbol{\varepsilon})
+\end{align*}
+
+
+
+
+
+
+\section{Action-Deformation}
+In linear materials   
+\begin{equation*}\label{HookLaw}
+\boldsymbol{\sigma}=\boldsymbol{A}\boldsysbol{\varepsilon}
+\end{equation*}
+For an isotropic linear-elastic material, the expression can be simplified to
+
+\begin{eqbox2}{red}{Generalized Hook's Law}\
+\begin{equation*}
+\boldsymbol{\sigma}=\boldsymbol{C}\boldsysbol{\varepsilon}=\frac{E}{(1+\nu)(1-2\nu)}
+\begin{bmatrix}
+1-\nu&\nu&\nu&0&0&0\\
+\nu&1-\nu&\nu&0&0&0\\
+\nu&\nu&1-\nu&0&0&0\\
+0&0&0&1-2\nu&0&0\\
+0&0&0&0&1-2\nu&0\\
+0&0&0&0&0&1-2\nu\\
+\end{bmatrix}\boldsysbol{\varepsilon}
+\end{equation*}
+\end{eqbox2}
+Where $\boldsymbol{C}$ is the Stiffness matrix.
+\begin{note}
+In most civil engineering  problems Hook's Law is sufficiently accurate, except  maybe in 
+\begin{itemize}
+\item (Foliated) Rock masses, the isotropic hypothesis is not accurate, we may need up to 21 elastic constant. Using ultrasonic/seismic methods we can determine the elastic constant in multiple direction\cite{CIVIL448}.
+\item Soil Mechanics, in particular when the clay content is important it is neccesary to use elasto-plastic models \cite{ICE2614}.
+\item Earthquake Engineering, even without going for the full nonlinear modeling, implementing a hybrid approach using plastic hinges (elastoplasticity) may reduce the complexity but yield accurate enough results, same for the design of metallic dissipation devices\cite{CIVIL467}.
+\end{itemize}
+\end{note}
+It may be useful to include the effect of temperature and initial stress (prestressed structures)
+\begin{eqbox}
+\begin{equation*}
+\boldsymbol{\sigma}=\boldsymbol{C}(\boldsysbol{\varepsilon-\varepsilon_0})+\sigma_0
+\end{equation*}
+\end{eqbox}
+Likewise, we can also express this relationship in the other way using the Flexibility matrix ($\boldsymbol{S}$)
+\begin{equation*}
+\boldsymbol{\varepsilon}=\boldsymbol{S}\boldsysbol{\sigma}
+\end{equation*}
+
+\begin{eqbox}
+\begin{equation*}
+\boldsymbol{S}=\frac{1}{E}
+\begin{bmatrix}
+1&-\nu&-\nu&0&0&0\\
+-\nu&1&-\nu&0&0&0\\
+-\nu&-\nu&1&0&0&0\\
+0&0&0&(1+\nu)&0&0\\
+0&0&0&0&(1+\nu)&0\\
+0&0&0&0&0&(1+\nu)\\
+\end{bmatrix}
+\end{equation*}
+\end{eqbox}
+The elastic properties of the material can be also expressed with the Lamé constants.
+\begin{gather*}
+\lambda=\frac{E\nu}{(1-\nu)(1-2\nu)}\\
+\mu=G=\frac{E}{2(1+\nu)}
+\end{gather*}
+
+
+
+\section{Balance Laws}
+Let's consider an intensive property $f$, then
+\begin{eqbox}
+\begin{equation*}
+F=\int_\mathcal{B} f\rho \,dV
+\end{equation*}
+\end{eqbox}
+Where $F$ is the equivalent extensive property,then, we can express multiple conservation laws through the following equation 
+\begin{eqbox2}{red}{Master Balance Principle}
+\begin{equation*}
+\frac{DF}{Dt}=\frac{D}{Dt}\int_\mathcal{B} f(x,t)\, dV=\int_{\partial \mathcal{B}}\phi(x,t,\hat{n})\,dS +\int_\mathcal{B} \Sigma(x,t) \,dV
+\end{equation*}
+\end{eqbox2}
+The Surface($\phi$) and Volume($\Sigma$) density terms represent the external \textit{forces}. 
+\begin{note}
+The previous equation is extremely general and not really used in practice , but I think is necessary to at least know the proper formulation, see \cite{ICE2114} for full proof.
+\end{note}
+Then, we can construct multiple conservation laws, choosing different values of $f,\phi,\sigma$.
+\begin{eqbox2}{red}{Conservation of Mass}
+\begin{align*}
+M=\int_V \rho \,dV
+\end{align*}
+\begin{equation*}
+\frac{DM}{Dt}=\frac{D}{Dt}\int_\Omega \rho(x,t) \,dV=0
+\end{equation*}
+\end{eqbox2}
+\begin{eqbox2}{red}{Conservation of Linear Momentum}
+\begin{align*}
+\boldsymbol{p}=\int_V \rho v \,dV
+\end{align*}
+\begin{equation*}
+\frac{D\boldsymbol{p}}{Dt}=\frac{D}{Dt}\int_\Omega \rho v\, dV=\int_{\partial \Omega}\boldsymbol{t}\,dS +\int_\Omega \boldsymbol{b} \,dV
+\end{equation*}
+\end{eqbox2}
+\begin{eqbox2}{red}{Conservation of Angular Momentum}
+\begin{align*}
+\boldsymbol{L}=\int_V  \boldysmbol{r}\times \rho v \,dV
+\end{align*}
+\begin{equation*}
+\frac{D\boldsymbol{L}}{Dt}=\frac{D}{Dt}\int_\Omega \boldysmbol{r}\times\rho v\, dV=\int_{\partial \Omega}\boldysmbol{r}\times\boldsymbol{t}\,dS +\int_\Omega \boldysmbol{r}\times\boldsymbol{b} \,dV
+\end{equation*}
+\end{eqbox2}
+\begin{eqbox2}{red}{First Law of Thermodynamics}
+\begin{align*}
+\boldsymbol{E}=\int_V \rho e \,dV
+\end{align*}
+\begin{equation*}
+\frac{DE}{Dt}=\frac{D}{Dt}\int_\Omega \left(gz+\frac{v^2}{2}+\hat{u}(T)+\frac{P}{\rho}\right)\rho\, dV=\int_{\partial \Omega}\phi(x,t,\hat{n})\,dS +\int_\Omega \Sigma(x,t) \,dV
+\end{equation*}
+\vspace{0.2cm}
+In gases, enthalpy is used instead 
+\begin{align*}
+\hat{h}(T)=\hat{u}(T)+\frac{P}{\rho}
+\end{align*}
+\end{eqbox2}
+
+
+\section{Simplifications/Reduction of balance laws}
+\subsection{Simplified differential form}
+As we previously stated, the master conservation principle is not used in practice instead we use simplified  equation in differential form.
+\begin{eqbox2}{}{Simplified  Master Balance Principle in  Differential form}
+\begin{gather*}
+\frac{\partial Q}{\partial t}=-\frac{\partial q_x}{\partial x}-\frac{\partial q_y}{\partial y}-\frac{\partial q_z}{\partial z}
+\end{gather*}
+Which essentially translates, "The variation of $Q$ is equal to the fluxes through the boundaries"
+\end{eqbox2}
+Then the conservation laws are
+\begin{eqbox2}{red}{Simplified Mass Conservation}
+If we choose 
+\begin{gather*}
+Q=\rho \\
+q_i=\rho v_i
+\end{gather*}
+\begin{gather*}
+\frac{\partial \rho}{\partial t}=-\frac{\partial \rho v_x}{\partial x}-\frac{\partial \rho v_y}{\partial y}-\frac{\partial \rho v_z}{\partial z}
+\end{gather*}
+\end{eqbox2}
+\begin{eqbox2}{red}{Simplified Conservation of Momentum}
+If we choose 
+\begin{gather*}
+Q=\rho v_i \\
+q_i=\rho v_i v_j
+\end{gather*}
+
+\begin{align*}
+\frac{\partial \rho v_x}{\partial t}=-\frac{\partial v_x( \rho v_x)}{\partial x}-\frac{\partial v_y( \rho v_x)}{\partial y}-\frac{\partial v_z( \rho v_x)}{\partial z}+\left(\frac{\sigma_{xx}}{\partial x}+\frac{\sigma_{yx}}{\partial y}+\frac{\sigma_{zx}}{\partial z}\right)+f_x\\
+\frac{\partial \rho v_y}{\partial t}=-\frac{\partial v_x( \rho v_y)}{\partial x}-\frac{\partial v_y( \rho v_y)}{\partial y}-\frac{\partial v_z( \rho v_y)}{\partial z}+\left(\frac{\sigma_{xy}}{\partial x}+\frac{\sigma_{yy}}{\partial y}+\frac{\sigma_{zy}}{\partial z}\right)+f_y\\
+\frac{\partial \rho v_z}{\partial t}=-\frac{\partial v_x( \rho v_z)}{\partial x}-\frac{\partial v_y( \rho v_z)}{\partial y}-\frac{\partial v_z( \rho v_z)}{\partial z}+\left(\frac{\sigma_{xz}}{\partial x}+\frac{\sigma_{yz}}{\partial y}+\frac{\sigma_{zz}}{\partial z}\right)+f_z\\
+\end{align*}
+
+\end{eqbox2}
+
+\begin{eqbox2}{}{Linearize Momentum Equation}
+If we consider that the density is constant,and that the velocity is 
+\begin{gather*}
+v_i=\frac{\partial u_i}{\partial t}
+\end{gather*}
+Also, if we consider that the spacial-temporal cross term are negligable
+\begin{gather*}
+\frac{\partial v_j( \rho v_j)}{\partial x_i}=\rho\frac{\partial}{\partial x_i}\left(\frac{\partial  u_i \partial  u_j}{\partial t^2}\right)\approx 0
+\end{gather*}
+We get the linearize momentum equation
+\begin{align*}
+\rho \frac{\partial^2u_x}{\partial t^2}=
+&\frac{\partial\sigma_{xx}}{\partial x}+\frac{\partial\sigma_{yx}}{\partial y}+\frac{\partial\sigma_{zx}}{\partial z}+f_x\\
+\rho \frac{\partial^2u_y}{\partial t^2}=&\frac{\partial\sigma_{xy}}{\partial x}+\frac{\partial\sigma_{yy}}{\partial y}+\frac{\partial\sigma_{zy}}{\partial z}+f_y\\
+\rho \frac{\partial^2u_z}{\partial t^2}=&\frac{\partial\sigma_{xz}}{\partial x}+\frac{\partial\sigma_{yz}}{\partial y}+\frac{\partial\sigma_{zz}}{\partial z}+f_z
+\end{align*}
+\end{eqbox2}
+
+
+\begin{eqbox2}{red}{Laplace Fluids Law}\label{LaplaceFlow}
+\begin{align*}
+k\nabla^2h=0
+\end{align*}
+\end{eqbox2}
+{\color{magenta}\subsection{Dimensional reduction}}
+In many cases, we dont really care about the response of the system in all direction. The magnitude of the response in some direction coud be negligable or because of symetries in the system, neverthelesss, in many cases we are interested in the 2D system or even in the 1D response. 
+
+\begin{eqbox2}{}{Plane Stress}
+Assuming that there are no stress in the out-of-plane direction,
+\begin{gather*}
+\begin{bmatrix}
+\varepsilon_{xx}\\
+\varepsilon_{zz}\\
+\varepsilon_{zx}\\
+\end{bmatrix}=\frac{1}{E}
+\begin{bmatrix}
+1&-\nu&0\\
+-\nu&1&0\\
+0&0&1+\nu\\
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{zz}\\
+\sigma_{zx}\\
+\end{bmatrix}\\
+\varepsilon_{yy}=\frac{-\nu}{E}(\sigma_{xx}+\sigma_{zz})
+\end{gather*}
+Alternatively
+\begin{gather*}
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{zz}\\
+\sigma_{zx}\\
+\end{bmatrix}=\frac{E}{(1+\nu)(1-\nu)}
+\begin{bmatrix}
+1&\nu&0\\
+\nu&1&0\\
+0&0&1-\nu\\
+\end{bmatrix}
+\begin{bmatrix}
+\varepsilon_{xx}\\
+\varepsilon_{zz}\\
+\varepsilon_{zx}\\
+\end{bmatrix}\\
+\end{gather*}
+At first glance, everything seems consistent, but if we consider the linearized momentum equation 
+\begin{gather*}
+\rho \frac{\partial^2u_y}{\partial t^2}=\frac{\partial\sigma_{xy}}{\partial x}+\frac{\partial\sigma_{yy}}{\partial y}+\frac{\partial\sigma_{zy}}{\partial z}+f_y\\ \\
+\rho \frac{\partial^2u_y}{\partial t^2}=0
+\end{gather*}
+However that implies that there is now acceleration, which is only true in the static case
+\end{eqbox2}
+\begin{eqbox2}{}{Plane Strain}
+Assuming that there are no strain in the out-of-plane direction,
+\begin{gather*}
+\begin{bmatrix}
+\varepsilon_{xx}\\
+\varepsilon_{zz}\\
+\varepsilon_{zx}\\
+\end{bmatrix}=\frac{1+\nu}{E}
+\begin{bmatrix}
+1-\nu&-\nu&0\\
+-\nu&1-\nu&0\\
+0&0&1\\
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{zz}\\
+\sigma_{zx}\\
+\end{bmatrix}\\
+\end{gather*}
+Alternatively
+\begin{gather*}
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{zz}\\
+\sigma_{zx}\\
+\end{bmatrix}=\frac{E}{(1+\nu)(1-2\nu)}
+\begin{bmatrix}
+1-\nu&\nu&0\\
+\nu&1-\nu&0\\
+0&0&1-2\nu\\
+\end{bmatrix}
+\begin{bmatrix}
+\varepsilon_{xx}\\
+\varepsilon_{zz}\\
+\varepsilon_{zx}\\
+\end{bmatrix}\\ \\
+\sigma_{yy}=\frac{\nu E}{(1+\nu)(2-2\nu)}(\varepsilon_{xx}+\varepsilon_{zz})
+\end{gather*}
+Which is consistent and does not presupose the static case as plain stress does.
+\end{eqbox2}
+
+Using plane strain/stress and some assumptions we can model very common cases such as :\\
+
+{\color{magenta}{\textbf{Axially loaded bar}}}\\
+Conisderinga bar uniaxially loades, if we integrate over the cross section we get
+
+\begin{gather*}
+\rho A\frac{\partial^2\bar{u}_x}{\partial t^2}=EA\frac{\partial^2 \bar{u}_x}{\partial x^2}+q_x
+\end{gather*}
+
+
+{\color{magenta}{\textbf{Shear layer}}}\\
+Lets consider a layer loaded in pure shear (double plane strain), such that there is only shear deformation.
+Then replacing in the linearized equation of motion we get 
+\begin{gather*}
+\rho \frac{\partial^2 u_x}{\partial t^2}=G\frac{\partial^2 u_x}{\partial z}+f_x
+\end{gather*}
+
+
+{\color{magenta}{\textbf{Diafragm wall}}}\\
+Lets consider a wall loaded vertically, such that it can be considered to be in plane stress and plane strain, integrating over the thickness of wall ($d$)
+\begin{gather*}
+\rho d \frac{\partial^2 \bar{u}_x}{\partial t^2}=\frac{Ed}{1-\nu^2}\frac{\partial^2 \bar{u}_x}{\partial z}+p_z
+\end{gather*}
+\section{Case Study: Darcy's law and potential flow}
+Let consider the conservation of mass ( volume assuming that the density is constant) for a control volume we get  
+\begin{eqbox2}{red}{Continuity equation}
+\begin{gather*}
+\frac{\partial \rho}{\partial t}=-\nabla q\\
+\frac{\partial \rho}{\partial t}=-\rho \nabla v\\
+\end{gather*}
+Considering that there is no storage capacity we get
+\begin{gather*}
+\rho \nabla v=0
+\end{gather*}
+\end{eqbox2}
+
+Lets remember that the simplest model for flow is the potential flow, also known as Darcy's Law, it says that "\textit{water flow from a higher energy state to a lower one}"
+
+Lets define the potential or head as
+\begin{gather*}
+\Psi=h=z+\frac{p}{\rho g}+\frac{1}{2}\frac{U^2}{2g}\\
+\end{gather*}
+In water flow trhough soil, the velocity term is negligible
+$$ h\approx z+\frac{p}{\rho g}$$
+Then mathematically we can express potential flow as 
+\begin{eqbox2}{}{Darcy's Law}
+\begin{gather*}
+q=-k\nabla h
+\end{gather*}
+$k$: Hidraulic conductivity 
+\end{eqbox2} 
+Combining Dacry's Law into the continuity equation we get 
+\begin{eqbox2}{}{Laplace's Fluids Law}
+\begin{gather*}
+k\nabla^2h=0
+\end{gather*}
+\end{eqbox2}
+
+\section{Case Study: Simplified flow through soil}
+Lets consider tha case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
+\begin{eqbox2}{}{Effective stress} 
+\begin{align*}
+\sigma'=\sigma-\boldsymbol{I}u_w
+\end{align*}
+\end{eqbox2}
+In Soil mechanics it may be  useful to consider the invariants of the effective stress tensor, which are analogous to the stress tensor's but are called $J_1$ $J_2$ and $J_3$ respectively, which are used in failure criteria\cite{ICE2614}.
+
+For the continuity equation we previously assumed that$\phi\neq0 \text{and} \Sigma=0$) but from the first chapter we know that the medium can deform, therefore the control volume can deform and we have to include the change of volume in the continuity equation
+\begin{note}
+In rocks, we have to be careful about porosity vs connected porosity and permeability vs hydraulic conductivity.\end{note} 
+\begin{eqbox2}{red}{Deformable medium - Continuity Equation}
+For permanent flow
+\begin{align*}
+\frac{\varepsilon_v}{\partial t}=-k \nabla^2 h
+\end{align*}
+\end{eqbox2}
+With 
+$I_1=\varepsilon_v$
+
+\section{Case Study: Flow to a well}
+Let's consider
+\begin{itemize}
+\item Saturated soils
+\item Single fluid, i.e. water
+\item Isotropic soil
+\item Water is incompressible
+\end{itemize}
+
+
+
+
+\begin{exbox}{}{Horizontal flow through 1D soil layer}
+
+
+The soil has hydraulic conductivity $k$,and the potential in the boundaries are $P_1$ and $P_2$, therefore it is a Dirichlet problem.
+
+Using the Laplace Flow equation and considering that the problem is 1D
+\begin{align*}
+k\frac{\partial^2 h}{\partial x^2}=0\qquad \text{and}\qquad h|^{0=P_1}_{L=P_2}
+\end{align*}
+Integrating
+\begin{gather*}
+\int k\frac{\partial^2 h}{\partial x^2}=\,0\\
+k\frac{\partial h}{\partial x^2}+C_1=\,0\\
+\int k\frac{\partial h}{\partial x^2}+C_1=\,0\\ 
+kh+C_1x+C_2=\,0
+\end{gather*}
+Applying Boundary conditions
+\begin{align*}
+h(x)=\left(\frac{P_2-P_1}{L}\right)x+P_1
+\end{align*}
+\end{exbox}
+\begin{exbox}{}{Horizontal flow through 1D soil, with discontinuity in soil properties}\\
+Because the hydraulic conductivity is discontinuous in the layer, it is easier to consider the problem as 2 problems of 1D isotropic soil, but applying boundary conditions in the interface as to preserve the conservation of mass principle.
+\begin{note}
+If we did not care about the distribution, but only about the global behaviour, we could have used the equivalent hydraulic conductivity \nl{out here eq for series and paralle soil layers)
+\begin{gather*}
+k_{eq}^h=\frac{\Sigma k_id_i}{\Sigma d_i}\\
+k_{eq}^v=\frac{\Sigma d_i}{\Sigma \frac{d_i}{k_i}}\
+\end{gather*}
+\end{note}
+Then, similarly to the last problem 
+\begin{align*}
+k_1\frac{\partial^2 h_1(x)}{\partial x^2}=&\,0 \\
+k_2\frac{\partial^2 h_2(x)}{\partial x^2}=&\,0 \\
+h_1(0)=&\,P_1\\
+h_2(L)=&\,P_2 \\
+k_1\frac{\partial h_1(L/2)}{\partial x}=&\,k_2\frac{\partial h_2(L/2)}{\partial x}
+\end{align*}
+\begin{note}
+Depending on the complexity of the situation, it may be useful to define local coordinates systems to simplify the algebra, for example
+\begin{align*}
+x_1'=&\,x\\
+x_2'=&\,x+\frac{L}{2}
+\end{align*}
+However, in the previous exercise because $k$ was uniform in each layer, it is just easier to use the result from question 1, where we know the pressure distribution in terms of  the boundary conditions, the problem can be easily reduced to 
+\begin{align*}
+h_1'(x_1)=\frac{P_3-P_1}{L}x+P_1\\
+h_2'(x_2)=\frac{P_2-P_3}{L}x+P_3\\
+k_1\frac{\partial h_1'(0)}{\partial x_1}=k_2\frac{\partial h_2'(0)}{\partial x_2}
+\end{align*}
+\end{note}
+\end{exbox}
+
+\begin{exbox}{}{Vertical 1D flow through isotropic layer}\\
+Considering the boundary condition of no flux in the bottom and no pressure in the top, and that the energy is 
+\begin{align*}
+h(z)=gz+\frac{v(z)^2}{2}+\frac{P(z)}{\rho(z)}\approx gz+\frac{P(z)}{\rho}\
+\end{align*}
+\begin{note}
+It is necessary to pay attention to the unit of energy, dependent on the situation, it may be better ot express the energy in terms of height , pressure or just energy.\\
+In addition, the \textit{no-pressure} boundary condition  refers to \textit{relative pressure}, because
+\begin{align*}
+P_{top}=&P_{atm}+0\\
+P_{bottom}=&P_{atm}+P_{bottom}
+\end{align*}
+But atmospheric pressure usually affects both boundary condition. 	
+\end{note}
+We know from problem 1 that the solution to 1D flow  is 
+\begin{align*}
+kh+C_1x+C_2=& \,0
+\end{align*}
+Then applying Boundary conditions
+\begin{align*}
+h(z_{top})=0\\
+\frac{\partial h(z_{bottom})}{\partial z}=0
+\end{align*}
+We get 
+\begin{align*}
+h(z)=\rho g (z_{top}-z)
+\end{align*}
+\begin{note}
+In problems involving atmospheric transport, we need to remember that $g(z)$ and $\rho(z)$. See \citep{ICH2304} for examples.
+\end{note}
+\end{exbox}
+\begin{exbox}{}{Radial flow}\\
+The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \citep{MAT1620} for the Laplace operator in any coordinate systems}.
+\begin{align*}
+k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}+\frac{1}{r^2}\frac{\partial h^2}{\partial \theta^2}\right)=0
+\end{align*}
+Because the situation is radially symmetric($\frac{\partial h^2}{\partial \theta^2}=0$)
+\begin{gather*}
+k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}\right)=0\\
+h=C_1\ln r+C_2
+\end{gather}
+
+\end{exbox}
+\newpage
+
+
+\chapter{Waves: Non-steady flow}
+\section{Equations of motion}
+Let's assume an hydrostatic vertical pressure distribution.
+From the conservation of momentum equation in 1D we get\\
+\begin{eqbox2}{}{Unitary discharge}
+$$q(s,t)=\int_{z_b}^{h(t)} v_s\, dz$$
+\end{eqbox2}
+If we extend it to the whole cross-section 
+\begin{eqbox2}{}{Cross section discharge}
+\begin{align*}
+Q(s,t)=&\int_{A(t)} v_s\, dA
+\end{align*}
+\end{eqbox2}
+
+Using the conservation of mass (volume if we consider incompressible flow) we get 
+\begin{align*}
+\frac{\partial A(s,t)}{\partial t}+\frac{\partial Q(s,t)}{\partial s}&=0
+\end{align*}
+
+In channel flow, our main concern is the piezometric height ($h$), therefore is useful to use the following expression
+
+\begin{align*}
+\frac{\partial A(s,t)}{\partial t}&=\frac{\partial A}{\partial h}\frac{\partial h}{\partial t}=B(s,t)\frac{\partial h}{\partial t}
+\end{align*}
+
+If we consider small flow velocities, and/or small, semi-enclosed areas
+\begin{eqbox2}{}{Small-basin approximation}
+\begin{align*}
+\frac{\partial h}{\partial s} \approx 0\longrightarrow Q(t)\approx A_b \frac{dh_b}{dt}
+\end{align*}
+\end{eqbox2}
+ 
+Let start with the continuity equation for permanent flow in 1D, and integrate them in the vertical direction
+\begin{gather*}
+\int_{z_b}^{h(t)}\left(\frac{\partial \rho}{\partial t}+\rho \nabla v\right)=0 \\
+\int _{z_b}^{h(t)}\frac{\partial \rho}{\partial t}+\int_{z_b}^{h(t)}\frac{\partial \rho v_x}{\partial x}+\int_{z_b}^{h(t)}\frac{\partial \rho v_z}{\partial z}=0
+\end{gather*}
+
+
+Using the Leibniz intregration rule
+
+\begin{align*}
+\left[\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz - {\color{cyan}\left(\rho \frac{\partial h}{\partial t}\right)_{z=h}}+{\color{orange}\left( \rho \frac{\partial z}{\partial t}\right)_{z=z_b}}\right]+
+ \left[\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz- {\color{cyan}\left(\rho v_x \frac{\partial h}{\partial x}\right)_{z=h}}+{\color{orange}\left( \rho v_x \frac{\partial z_b}{\partial x}\right)_{z=z_b}} \right]\\
+ +\left[{\color{cyan} (\rho v_z)_{z=h}}+{\color{orange} (\rho v_z)_{z=z_b}}\right]=0
+\end{align*}
+The coloured terms are the kinematic condition in the  boundaries, in particular, the {\color{cyan}cyan} on the surface and the {\color{orange} orange } terms  in the channel bed.
+Re-ordering we get 
+\begin{eqbox}
+\begin{gather*}
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 
+ {\color{cyan}\left[\rho\left( \frac{\partial h}{\partial t}+ v_x \frac{\partial h}{\partial x}+ v_z\right)\right]_{z=h}}
+-
+{\color{orange}\left[\rho\left(\frac{\partial z}{\partial t}+ v_x \frac{\partial z_b}{\partial x}+ v_z\right)\right]_{z=z_b} }\\
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0
+\end{gather*}
+\end{eqbox}
+The kinematics conditions terms are zero in both boundaries, and considering that the density is uniform throughout the cross-section 
+\begin{note}
+The kinematic condition terms that involve the time are zero because we assumed that the velocity normal to the flow is zero for the surface and seabed, the other terms relate to the fact that we assume that  a fluid particle aproaching the seabed will move alongside it (cannot go into the seabed) and a fluid particle moving towards the surface will move along the surface ( not splash-out). \\
+The density assumption is usually adecuate for canals, but may not appropiated in the presence of temperature/salinity gradients.
+\end{note}
+Then we get 
+\begin{eqbox2}{}{Mass Balance equation}
+\begin{gather*}
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0\\
+\frac{\partial (h(t)-z_b)}{\partial t}+\frac{\partial q}{\partial x}=0\\
+\frac{\partial d(t)}{\partial t}+\frac{\partial q}{\partial x}=0\\
+\end{gather*}
+\end{eqbox2}
+Similarly to mechanics of solids , using  the mass balance and the conservation of momentum we get 
+\begin{eqbox2}{}{Euler equation}
+For incompressible, uniform density,negligible viscous stresses, and only gravity as an external force we get 
+
+\begin{align*}
+\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}+\frac{1}{\rho}\frac{\partial p}{\partial x_i}=g_i
+\end{align*}
+\end{eqbox2}
+So far, the equations of motion are formulated in a cartesian coordinate system, but for geometries different  than a straight canal, it can become algebraically tedious, therefore we introduce the natural coordinate.
+\begin{itemize}[]
+\item $R$= Radius of curvature
+\item $\hat{s} $ = Flow direction
+\item $\hat{n} $ = Normal to the flow direction,towards the inside of the radius of curvature, defines the normal plane 
+\item $\hat{b} $ = Bi-normal direction to the flow, defines osculation plane
+\end{itemize}
+
+\begin{eqbox2}{}{Euler equation in natural coordinates}
+\begin{gather*}
+\frac{\partial v_s}{\partial t}+v_s\frac{\partial v_s}{\partial s}+g\frac{\partial h}{\partial s}=0\\
+\frac{\partial v_n}{\partial t}+\frac{v_s^2}{R}+g\frac{\partial h}{\partial n}=0\\
+\frac{\partial v_b}{\partial t}+g\frac{\partial h}{\partial b}=0
+\end{gather*}
+\end{eqbox2}
+\section{Long Waves}
+Let's consider the case of a 1D \textit{long waves} with a constant cross section piezometric level, then we can assume that
+\begin{itemize}
+\item Hydrostatic pressure distribution $\longrightarrow \frac{\partial h}{\partial b}\approx0$
+\item Negligable surface slope $\longrightarrow \frac{\partial h}{\partial n}\approx 0$
+\item Acceleration only in $\hat{s}$
+\item $\frac{\partial h}{\partial s}$ is constant within the cross-section
+\item Considering cross-section averaged velocity $U=\int_A v \, dA/\int dA$
+\end{itemize}
+\subsection{Boundary Resistance}}
+So far, we have only considered conservative forces, we can easily identify at least two types of non-conservative forces, exactly as we did with the master conservation principle, we have the volume force($\sigma$) and the surface force($\phi$).
+If we ignore for now the volumetric forces(turbulence,etc), and ignore the air-water interaction we get the frictional force of the canal walls/bed
+(wet perimeter).
+\begin{align*}
+F_r=\tau_b P=\rho c_f|U|UP
+\end{align*}
+All the other forces have been expressed as force per unit mass, then 
+\begin{align*}
+\frac{F_r}{\rho A_c}=\frac{\rho c_f|U|UP}{\rho A_c}=c_f\frac{|U|U}{R}
+\end{align*}
+\begin{note}
+This assumes that $c_f$ is constant in the wet perimeter, which is not always the case. See Orton's  and Lotter's method for compound cross-sections.\\
+Also, see Manning and Chézy equation for other ways to estimate boundary resistance. Detail in \cite{ICH2304}
+\end{note}
+Then, the equation on the whole cross-section
+\begin{eqbox2}{}{Saint-Venant Equation}
+\begin{gather*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0\\
+\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
+\end{gather*}
+\end{eqbox2}
+\section{Dimensional analysis}
+We can caracterize a wave by four parameter
+\begin{itemize}
+\item Wave length ($\lambda$ or $L_0$)
+\item Wave Period ($T_0$)
+\item Flow velocity ($U_0$)
+\item Water depth ($h$ or $D_0$)
+\end{itemize}
+If we look at the Sain-Venant equation, by inspection is evident that the storage ($B\frac{\partial h}{\partial t}$) and volume transport($\frac{\partial Q}{\partial s})$ terms cannot be neglected. 
+
+
+Lets consider the \textit{importance} of the local inertia and use it to normalize the effect of other terms in the momentum equation
+\begin{eqbox}
+\begin{gather*}
+\text{Normalized local inertia}\propto\left(\frac{U}{T}\right)/\left(\frac{ U}{T}\right)= 1\\
+\text{Normalized Advective Inertia}\propto \left(U\frac{U}{L}\right)/\left(\frac{U}{T}\right)=\frac{UT_0}{L}\approx Fr\\
+\text{Normalized Gravity forcing}\propto \left(g\frac{H_0}{L_0}\right)/\left(\frac{U}{T}\right)= \frac{gH_0T_0}{L_0U_0}\\
+\text{Normalized Resistance}\propto \left(c_f\frac{U_0^2}{D_0}\right)/\left(\frac{ U}{T}\right)=c_f\frac{U_0T_0}{D_0}
+\end{gather*}
+\end{eqbox}
+In general the adjective inertia and/or resistance can be neglected, is then useful to define the ratio between them
+\begin{eqbox}
+\begin{align*}
+\sigma = c_f\frac{U_0}{D_0}\frac{T_0}{2\pi}=c_f\frac{U_0}{\omega D_0}
+\end{align*}
+\end{eqbox}
+Let's define the velocity of a wave relative to the flow as
+\begin{eqbox2}{}{Celerity}
+For shallow water the propagation speed (phase velocity) can be estimated as 
+\begin{align*}
+c_p\approx\sqrt{gh}
+\end{align*}
+For deep water, $\frac{D}{\lambda}>0.5}$
+\begin{align*}
+c_p\approx \frac{g}{2\pi}T
+\end{align*}
+\end{eqbox2}
+\section{Classification/Characterization of long waves}
+In practice we consider a wave as \textit{long} if $\frac{L}{D_0}> 20$.
+{\color{magenta}\subsection{Translatory waves}}
+These waves are formed when control structures, such as gates, valves, etc are manipulated.
+
+{\color{magenta}\subsection{Tsunami wave}}
+Impulsive wave to due tsunami. Can be produced to either  an mega-rupture tsunami or due to an earthquake-produced landslide. 
+\begin{itemize}
+\item $\lambda \sim  10^{2-3}$ km
+\item $h\sim 10^{3}$ km
+\item $T\sim 10-20 $ mins
+\item Then, $c\sim 10^2 m/ s $
+\item Then, $\sigma\sim 10^{-4}$
+\end{itemize}
+
+{\color{magenta}\subsection{Seiches}}
+Natural oscilation in lakes and basins, due to geometric, gravitational and atmopheric variations. 
+\begin{itemize}
+\item $\lambda \sim  20$ km
+\item $h\sim 10$ m
+\item $T\sim 20 $ mins
+\item Then, $c\sim 10 m/s$
+\item Then, $\sigma\sim 10^{-2}$
+\end{itemize}
+
+{\color{magenta}\subsection{Tides}}
+Produce to gravitational effects of the moon and sun.
+In the ocean
+\begin{itemize}
+\item $\lambda \sim  8-9 \times 10^3$ km
+\item $h\sim 3-5 \times 10^3$ km
+\item $T\sim 745 $ mins
+\item Then, $c\sim 200 m/s$
+\item Then, $\sigma\sim 10^{-3}$
+\end{itemize}
+The resitance factor of tides in costal areas, channels, tide flats could be in the order of $\sigma\sim [10^{-1},10^{1}]$ 
+
+{\color{magenta}\subsection{Flood waves}}
+Cause by excesive precipitation or sudden melting of snow.
+\begin{itemize}
+\item $\lambda \sim   10^{2-3}$ km
+\item $h\sim 1-2\times 10$ m
+\item $T\sim 3-5\times 10^3 $ mins
+\item Then, $c\sim 7 m/s$
+\item The effect of bed friction is usually considerable in the order of $ \sigma \sim 5 \times 10^{1}$
+\end{itemize}
+
+{\color{magenta}\section{Wave propagation}}
+Let's consider a canal with a gate that separates two piezometric levels. If we open the gate, a translatory wave will propagate, the water will flow from the \textit{higher} to the \textit{lower} level , creating a positive amplitude wave in the \textit{lower} side and a negative amplitude in the \textit{higher} side.
+
+We will define the amplitude of the wave (respect to the piezometric level at $t_0$) as $\zeta$\\
+\begin{eqbox2}{}{Simplied wave propagation}
+Lets consider a control volume such that 
+$$h(s_1,t)=h_0+\zeta \quad || \quad  h(s_2,t)=h_0$$
+Using the  mass conservation principle (volume, if we consider $\rho$ to be constant)
+\begin{align*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}\approx&  B\frac{\zeta}{\Delta t}+\frac{Q}{\Delta s}\\
+\approx & B\zeta\Delta s = Q\Delta t \longrightarrow   Q=Bc\zeta
+\end{align*}
+Then, for the momentum equation ignoring the resistance and advective acceleration terms
+\begin{align*}
+\frac{\partial Q}{\partial t}+gA_c\frac{\partial h}{\partial s}\approx&\frac{ Q}{\Delta t}+gA_c\frac{\Delta h}{\Delta s}\\
+\approx& \frac{ Q}{\Delta t}+gA_c\frac{\zeta}{\Delta s}
+\longrightarrow gA_c\zeta=cQ
+\end{align*}
+
+\begin{note}
+Considering a rectangular cross section we obtained the expresion for the celerity that we mentioned before
+\end{note}
+
+\end{eqbox2}
+Lets re-examine the Saint-Venant equation
+\begin{align*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0
+\end{align}
+\begin{align*}
+\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
+\end{align*}
+For low and long waves we can neglected advective acceleration and boundary resistance term
+\begin{align*}
+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) \approx 0\\
+c_f\frac{|Q|Q}{A_cR}\approx 0
+\end{align*}
+Assuming a constant rectangular cross-section and combining the equation we get the \\
+\begin{eqbox2}{}{Elementary wave equation}
+\begin{align*}
+\frac{\partial^2 h}{\partial t^2}-\frac{gA_c}{B}\frac{\partial^2h}{\partial s^2}=0\\
+\frac{\partial^2 h}{\partial t^2}-c^2\frac{\partial^2h}{\partial s^2}=0\\
+\end{align*}
+\end{eqbox2}
+\section{General solution: d'Alembert}
+The general solution to the elementary wave equation is 
+\begin{eqbox2}{}{d'Alembert's solution}
+\begin{align*}
+h(s,t)=h^+(s-ct)+h^-(s+ct)
+\end{align*}
+\end{eqbox2}
+The solution is the superposition fo two waves trvaleing in opposite directions.
+\subsection{{\color{magenta}Canal with close end}}\\
+
+As the wave approaches the end of the canal, locally 
+\begin{align*}
+Q=\delta Q^++\delta Q^- =Bc(\delta h^+-\delta h^-)=0
+\longrightarrow \delta h^+= \delta h^- 
+\end{align*}
+We know that the solution is the superposition of the waves travelling in opposite directions then  we get \textit{fully positive reflection}
+
+\begin{align*}
+h=\delta h^++\delta h^-=2\delta h^+
+\end{align*}
+\subsection{{\color{magenta}Canal connected to reservoir}}
+
+As the wave approaches the reservoir , locally 
+\begin{align*}
+\delta h=\delta h^++ \delta h^-=0\longrightarrow \delta h^+=- \delta h^-
+\end{align*}
+We know that the solution is the superposition of the waves travelling in opposite directions then  we get \textit{fully negative reflection}
+\subsection{{\color{magenta}Canal with rapidily varying cross-section}}\\
+The transition is caracterized by a discontinous cross-section.
+
+Qualitatively we can expected \textit{partial reflection}, and that is exactly what we get.
+
+Defining compatibility conditions in the transition
+\begin{align*}
+\text{Continuous water level at the transition}&\longrightarrow\delta h_t=\delta h_i+\delta h_r\\
+\text{Continuous discharge at the transition}&\longrightarrow\delta Q_t=\delta Q_i+\delta Q_r
+\end{align*}
+We define the folowing adimensional parameters
+\begin{gather*}
+r_t=\frac{\delta h_t}{\delta h_i}\\
+r_r=\frac{\delta h_r}{\delta h_i}\\
+\gamma=\frac{B_2c_2}{B_1c_1}=\sqrt{\frac{A_{c,2}B_2}{A_{c,1}B_1}}
+\end{gather*}
+Then, the compatibility conditions are expressed as 
+\begin{gather*}
+r_t=1+r_r\\
+\gamma r_t=1-r_r
+\end{gather*}
+Then, the reflected and transmitted wave ratios are 
+\begin{eqbox}
+\begin{align*}
+r_r=&\frac{1-\gamma}{1+\gamma}\\
+r_t=&\frac{2}{1+\gamma}=1+r_r
+\end{align*}
+\end{eqbox}
+\subsubsection{Multiple Channels}
+If the abrupt transition consist of multiple channel, we can extend the previous principle, we define an \textit{equivalent channel} such that 
+\begin{eqbox}
+\begin{gather*}
+B^*c^*=\sum B_ic_i
+\end{gather*}
+\end{eqbox}
+Then applying conservation of mass and mometunm in the transmitted channel, we determine the height/discharge in each channel
+\begin{note}
+We are assuming that the wave is \textit{insensitive to changes in propagation direction}. 
+Also, see example of how how having a side close channel the affect the reflection int the transmitted and original channel, in  Unsteady Flow, p.50.
+\end{note}
+\subsection{{\color{magenta}Gradually varying cross-section}} \\
+See Green's law.
+\end{itemize}
+\section{Periodic Waves}
+In the previous section we considered the case of a single wave, let it be a transatory wave or a single wave, lets extend the same concepts to a periodic wave.\\
+\begin{eqbox2}{}{Periodic wave}
+\begin{align*}
+\zeta^+(s,t)=&\hat{\zeta}\cos \left(\frac{2\pi}{L} (s-ct)\right) \\
+\zeta^+(s,t)=&\hat{\zeta}\cos(ks-\omega t)
+\end{align*}
+With: 
+\begin{align*}
+\text{Wave number}(k) &:=\frac{2\pi}{L}\\
+\text{Angular frequency}(\omega) &:=\frac{2\pi}{T}
+\end{align*}
+\end{eqbox2}
+\subsection{{\color{magenta}Canal with closed end}}
+The boundary condition is 
+$$Q=\delta Q^++\delta Q^- $$
+Using the d'Alembert method,considering th boundary conditions
+\begin{gather*}
+\zeta=\zeta^++\zeta^-\\
+\zeta=2\hat{\zeta}\cos(ks)\cos(\omega t)
+\end{gather*}
+\subsection{{\color{magenta}Closed basin}}
+The boundary condition is 
+$$ Q=0$$
+Then the antinodes of the wave are on the boundaries, then 
+\begin{gather*}
+k_n=\frac{n\pi}{\ell}
+\end{gather*}
+
+Because we are dealing with un-forced oscillations, the natural frequencies are 
+
+\begin{gather*}
+\frac{\omega_n}{k_n}=\sqrt{\frac{gA_c}{B}}\\
+\omega_n=k_n\sqrt{\frac{gA_c}{B}}
+\end{gather*}
+\subsection{{\color{magenta}Semi-closed basin connected to reservoir}}
+At the close end 
+$$ Q=0$$
+and at the reservoir
+$$ \zeta=0$$
+Then, to fullfil this condition, at all times there is a antinode in the closed end, and a node in the reservoir end.
+\begin{gather*}
+k_n\mathcal{l}=\frac{1}{2}\pi+n\pi
+\end{gather*}
+And the natural frequencies are  
+
+\begin{gather*}
+\omega_n= \left(\frac{1}{2}\pi+n\pi \right)\frac{1}{\ell}\sqrt{\frac{gA_c}{B}}
+\end{gather*}
+\subsection{{\color{magenta}Semi-closed basin connected to tidal see}}
+At the close end 
+$$ Q=0$$
+and at the sea-basin interface
+$$ \zeta(\ell,t)=\zeta_{sea}$$
+The oscillation in the basin are forced by the oscillation of the tide, then
+\begin{gather*}
+\zeta(0,t)=\frac{\zeta(\ell,t)}{|\cos k\ell|} $$
+\end{gather*}
+Then we get resonance when
+\begin{gather*}
+\cos k\ell\rightarrow 0 \Longrightarrow \zeta(0,t)\rightarrow \infty
+\end{gather*}
+For small basins,
+$$(\ell\ll L \quad \text{or} \quad  k\ell\ll 2\pi)\Longrightarrow \cos(k\ell)\approx 1$$
+Then \textit{"the water level responds almost in unison to the tidal forcing at
+the mouth, rising and falling with the tide but being virtually horizontal at all times"}(Unsteady Flow in Open Channels,2017), this phenomenom is called {\color{magenta}Pumping or Helmholtz mode}
+\newpage
+\chapter{Diffusion: Heat Conduction}
+Using the master conservation equation for tha case of energy, if we only consider internal energy (in this case temperature)
+\begin{eqbox}
+\begin{gather*}
+\frac{\partial Q}{\partial t} =-\nabla \cdot q
+\end{gather*}
+Considering that the "Volumetric Storage Capacity"($Q$) is 
+\begin{gather*}
+Q=c\rho T
+\end{gather*}
+
+$c$: Specific heat capacity\\
+$\rho$: Density\\
+
+\end{eqbox}
+And considering that the flow of heat is proportional to the temperature gradient(Conduction)
+\begin{eqbox2}{}{Fourier's Law}
+\begin{gather*}
+q=\lambda\nabla T
+\end{gather*}
+$\lambda$: Thermal conductivity
+\end{eqbox2}
+If we ignore advection, radiation and convection mechanism, we can define the heat difussion equation
+
+\begin{eqbox2}{red}{Simplified Heat Transfer or Heat Diffusion}
+\begin{align*}
+\frac{\partial Q}{\partial t} =-\labda\nabla^2T\\
+\frac{\partial T}{\partial t}-\alpha \left(\frac{\partial^2T}{\partial x^2}+\frac{\partial^2T}{\partial y^2}+\frac{\partial^2T}{\partial z^2}\right)=0
+\end{align*}
+\end{eqbox2}
+\newpage
+\chapter{Case Studies}
+
+\section{Static deformation of a bar with distributed
+elastic foundation}
+Let's consider an elastic pile foundation, with
+\begin{itemize}
+\item Axial stiffness: $EA$
+\item Distributed spring stiffness: $\chi$, accounting for soil resistance 
+\item Discrete spring: $K$, accounting for soil resistance at the tip
+\item External force: $F_0$
+
+\end{itemize}
+\begin{exbox}{}{Displacement Field}
+\textbf{Kinematics}\\
+It is trivial to see that the displacement field of the bar is equal to the displacement field of the later soil 
+\begin{align*}
+u_z^{bar}=u_z^{soil}=u_z
+\end{align*}
+And also that the displacement in the tip is equal to the deformation of the soil under the tip
+\begin{align*}
+\frac{du_z(L)}{dz}=\delta_{tip}
+\end{align*}
+
+\textbf{Action-Deformation}\\
+We have three different action-deformation relationships
+\begin{itemize}
+\item Bar\\
+$$\sigma_{bar}=EA\left(\frac{du_z}{dz}\right)$$
+
+\item \textit{Skin force} (Soil) 
+$$\sigma_{soil}=\chi u_z$$
+\begin{note}
+Strictly, $ \sigma_{soil}=\chi\frac{du_z'}{dz'}$, but the deformation for every \textit{spring} is $\frac{du_z'}{dz'}=u_z-u_z^0$, and in the continuum $u_z^0=0$, then the deformation of every \textit{spring} is just the displacement of the bar at that point}\\
+\end{note}
+\item  \textit{Tip force} (Soil)\\
+$$F_{tip}=K\left(\frac{du_z(L)}{dz}\right)$$
+\end{itemize}
+\textbf{Equilibrium}\\
+From the conservation of momentum in a 1D static situation
+\begin{align*}
+\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) +q_z=0\\
+\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) -\chi u_z=0
+\end{align*}
+We have the stiffness of the soil and the pile expressed in different forms, it may be useful to solve the problem in terms of the ratio of soil/bar stiffness($\kappa^2=\frac{\chi}{EA}$)
+\begin{align*}
+\frac{d^2u_z}{dz^2} -\kappa^2 u_z=0
+\end{align*}
+\textbf{General solution }\\
+The solution is 
+\begin{align*}
+u_z(z)=C_1 e^{\kappa z}+C_1 e^{-\kappa z}
+\end{align*}
+\textbf{Boundary Conditions}\\
+The boundary conditions are the deformation in the top and bottom
+\begin{align*}
+\left( EA\frac{du_z}{dz}\right)\left|_{z=0}&=-F_0\\
+\left( EA\frac{du_z}{dz}\right)\left|_{z=L}&=-Ku_z\|_{z=L}\
+\end{align*}
+Then we get that 
+\begin{gather*}
+C_1=&-\frac{F_0}{EA\kappa} \frac{Re^{-2\kappa L}}{1+e^{-2\kappa L}}\\
+C_2=& \frac{F_0}{EA\kappa} \frac{1}{1+e^{-2\kappa L}}
+\end{gather*}
+with 
+\begin{align*}
+R=\frac{K-EA\kappa}{K+EA\kappa}
+\end{align*}
+\end{exbox}
+\newpage
+\section{Dispersive wave in foundation pile}
+We derived the equation fo motion in last section
+\begin{eqbox2}{}{Klein-Gordon equation}
+\begin{gather*}
+\frac{1}{c^2_0}\frac{\partial^2u_z}{\partial t^2}-\frac{\partial u_z}{\partial z^2}+\kappa_d^2u_z-q_z=0\\
+c^2_0=\frac{E}{\rho}\\
+\kappa^2_d=\frac{\xi}{EA}=\frac{\xi}{c^2_0\rho A}
+\end{gather*}
+\end{eqbox2}
+This wave equation is dispersive, therefore we cannot use the d'Alambert method to solve it. 
+Lets consider a SDOF system
+\begin{eqbox2}{}{SDOF: Undamped, Harmonic Exitation}
+We know that the response of a undamped system, due to an harmonic exitation is:
+
+\begin{gather*}
+u(t)=Re[\tilde{u}(\omega)\exp(i\omega t)]
+\end{gather*}
+with 
+\begin{gather*}
+\tilde{u}=\hat{u} e^{i\alpha}\\
+\hat{u}=\vert \frac{1}{k-m\omega^2}\vert \hat{F}_0\\
+\end{gather*} 
+\[\alpha = \begin{cases} 
+          0 & \omega\leq \sqrt{\frac{k}{m}} \\
+          \pi &\sqrt{\frac{k}{m}}\leq \omega \\
+       \end{cases}
+    \] 
+\end{eqbox2}
+Replacing in the original equation we get 
+\begin{gather*}
+\frac{d^2\tilde{u}}{dz^2}+\left(\frac{\omega^2}{c_0^2}-\kappa_d\right)\tilde{u}=0
+\end{gather*}
+The solution of the ODE is known to be 
+\begin{gather*}
+\tide{u}(z,\omega)=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\
+\gamma=\frac{1}{c}\sqrt{\omega^2-(c\kappa)^2}=\frac{1}{c}\sqrt{\omega^2-\omega_c^2}
+\end{gather*}
+The response depends on the value of $\gamma$, let's suppose that 
+\[\gamma = \begin{cases} 
+          k  & \omega_c\leq \omega \\
+          -i\mu &\omega\leq \omega_c \\
+       \end{cases}
+    \] 
+    
+Then we can characterize the spatial response in term of $\gamma$, if 
+\begin{itemize}
+\item $\gamma=k$ \\
+The solution is a propagating harmonic wave
+$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat t-kz)}+C_2e^{i(\omega t+kz)}$$
+\item $\gamma=-i\mu$ \\
+The solutions is a evanescent wave 
+$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{-\mu z}e^{ i\omega t}+C_2e^{-\mu z}e^{i\omega t}$$
+\end{itemize}
+This is analogous to the damped/critically damped/overdamped behaviour that we are familiar in Structural Dynamics
+\begin{note}
+See CIVIL-467, for the response of damped system to any exitation, with dissipation devices, considering the LTI system in the first order form, and solving in the frequency domain. Also see for numerical methods.
+\end{note}
+
+
+\newpage
+
+\bibliography{references.bib}
+
+\newpage
+
+\newpage
+
+
+\chapter{Appendixes}
+\section{Appendix A. Lagreangan and Cauchy Tensor}
+to be completed
+\section*{Appendix B. Math}
+\begin{itemize}
+\item Coordinate System
+\item Integration techniques
+\item ODE techniques
+
+\end{itemize}
+\end{document}
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{A1.Coordinates Systems}\label{coordinates}
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccc@{}}
+\toprule
+&Cartesian(x,y,z) & Cylindrical($r,\theta,z$) & Spherical($r,\theta,\phi$) \\ \midrule
+Coordinate Transform&(x,y,z) &($r\cos\theta,r\sin\theta,z$)&($r\sin\theta\cos\phi,r\sin\theta\sin   \phi,r\cos\theta$)\\
+$\nabla f$&$\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right)$ & $\left(\frac{\partial f}{\partial r},\frac{1}{r}\frac{\partial f}{\partial \theta},\frac{\partial f}{\partial z} \right)$  & $\left(\frac{\partial f}{\partial r},\frac{1}{r}\frac{\partial f}{\partial \theta},\frac{1}{r\sin\theta}\frac{\partial f}{\partial z} \right)$  \\
+\bottomrule
+\end{tabular}
+\end{table}
+See Jacobian matrix($\mathcal{J}$ in Calc II notes for an arbitrary \textbf{any} coordinate system
+\section*{A2. Integral}
+Integrtion by part
+common integrations
+
+\section{Assignement 1}
+\begin{exbox}
+Consider that 
+\begin{itemize}
+\item $\varepsilon_{xx}=\varepsilon_{yy}$=0
+\item Soil Properties are $\rho$,E,$\nu$
+\item Neglect selft weight(\gamma)
+\item Stiff bedrock
+\item Applied stress $(p(x,y)=p_0$
+Then we need to answer the following questions
+\begin{enumerate}
+\item Determine the relation between the vertical stress $\sigma_{zz}$ and vertical strain $\varepsilon_{zz}$​\\
+From the generalized hook equation we get that 
+\begin{align*}
+\sigma_{zz}=\frac{E}{(1+\nu)(1-2\nu)}((1-\nu \varepsilon_{zz}))
+\end{align*}
+\end{enumerate}
+\end{exbox}
+
+
+
+
+
+We may be interested in the rate at which the excess water pressure is dissipated and also the amount of consolidation.\\
+
+\hl{put here derivation of 1D consolidation eq}
+\begin{eqbox2}{red}{Terzaghi's 1D Consolidation}
+\begin{align*}
+\frac{\partial\text{u}_w}{\partial t}
+=C_v\left(\frac{\partial^2\text{u}}{\partial z^2}\right)
+\end{align*}
+\end{eqbox2}
+\begin{note}
+To quantify the amount of primary and secondary consolidation with numerical and graphical method  or the effect of, (over)consolidated clays, ramp loading correction, $C_v$ estimations,etc. See ICE 2604 and ICE 2614)
+\end{note}
+
+
+
+
