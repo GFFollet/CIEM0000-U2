@@ -104,14 +104,40 @@
 		{\large\textit{Complement to class notes }}\\[4\baselineskip] % Subtitle or further description
 		 % Author name, lower case for consistent small caps\\
       	\\[4\baselineskip] 
-		{\color{magenta}\textbf{Gabriel Follet}}
+		{\color{magenta}\textbf{Gabriel Follet\\g.f.follet@student.tudelft.nl}}
 		
 		\vspace{0.25\textheight} % Whitespace between the title block and the publisher
-			{\noindent MSc CE TU Delft  v1- Q1 2023}} % Publisher and logo		
+			{\noindent MSc CE TU Delft  v0.1- Q1 2023}} % Publisher and logo		
 
 \end{titlingpage}
 %----------------------------------------------%
+\section*{Preface}
+The following notes are based on the clases imparted at TU Delft during the first quarter of the year 2023.
+CIEM0000 Interdiciplinary mechanics is the first course for all students enrolled in the Civil Engineering MSc.
+ As the name implies, the content covered a wide range of mechanics problems. The course is organized in 14 topics, but I decide to forego that structure and instead divide the course into 4 chapters.
 
+The clases were imparted by the following professors
+\begin{align*}
+\textbf{Continuum Mechanics Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
+\textbf{Waves: Non-steady flow: }&\text{Robert Jan Labeur \& Karel van Dalen}\\
+\textbf{Diffusion: Heat Conduction: }&\text{Phil Vardon}\\
+\textbf{Amplitude dependant waves: }&\text{Robert Jan Labeur \& Ludovic Leclercq}
+\end{align*} 
+This document is intended to be a community project from the MSc student at TU Delft, hopefully this document will be used, improved and extended in the following years. 
+Please, feel free to either download, share and modified this document, the \textit{.tex} files are available  in \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}
+\section*{Contributors}
+Again, if this document helped you, consider reporting or fixing any mistake you may have found, from simple spelling errors ( I'm sure there will be  lot of them) to more substantial changes.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Contribution  & Name           & Date    & Email              &  \\ \midrule
+First Version & Gabriel Follet & 2023-Q1 & gfollet@tudelft.nl &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+\newpage
 \tableofcontents
 \newpage
 
@@ -311,8 +337,6 @@ The elastic properties of the material can be also expressed with the Lamé cons
 \mu=G=\frac{E}{2(1+\nu)}
 \end{gather*}
 
-
-\newpage
 \section{Balance Laws}
 Let's consider an intensive property $f$, then
 \begin{eqbox}
@@ -369,7 +393,6 @@ In gases, enthalpy is used instead
 \end{align*}
 \end{eqbox2}
 
-\newpage
 \section{Simplifications/Reduction of balance laws}
 \subsection{Simplified differential form}
 As we previously stated, the master conservation principle is not used in practice instead we use simplified  equation in differential form.
@@ -541,7 +564,7 @@ Lets consider a wall loaded vertically, such that it can be considered to be in 
 \begin{gather*}
 \rho d \frac{\partial^2 \bar{u}_x}{\partial t^2}=\frac{Ed}{1-\nu^2}\frac{\partial^2 \bar{u}_x}{\partial z}+p_z
 \end{gather*}
-\newpage
+
 \section{Case Study: Darcy's law and potential flow}
 Let consider the conservation of mass ( volume assuming that the density is constant) for a control volume we get  
 \begin{eqbox2}{red}{Continuity equation}
@@ -576,7 +599,7 @@ Combining Dacry's Law into the continuity equation we get
 k\nabla^2h=0
 \end{gather*}
 \end{eqbox2}
-\newpage
+
 \section{Case Study: Simplified flow through soil}
 Lets consider tha case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
 \begin{eqbox2}{}{Effective stress} 
@@ -597,7 +620,7 @@ For permanent flow
 \end{eqbox2}
 With 
 $I_1=\varepsilon_v$
-\newpage
+
 \section{Case Study: Flow to a well}
 Let's consider
 \begin{itemize}
@@ -706,7 +729,7 @@ h=C_1\ln r+C_2
 \end{gather}
 
 \end{exbox}
-\newpage
+
 \section{Case study: Static deformation of a bar with distributed
 elastic foundation}
 Let's consider an elastic pile foundation, with
@@ -1248,13 +1271,7 @@ If we ignore advection, radiation and convection mechanism, we can define the he
 \end{align*}
 \end{eqbox2}
 \newpage
-\chapter{Case Studies}
 
-\section{Static deformation of a bar with distributed
-elastic foundation}
-
-
-\newpage
 
 \bibliography{references.bib}
 
