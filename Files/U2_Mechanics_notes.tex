@@ -6,7 +6,7 @@
 
 \checkandfixthelayout
 \usepackage[utf8]{inputenc} 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 %--------------------------------------%
 
 %------Misc Packages-------------------%
@@ -112,15 +112,15 @@
 \end{titlingpage}
 %----------------------------------------------%
 \section*{Preface}
-The following notes are based on the clases imparted at TU Delft during the first quarter of the year 2023.
-CIEM0000 Interdiciplinary mechanics is the first course for all students enrolled in the Civil Engineering MSc.
- As the name implies, the content covered a wide range of mechanics problems. The course is organized in 14 topics, but I decide to forego that structure and instead divide the course into 4 chapters.
+The following notes are based on the classes imparted at TU Delft during the first quarter of the year 2023.
+CIEM0000 Interdisciplinary mechanics is the first course for all students enrolled in the Civil Engineering MSc.
+ As the name implies, the content covered a wide range of mechanics problems. The course is organized in 14 topics, but I decide to forgo that structure and instead divide the course into 4 chapters.
 
-The clases were imparted by the following professors
+The classes were imparted by the following professors
 \begin{align*}
-\textbf{Continuum Mechanics Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
-\textbf{Waves: Non-steady flow: }&\text{Robert Jan Labeur \& Karel van Dalen}\\
-\textbf{Diffusion: Heat Conduction: }&\text{Phil Vardon}\\
+\textbf{Continuum mechanics - Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
+\textbf{Linear waves}&\text{Robert Jan Labeur \& Karel van Dalen}\\
+\textbf{Diffusion- Heat Conduction: }&\text{Phil Vardon}\\
 \textbf{Amplitude dependant waves: }&\text{Robert Jan Labeur \& Ludovic Leclercq}
 \end{align*} 
 This document is intended to be a community project from the MSc student at TU Delft, hopefully this document will be used, improved and extended in the following years. 
@@ -303,7 +303,7 @@ Where $\boldsymbol{C}$ is the Stiffness matrix.
 In most civil engineering  problems Hook's Law is sufficiently accurate, except  maybe in 
 \begin{itemize}
 \item (Foliated) Rock masses, the isotropic hypothesis is not accurate, we may need up to 21 elastic constant. Using ultrasonic/seismic methods we can determine the elastic constant in multiple direction\cite{CIVIL448}.
-\item Soil Mechanics, in particular when the clay content is important it is neccesary to use elasto-plastic models \cite{ICE2614}.
+\item Soil Mechanics, in particular when the clay content is important it is necessary to use elasto-plastic models \cite{ICE2614}.
 \item Earthquake Engineering, even without going for the full nonlinear modeling, implementing a hybrid approach using plastic hinges (elastoplasticity) may reduce the complexity but yield accurate enough results, same for the design of metallic dissipation devices\cite{CIVIL467}.
 \end{itemize}
 \end{note}
@@ -433,7 +433,7 @@ If we consider that the density is constant,and that the velocity is
 \begin{gather*}
 v_i=\frac{\partial u_i}{\partial t}
 \end{gather*}
-Also, if we consider that the spacial-temporal cross term are negligable
+Also, if we consider that the spacial-temporal cross term are negligible
 \begin{gather*}
 \frac{\partial v_j( \rho v_j)}{\partial x_i}=\rho\frac{\partial}{\partial x_i}\left(\frac{\partial  u_i \partial  u_j}{\partial t^2}\right)\approx 0
 \end{gather*}
@@ -453,7 +453,7 @@ k\nabla^2h=0
 \end{align*}
 \end{eqbox2}
 {\color{magenta}\subsection{Dimensional reduction}}
-In many cases, we dont really care about the response of the system in all direction. The magnitude of the response in some direction coud be negligable or because of symetries in the system, neverthelesss, in many cases we are interested in the 2D system or even in the 1D response. 
+In many cases, we don't really care about the response of the system in all direction. The magnitude of the response in some direction could be negligible or because of symmetries in the system, nevertheless, in many cases we are interested in the 2D system or even in the 1D response. 
 
 \begin{eqbox2}{}{Plane Stress}
 Assuming that there are no stress in the out-of-plane direction,
@@ -538,13 +538,13 @@ Alternatively
 \end{bmatrix}\\ \\
 \sigma_{yy}=\frac{\nu E}{(1+\nu)(2-2\nu)}(\varepsilon_{xx}+\varepsilon_{zz})
 \end{gather*}
-Which is consistent and does not presupose the static case as plain stress does.
+Which is consistent and does not presuppose the static case as plain stress does.
 \end{eqbox2}
 
 Using plane strain/stress and some assumptions we can model very common cases such as :\\
 
 {\color{magenta}{\textbf{Axially loaded bar}}}\\
-Conisderinga bar uniaxially loades, if we integrate over the cross section we get
+Considering bar biaxially loaded, if we integrate over the cross section we get
 
 \begin{gather*}
 \rho A\frac{\partial^2\bar{u}_x}{\partial t^2}=EA\frac{\partial^2 \bar{u}_x}{\partial x^2}+q_x
@@ -559,7 +559,7 @@ Then replacing in the linearized equation of motion we get
 \end{gather*}
 
 
-{\color{magenta}{\textbf{Diafragm wall}}}\\
+{\color{magenta}{\textbf{Diaphragm wall}}}\\
 Lets consider a wall loaded vertically, such that it can be considered to be in plane stress and plane strain, integrating over the thickness of wall ($d$)
 \begin{gather*}
 \rho d \frac{\partial^2 \bar{u}_x}{\partial t^2}=\frac{Ed}{1-\nu^2}\frac{\partial^2 \bar{u}_x}{\partial z}+p_z
@@ -584,16 +584,16 @@ Lets define the potential or head as
 \begin{gather*}
 \Psi=h=z+\frac{p}{\rho g}+\frac{1}{2}\frac{U^2}{2g}\\
 \end{gather*}
-In water flow trhough soil, the velocity term is negligible
+In water flow through soil, the velocity term is negligible
 $$ h\approx z+\frac{p}{\rho g}$$
 Then mathematically we can express potential flow as 
 \begin{eqbox2}{}{Darcy's Law}
 \begin{gather*}
 q=-k\nabla h
 \end{gather*}
-$k$: Hidraulic conductivity 
+$k$: Hydraulic conductivity 
 \end{eqbox2} 
-Combining Dacry's Law into the continuity equation we get 
+Combining Darcy's Law into the continuity equation we get 
 \begin{eqbox2}{}{Laplace's Fluids Law}
 \begin{gather*}
 k\nabla^2h=0
@@ -601,7 +601,7 @@ k\nabla^2h=0
 \end{eqbox2}
 
 \section{Case Study: Simplified flow through soil}
-Lets consider tha case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
+Lets consider the case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
 \begin{eqbox2}{}{Effective stress} 
 \begin{align*}
 \sigma'=\sigma-\boldsymbol{I}u_w
@@ -657,7 +657,7 @@ h(x)=\left(\frac{P_2-P_1}{L}\right)x+P_1
 \begin{exbox}{}{Horizontal flow through 1D soil, with discontinuity in soil properties}\\
 Because the hydraulic conductivity is discontinuous in the layer, it is easier to consider the problem as 2 problems of 1D isotropic soil, but applying boundary conditions in the interface as to preserve the conservation of mass principle.
 \begin{note}
-If we did not care about the distribution, but only about the global behaviour, we could have used the equivalent hydraulic conductivity.
+If we did not care about the distribution, but only about the global behavior, we could have used the equivalent hydraulic conductivity.
 \begin{gather*}
 k_{eq}^h=\frac{\Sigma k_id_i}{\Sigma d_i}\\
 k_{eq}^v=\frac{\Sigma d_i}{\Sigma \frac{d_i}{k_i}}\
@@ -692,7 +692,7 @@ Considering the boundary condition of no flux in the bottom and no pressure in t
 h(z)=gz+\frac{v(z)^2}{2}+\frac{P(z)}{\rho(z)}\approx gz+\frac{P(z)}{\rho}\
 \end{align*}
 \begin{note}
-It is necessary to pay attention to the unit of energy, dependent on the situation, it may be better ot express the energy in terms of height , pressure or just energy.\\
+It is necessary to pay attention to the unit of energy, dependent on the situation, it may be better to express the energy in terms of height , pressure or just energy.\\
 In addition, the \textit{no-pressure} boundary condition  refers to \textit{relative pressure}, because
 \begin{align*}
 P_{top}=&P_{atm}+0\\
@@ -797,8 +797,426 @@ R=\frac{K-EA\kappa}{K+EA\kappa}
 \end{align*}
 \end{exbox}
 \newpage
-\section{Dispersive wave in foundation pile}
-We derived the equation fo motion in last section
+
+\chapter{Linear Waves }
+\section{Equations of motion}
+Let's assume an hydrostatic vertical pressure distribution and constant density,
+From the conservation of momentum equation in 1D we get\\
+\begin{eqbox2}{}{Unitary discharge}
+$$q(s,t)=\int_{z_b}^{h(t)} v_s\, dz$$
+\end{eqbox2}
+If we extend it to the whole cross-section 
+\begin{eqbox2}{}{Cross section discharge}
+\begin{align*}
+Q(s,t)=&\int_{A(t)} v_s\, dA
+\end{align*}
+\end{eqbox2}
+
+Using the conservation of mass (volume if we consider incompressible flow) we get 
+\begin{align*}
+\frac{\partial A(s,t)}{\partial t}+\frac{\partial Q(s,t)}{\partial s}&=0
+\end{align*}
+
+In channel flow, our main concern is the piezometric height ($h$), therefore is useful to use the following expression
+
+\begin{align*}
+\frac{\partial A(s,t)}{\partial t}&=\frac{\partial A}{\partial h}\frac{\partial h}{\partial t}=B(s,t)\frac{\partial h}{\partial t}
+\end{align*}
+
+If we consider small flow velocities, and/or small, semi-enclosed areas
+\begin{eqbox2}{}{Small-basin approximation}
+\begin{align*}
+\frac{\partial h}{\partial s} \approx 0\longrightarrow Q(t)\approx A_b \frac{dh_b}{dt}
+\end{align*}
+\end{eqbox2}
+ 
+As we saw in the continuum mechanics chapter, the integral version of the conservation principle is more general and powerful that the differential one, but in most cases, assuming a number of symmetries, the differential conservation is more useful. Nevertheless, we will briefly consider the integral case. Lets start with the continuity equation for permanent flow in 1D, and integrate it in the vertical direction
+\begin{gather*}
+\int_{z_b}^{h(t)}\left(\frac{\partial \rho}{\partial t}+\rho \nabla v\right)=0 \\
+\int _{z_b}^{h(t)}\frac{\partial \rho}{\partial t}+\int_{z_b}^{h(t)}\frac{\partial \rho v_x}{\partial x}+\int_{z_b}^{h(t)}\frac{\partial \rho v_z}{\partial z}=0
+\end{gather*}
+
+
+Using the Leibniz integration rule
+
+\begin{align*}
+\left[\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz - {\color{cyan}\left(\rho \frac{\partial h}{\partial t}\right)_{z=h}}+{\color{orange}\left( \rho \frac{\partial z}{\partial t}\right)_{z=z_b}}\right]+
+ \left[\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz- {\color{cyan}\left(\rho v_x \frac{\partial h}{\partial x}\right)_{z=h}}+{\color{orange}\left( \rho v_x \frac{\partial z_b}{\partial x}\right)_{z=z_b}} \right]\\
+ +\left[{\color{cyan} (\rho v_z)_{z=h}}+{\color{orange} (\rho v_z)_{z=z_b}}\right]=0
+\end{align*}
+The colored terms are the kinematic condition in the  boundaries, in particular, the {\color{cyan}cyan} on the surface and the {\color{orange} orange } terms  in the channel bed.
+Re-ordering we get 
+\begin{eqbox}
+\begin{gather*}
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 
+ {\color{cyan}\left[\rho\left( \frac{\partial h}{\partial t}+ v_x \frac{\partial h}{\partial x}+ v_z\right)\right]_{z=h}}
+-
+{\color{orange}\left[\rho\left(\frac{\partial z}{\partial t}+ v_x \frac{\partial z_b}{\partial x}+ v_z\right)\right]_{z=z_b} }\\
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0
+\end{gather*}
+\end{eqbox}
+The kinematics conditions terms are zero in both boundaries.
+\begin{note}
+The kinematic conditions are zero if we consider them to be \textit{streamlines}, intuitively we can see that 
+the kinematic condition terms that involve temporal derivatives are zero because we assumed that the velocity normal to the flow is zero for the surface and seabed, the other terms relate to the fact that we assume that  a fluid particle approaching the seabed will move alongside it (cannot go into the seabed) and a fluid particle moving towards the surface will move along the surface ( not splash-out). \\
+The density assumption is usually adequate for canals, but may not appropriated in the presence of temperature/salinity gradients.
+\end{note}
+Considering that the density is uniform throughout the cross-section 
+\begin{eqbox2}{}{Mass Balance equation}
+\begin{gather*}
+\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0\\
+\frac{\partial (h(t)-z_b)}{\partial t}+\frac{\partial q}{\partial x}=0\\
+\frac{\partial d(t)}{\partial t}+\frac{\partial q}{\partial x}=0\\
+\end{gather*}
+\end{eqbox2}
+Similarly to mechanics of solids , using  the mass balance and the conservation of momentum we get 
+\begin{eqbox2}{}{Euler equation}
+For incompressible, uniform density,negligible viscous stresses, and only gravity as an external force we get 
+
+\begin{align*}
+\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}+\frac{1}{\rho}\frac{\partial p}{\partial x_i}=g_i
+\end{align*}
+\end{eqbox2}
+So far, the equations of motion are formulated in a Cartesian coordinate system, but for geometries different than a straight canal, it can become algebraically tedious to work on ${\hat{x},\hat{y},\hat{z})$, therefore we introduce the natural coordinate system.
+\begin{itemize}[]
+\item $R$= Radius of curvature
+\item $\hat{s} $ = Flow direction
+\item $\hat{n} $ = Normal to the flow direction,towards the inside of the radius of curvature, defines the normal plane 
+\item $\hat{b} $ = Bi-normal direction to the flow, defines osculation plane
+\end{itemize}
+
+\begin{eqbox2}{}{Euler equation in natural coordinates}
+\begin{gather*}
+\frac{\partial v_s}{\partial t}+v_s\frac{\partial v_s}{\partial s}+g\frac{\partial h}{\partial s}=0\\
+\frac{\partial v_n}{\partial t}+\frac{v_s^2}{R}+g\frac{\partial h}{\partial n}=0\\
+\frac{\partial v_b}{\partial t}+g\frac{\partial h}{\partial b}=0
+\end{gather*}
+\end{eqbox2}
+\section{Long Waves}
+Let's consider the case of a 1D \textit{long waves} with a constant cross section piezometric level, then we can assume that
+\begin{itemize}
+\item Hydrostatic pressure distribution $\longrightarrow \frac{\partial h}{\partial b}\approx0$
+\item Negligible surface slope $\longrightarrow \frac{\partial h}{\partial n}\approx 0$
+\item Acceleration only in $\hat{s}$
+\item $\frac{\partial h}{\partial s}$ is constant within the cross-section
+\item Considering cross-section averaged velocity $U=\int_A v \, dA/\int dA$
+\end{itemize}
+\subsection{Boundary Resistance}}
+So far, we have only considered conservative forces, we can easily identify at least two types of non-conservative forces, exactly as we did with the master conservation principle, we have the volume force($\Sigma$) and the surface force($\phi$).
+If we ignore for now the volumetric forces(turbulence,etc), and ignore the air-water interaction we get the frictional force of the canal walls/bed
+(wet perimeter).
+\begin{align*}
+F_r=\tau_b P=\rho c_f|U|UP
+\end{align*}
+All the other forces have been expressed as force per unit mass, then 
+\begin{align*}
+\frac{F_r}{\rho A_c}=\frac{\rho c_f|U|UP}{\rho A_c}=c_f\frac{|U|U}{R}
+\end{align*}
+\begin{note}
+This assumes that $c_f$ is constant in the wet perimeter, which is not always the case. See Orton's  and Lotter's method for compound cross-sections.\\
+Also, see Manning and Chézy equation for other ways to estimate boundary resistance. Detail in \cite{ICH2304}
+\end{note}
+Then, the equation on the whole cross-section
+\begin{eqbox2}{}{Saint-Venant Equation}
+\begin{gather*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0\\
+\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
+\end{gather*}
+\end{eqbox2}
+\section{Dimensional analysis}
+We can characterize a wave by four parameter
+\begin{itemize}
+\item Wave length ($\lambda$ or $L_0$)
+\item Wave Period ($T_0$)
+\item Flow velocity ($U_0$)
+\item Water depth ($h$ or $D_0$)
+\end{itemize}
+If we look at the Saint-Venant equation, by inspection is evident that the storage ($B\frac{\partial h}{\partial t}$) and volume transport($\frac{\partial Q}{\partial s})$ terms cannot be neglected. 
+
+
+Lets consider the \textit{importance} of the local inertia and use it to normalize the effect of other terms in the momentum equation
+\begin{eqbox}
+\begin{gather*}
+\text{Normalized local inertia}\propto\left(\frac{U}{T_0}\right)/\left(\frac{ U}{T_0}\right)= 1\\
+\text{Normalized Advective Inertia}\propto \left(U\frac{U}{L}\right)/\left(\frac{U}{T_0}\right)=\frac{UT_0}{L}\approx Fr\\
+\text{Normalized Gravity forcing}\propto \left(g\frac{H_0}{L_0}\right)/\left(\frac{U}{T_0}\right)= \frac{gH_0T_0}{L_0U_0}\\
+\text{Normalized Resistance}\propto \left(c_f\frac{U_0^2}{D_0}\right)/\left(\frac{ U}{T_0}\right)=c_f\frac{U_0T_0}{D_0}
+\end{gather*}
+\end{eqbox}
+In general the adjective inertia and/or resistance can be neglected, is then useful to define the ratio between them
+\begin{eqbox}
+\begin{align*}
+\sigma = c_f\frac{U_0}{D_0}\frac{T_0}{2\pi}=c_f\frac{U_0}{\omega D_0}
+\end{align*}
+\end{eqbox}
+Let's define the velocity of a wave relative to the flow as
+\begin{eqbox2}{}{Celerity}
+For shallow water the propagation speed (phase velocity) can be estimated as 
+\begin{align*}
+c_p\approx\sqrt{gh}
+\end{align*}
+For deep water, $\frac{D_0}{L_0}>0.5}$
+\begin{align*}
+c_p\approx \frac{g}{2\pi}T
+\end{align*}
+\end{eqbox2}
+\section{Classification/Characterization of long waves}
+In practice we consider a wave as \textit{long} if $\frac{L_0}{D_0}> 20$.
+{\color{magenta}\subsection{Translatory waves}}
+These waves are formed when control structures, such as gates, valves, etc are manipulated.
+
+{\color{magenta}\subsection{Tsunami wave}}
+Impulsive wave to due tsunami. Can be produced to either  an mega-rupture tsunami or due to an earthquake-produced landslide. 
+\begin{itemize}
+\item $\lambda \sim  10^{2-3}$ km
+\item $h\sim 10^{3}$ km
+\item $T\sim 10-20 $ mins
+\item Then, $c\sim 10^2 m/ s $
+\item Then, $\sigma\sim 10^{-4}$
+\end{itemize}
+
+{\color{magenta}\subsection{Seiches}}
+Natural oscilation in lakes and basins, due to geometric, gravitational and atmospheric variations. 
+\begin{itemize}
+\item $\lambda \sim  20$ km
+\item $h\sim 10$ m
+\item $T\sim 20 $ mins
+\item Then, $c\sim 10 m/s$
+\item Then, $\sigma\sim 10^{-2}$
+\end{itemize}
+
+{\color{magenta}\subsection{Tides}}
+Produce to gravitational effects of the moon and sun.
+In the ocean
+\begin{itemize}
+\item $\lambda \sim  8-9 \times 10^3$ km
+\item $h\sim 3-5 \times 10^3$ km
+\item $T\sim 745 $ mins
+\item Then, $c\sim 200 m/s$
+\item Then, $\sigma\sim 10^{-3}$
+\end{itemize}
+The resistance factor of tides in coastal areas, channels, tide flats could be in the order of $\sigma\sim [10^{-1},10^{1}]$ 
+
+{\color{magenta}\subsection{Flood waves}}
+Cause by excessive precipitation or sudden melting of snow.
+\begin{itemize}
+\item $\lambda \sim   10^{2-3}$ km
+\item $h\sim 1-2\times 10$ m
+\item $T\sim 3-5\times 10^3 $ mins
+\item Then, $c\sim 7 m/s$
+\item The effect of bed friction is usually considerable in the order of $ \sigma \sim 5 \times 10^{1}$
+\end{itemize}
+
+{\color{magenta}\section{Wave propagation}}
+Let's consider a canal with a gate that separates two piezometric levels. If we open the gate, a translatory wave will propagate, the water will flow from the \textit{higher} to the \textit{lower} level , creating a positive amplitude wave in the \textit{lower} side and a negative amplitude in the \textit{higher} side.
+
+We will define the amplitude of the wave (respect to the piezometric level at $t_0$) as $\zeta$\\
+\begin{eqbox2}{}{Simplified wave propagation}
+Lets consider a control volume such that 
+$$h(s_1,t)=h_0+\zeta \quad || \quad  h(s_2,t)=h_0$$
+Using the  mass conservation principle (volume, if we consider $\rho$ to be constant)
+\begin{align*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}\approx&  B\frac{\zeta}{\Delta t}+\frac{Q}{\Delta s}\\
+\approx & B\zeta\Delta s = Q\Delta t \longrightarrow   Q=Bc\zeta
+\end{align*}
+Then, for the momentum equation ignoring the resistance and advective acceleration terms
+\begin{align*}
+\frac{\partial Q}{\partial t}+gA_c\frac{\partial h}{\partial s}\approx&\frac{ Q}{\Delta t}+gA_c\frac{\Delta h}{\Delta s}\\
+\approx& \frac{ Q}{\Delta t}+gA_c\frac{\zeta}{\Delta s}
+\longrightarrow gA_c\zeta=cQ
+\end{align*}
+
+\begin{note}
+Considering a rectangular cross section we obtained the expression for the celerity that we mentioned before
+\end{note}
+
+\end{eqbox2}
+Lets re-examine the Saint-Venant equation
+\begin{align*}
+B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0
+\end{align}
+\begin{align*}
+\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
+\end{align*}
+For low and long waves we can neglected advective acceleration and boundary resistance term
+\begin{align*}
+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) \approx 0\\
+c_f\frac{|Q|Q}{A_cR}\approx 0
+\end{align*}
+Assuming a constant rectangular cross-section and combining the equation we get the \\
+\begin{eqbox2}{}{Elementary wave equation}
+\begin{align*}
+\frac{\partial^2 h}{\partial t^2}-\frac{gA_c}{B}\frac{\partial^2h}{\partial s^2}=0\\
+\frac{\partial^2 h}{\partial t^2}-c^2\frac{\partial^2h}{\partial s^2}=0\\
+\end{align*}
+\end{eqbox2}
+\section{General solution: d'Alembert}
+The general solution to the elementary wave equation is 
+\begin{eqbox2}{}{d'Alembert's solution}
+\begin{align*}
+h(s,t)=h^+(s-ct)+h^-(s+ct)\\
+h(s,t)=h^+(S^)+h^-(S^-)\\
+\end{align*} 
+Sometimes, for situation with non-homogeneous boundary conditions, its better to use the following formulation
+\begin{gather*}
+h(s,t)=h^+(t-s/c)+h^-(t+s/c)\\
+\end{gather*} 
+\end{eqbox2}
+The solution is the superposition of two waves traveling at a constant speed in opposite directions.
+Because the wave has no distortion, it  \textit{simply} propagates with fixed velocity, then the value of $h$ is constant in $S$ , or alternative $s=ct+constant$\footnote{See, method of characteristic for more detail \hl{put here hyper-reference to this section}}
+
+Then it may be useful to define to total derivative as 
+\begin{gather*}
+\frac{dh}{dt} =\frac{\partial h}{\partial t}+V\frac{\partial h}{\partial s}
+\end{gather*}
+If consider the case of our propagating wave 
+we get that the total derivative of $h$ is zero
+\begin{gather*}
+\frac{dh^+}{dt} =\frac{\partial h^+}{\partial t}+c\frac{\partial h^+}{\partial s}\\
+\end{gather*}
+This relationship  is very useful because it lets us relate  the temporal and spatial derivative of $h$ 
+\begin{gather*}
+\frac{\partial h^+}{\partial x}=-\frac{1}{c}\frac{\partial h^+}{\partial t}
+\end{gather*}
+
+\subsection{Boundary conditions}
+We will consider common boundary conditions that happen canals,however they can be easily related to boundary condition of propagating wave in a bar as it was shown in Assignment 2 ($h\sim \varepsilon_x$ and $Q\sim N$)\\
+
+\textbf{{\color{magenta}Canal with close end}}\\
+
+As the wave approaches the end of the canal, locally 
+\begin{align*}
+Q=\delta Q^++\delta Q^- =Bc(\delta h^+-\delta h^-)=0
+\longrightarrow \delta h^+= \delta h^- 
+\end{align*}
+We know that the solution is the superposition of the waves traveling in opposite directions then  we get \textit{fully positive reflection}
+Which is equivalent to the case of a  semi-infinite bar restricted at the end
+
+
+\begin{align*}
+h=\delta h^++\delta h^-=2\delta h^+
+\end{align*}
+\textbf{{\color{magenta}Canal connected to reservoir}}
+
+As the wave approaches the reservoir , locally 
+\begin{align*}
+\delta h=\delta h^++ \delta h^-=0\longrightarrow \delta h^+=- \delta h^-
+\end{align*}
+We know that the solution is the superposition of the waves traveling in opposite directions then  we get \textit{fully negative reflection}.\\
+Which is equivalent to the case of a  semi-infinite bar restricted at the end\\
+\textbf{{\color{magenta}Canal with rapidly varying cross-section}}\\
+The transition is characterized by a discontinuous cross-section.
+
+Qualitatively we can expected \textit{partial reflection}, and that is exactly what we get.
+
+Defining compatibility conditions in the transition
+\begin{align*}
+\text{Continuous water level at the transition}&\longrightarrow\delta h_t=\delta h_i+\delta h_r\\
+\text{Continuous discharge at the transition}&\longrightarrow\delta Q_t=\delta Q_i+\delta Q_r
+\end{align*}
+We define the following adimensional parameters
+\begin{gather*}
+r_t=\frac{\delta h_t}{\delta h_i}\\
+r_r=\frac{\delta h_r}{\delta h_i}\\
+\gamma=\frac{B_2c_2}{B_1c_1}=\sqrt{\frac{A_{c,2}B_2}{A_{c,1}B_1}}
+\end{gather*}
+Then, the compatibility conditions are expressed as 
+\begin{gather*}
+r_t=1+r_r\\
+\gamma r_t=1-r_r
+\end{gather*}
+Then, the reflected and transmitted wave ratios are 
+\begin{eqbox}
+\begin{align*}
+r_r=&\frac{1-\gamma}{1+\gamma}\\
+r_t=&\frac{2}{1+\gamma}=1+r_r
+\end{align*}
+\end{eqbox}
+\textbf{\color{magenta}{Multiple Channels}}\\
+If the abrupt transition consist of multiple channel, we can extend the previous principle, we define an \textit{equivalent channel} such that 
+\begin{eqbox}
+\begin{gather*}
+B^*c^*=\sum B_ic_i
+\end{gather*}
+\end{eqbox}
+Then applying conservation of mass and momentum in the transmitted channel, we determine the height/discharge in each channel
+\begin{note}
+We are assuming that the wave is \textit{insensitive to changes in propagation direction}. 
+Also, see example of how how having a side close channel the affect the reflection int the transmitted and original channel, in  \cite{unsteady} p.50.
+\end{note}
+\textbf{{\color{magenta}Gradually varying cross-section}}\\
+This boundary conditions escapes the scope of the course, see chapter 4.3.2 of \cite{unsteady} for  basic explanation.
+\end{itemize}
+\section{Periodic Waves}
+In the previous section we considered the case of a single wave, let it be a translatory wave or a single wave, lets extend the same concepts to a periodic wave.\\
+\begin{eqbox2}{}{Periodic wave}
+\begin{align*}
+\zeta^+(s,t)=&\hat{\zeta}\cos \left(\frac{2\pi}{L} (s-ct)\right) \\
+\zeta^+(s,t)=&\hat{\zeta}\cos(ks-\omega t)
+\end{align*}
+With: 
+\begin{align*}
+\text{Wave number}(k) &:=\frac{2\pi}{L}\\
+\text{Angular frequency}(\omega) &:=\frac{2\pi}{T}
+\end{align*}
+\end{eqbox2}
+\subsection{Boundary conditions}
+Similarly\\
+\textbf{{\color{magenta}Canal with closed end}}\\
+The boundary condition is 
+$$Q=\delta Q^++\delta Q^- $$
+Using the d'Alembert method, considering the boundary conditions
+\begin{gather*}
+\zeta=\zeta^++\zeta^-\\
+\zeta=2\hat{\zeta}\cos(ks)\cos(\omega t)
+\end{gather*}\\
+\textbf{{\color{magenta}Closed basin}}\\
+The boundary condition is 
+$$ Q=0$$
+Then the antinodes of the wave are on the boundaries, then 
+\begin{gather*}
+k_n=\frac{n\pi}{\ell}
+\end{gather*}
+
+Because we are dealing with un-forced oscillations, the natural frequencies are 
+
+\begin{gather*}
+\frac{\omega_n}{k_n}=\sqrt{\frac{gA_c}{B}}\\
+\omega_n=k_n\sqrt{\frac{gA_c}{B}}
+\end{gather*}\\
+\textbf{{\color{magenta}Semi-closed basin connected to reservoir}}\\
+At the close end 
+$$ Q=0$$
+and at the reservoir
+$$ \zeta=0$$
+Then, to fulfill this condition, at all times there is a antinode in the closed end, and a node in the reservoir end.
+\begin{gather*}
+k_n\mathcal{l}=\frac{1}{2}\pi+n\pi
+\end{gather*}
+And the natural frequencies are  
+
+\begin{gather*}
+\omega_n= \left(\frac{1}{2}\pi+n\pi \right)\frac{1}{\ell}\sqrt{\frac{gA_c}{B}}
+\end{gather*}\\
+\textbf{{\color{magenta}Semi-closed basin connected to tidal see}}\\
+At the close end 
+$$ Q=0$$
+and at the sea-basin interface
+$$ \zeta(\ell,t)=\zeta_{sea}$$
+The oscillation in the basin are forced by the oscillation of the tide, then
+\begin{gather*}
+\zeta(0,t)=\frac{\zeta(\ell,t)}{|\cos k\ell|} $$
+\end{gather*}
+Then we get resonance when
+\begin{gather*}
+\cos k\ell\rightarrow 0 \Longrightarrow \zeta(0,t)\rightarrow \infty
+\end{gather*}
+For small basins,
+$$(\ell\ll L \quad \text{or} \quad  k\ell\ll 2\pi)\Longrightarrow \cos(k\ell)\approx 1$$
+Then \textit{"the water level responds almost in unison to the tidal forcing at
+the mouth, rising and falling with the tide but being virtually horizontal at all times"}(\cite{unsteady}), this phenomenon is called {\color{magenta}Pumping or Helmholtz mode}
+\section{Case Study: Dispersive wave in foundation pile}
+We derived the equation of motion in last section
 \begin{eqbox2}{}{Klein-Gordon equation}
 \begin{gather*}
 \frac{1}{c^2_0}\frac{\partial^2u_z}{\partial t^2}-\frac{\partial u_z}{\partial z^2}+\kappa_d^2u_z-q_z=0\\
@@ -808,8 +1226,8 @@ c^2_0=\frac{E}{\rho}\\
 \end{eqbox2}
 This wave equation is dispersive, therefore we cannot use the d'Alambert method to solve it. 
 Lets consider a SDOF system
-\begin{eqbox2}{}{SDOF: Undamped, Harmonic Exitation}
-We know that the response of a undamped system, due to an harmonic exitation is:
+\begin{eqbox2}{}{SDOF: Undamped, Harmonic Excitation}
+We know that the response of a undamped system, due to an harmonic excitation is:
 
 \begin{gather*}
 u(t)=Re[\tilde{u}(\omega)\exp(i\omega t)]
@@ -850,398 +1268,12 @@ $$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat t-kz)}+C_2e^{i(\ome
 The solutions is a evanescent wave 
 $$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{-\mu z}e^{ i\omega t}+C_2e^{-\mu z}e^{i\omega t}$$
 \end{itemize}
-This is analogous to the damped/critically damped/overdamped behaviour that we are familiar in Structural Dynamics
+This is analogous to the damped/critically damped/over-damped behavior that we are familiar in Structural Dynamics
 \newpage
-\chapter{Waves: Non-steady flow}
-\section{Equations of motion}
-Let's assume an hydrostatic vertical pressure distribution.
-From the conservation of momentum equation in 1D we get\\
-\begin{eqbox2}{}{Unitary discharge}
-$$q(s,t)=\int_{z_b}^{h(t)} v_s\, dz$$
-\end{eqbox2}
-If we extend it to the whole cross-section 
-\begin{eqbox2}{}{Cross section discharge}
-\begin{align*}
-Q(s,t)=&\int_{A(t)} v_s\, dA
-\end{align*}
-\end{eqbox2}
-
-Using the conservation of mass (volume if we consider incompressible flow) we get 
-\begin{align*}
-\frac{\partial A(s,t)}{\partial t}+\frac{\partial Q(s,t)}{\partial s}&=0
-\end{align*}
-
-In channel flow, our main concern is the piezometric height ($h$), therefore is useful to use the following expression
-
-\begin{align*}
-\frac{\partial A(s,t)}{\partial t}&=\frac{\partial A}{\partial h}\frac{\partial h}{\partial t}=B(s,t)\frac{\partial h}{\partial t}
-\end{align*}
-
-If we consider small flow velocities, and/or small, semi-enclosed areas
-\begin{eqbox2}{}{Small-basin approximation}
-\begin{align*}
-\frac{\partial h}{\partial s} \approx 0\longrightarrow Q(t)\approx A_b \frac{dh_b}{dt}
-\end{align*}
-\end{eqbox2}
- 
-Let start with the continuity equation for permanent flow in 1D, and integrate them in the vertical direction
-\begin{gather*}
-\int_{z_b}^{h(t)}\left(\frac{\partial \rho}{\partial t}+\rho \nabla v\right)=0 \\
-\int _{z_b}^{h(t)}\frac{\partial \rho}{\partial t}+\int_{z_b}^{h(t)}\frac{\partial \rho v_x}{\partial x}+\int_{z_b}^{h(t)}\frac{\partial \rho v_z}{\partial z}=0
-\end{gather*}
-
-
-Using the Leibniz intregration rule
-
-\begin{align*}
-\left[\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz - {\color{cyan}\left(\rho \frac{\partial h}{\partial t}\right)_{z=h}}+{\color{orange}\left( \rho \frac{\partial z}{\partial t}\right)_{z=z_b}}\right]+
- \left[\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz- {\color{cyan}\left(\rho v_x \frac{\partial h}{\partial x}\right)_{z=h}}+{\color{orange}\left( \rho v_x \frac{\partial z_b}{\partial x}\right)_{z=z_b}} \right]\\
- +\left[{\color{cyan} (\rho v_z)_{z=h}}+{\color{orange} (\rho v_z)_{z=z_b}}\right]=0
-\end{align*}
-The coloured terms are the kinematic condition in the  boundaries, in particular, the {\color{cyan}cyan} on the surface and the {\color{orange} orange } terms  in the channel bed.
-Re-ordering we get 
-\begin{eqbox}
-\begin{gather*}
-\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 
- {\color{cyan}\left[\rho\left( \frac{\partial h}{\partial t}+ v_x \frac{\partial h}{\partial x}+ v_z\right)\right]_{z=h}}
--
-{\color{orange}\left[\rho\left(\frac{\partial z}{\partial t}+ v_x \frac{\partial z_b}{\partial x}+ v_z\right)\right]_{z=z_b} }\\
-\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0
-\end{gather*}
-\end{eqbox}
-The kinematics conditions terms are zero in both boundaries, and considering that the density is uniform throughout the cross-section 
-\begin{note}
-The kinematic condition terms that involve the time are zero because we assumed that the velocity normal to the flow is zero for the surface and seabed, the other terms relate to the fact that we assume that  a fluid particle aproaching the seabed will move alongside it (cannot go into the seabed) and a fluid particle moving towards the surface will move along the surface ( not splash-out). \\
-The density assumption is usually adecuate for canals, but may not appropiated in the presence of temperature/salinity gradients.
-\end{note}
-Then we get 
-\begin{eqbox2}{}{Mass Balance equation}
-\begin{gather*}
-\frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0\\
-\frac{\partial (h(t)-z_b)}{\partial t}+\frac{\partial q}{\partial x}=0\\
-\frac{\partial d(t)}{\partial t}+\frac{\partial q}{\partial x}=0\\
-\end{gather*}
-\end{eqbox2}
-Similarly to mechanics of solids , using  the mass balance and the conservation of momentum we get 
-\begin{eqbox2}{}{Euler equation}
-For incompressible, uniform density,negligible viscous stresses, and only gravity as an external force we get 
-
-\begin{align*}
-\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}+\frac{1}{\rho}\frac{\partial p}{\partial x_i}=g_i
-\end{align*}
-\end{eqbox2}
-So far, the equations of motion are formulated in a cartesian coordinate system, but for geometries different  than a straight canal, it can become algebraically tedious, therefore we introduce the natural coordinate.
-\begin{itemize}[]
-\item $R$= Radius of curvature
-\item $\hat{s} $ = Flow direction
-\item $\hat{n} $ = Normal to the flow direction,towards the inside of the radius of curvature, defines the normal plane 
-\item $\hat{b} $ = Bi-normal direction to the flow, defines osculation plane
-\end{itemize}
-
-\begin{eqbox2}{}{Euler equation in natural coordinates}
-\begin{gather*}
-\frac{\partial v_s}{\partial t}+v_s\frac{\partial v_s}{\partial s}+g\frac{\partial h}{\partial s}=0\\
-\frac{\partial v_n}{\partial t}+\frac{v_s^2}{R}+g\frac{\partial h}{\partial n}=0\\
-\frac{\partial v_b}{\partial t}+g\frac{\partial h}{\partial b}=0
-\end{gather*}
-\end{eqbox2}
-\section{Long Waves}
-Let's consider the case of a 1D \textit{long waves} with a constant cross section piezometric level, then we can assume that
-\begin{itemize}
-\item Hydrostatic pressure distribution $\longrightarrow \frac{\partial h}{\partial b}\approx0$
-\item Negligable surface slope $\longrightarrow \frac{\partial h}{\partial n}\approx 0$
-\item Acceleration only in $\hat{s}$
-\item $\frac{\partial h}{\partial s}$ is constant within the cross-section
-\item Considering cross-section averaged velocity $U=\int_A v \, dA/\int dA$
-\end{itemize}
-\subsection{Boundary Resistance}}
-So far, we have only considered conservative forces, we can easily identify at least two types of non-conservative forces, exactly as we did with the master conservation principle, we have the volume force($\sigma$) and the surface force($\phi$).
-If we ignore for now the volumetric forces(turbulence,etc), and ignore the air-water interaction we get the frictional force of the canal walls/bed
-(wet perimeter).
-\begin{align*}
-F_r=\tau_b P=\rho c_f|U|UP
-\end{align*}
-All the other forces have been expressed as force per unit mass, then 
-\begin{align*}
-\frac{F_r}{\rho A_c}=\frac{\rho c_f|U|UP}{\rho A_c}=c_f\frac{|U|U}{R}
-\end{align*}
-\begin{note}
-This assumes that $c_f$ is constant in the wet perimeter, which is not always the case. See Orton's  and Lotter's method for compound cross-sections.\\
-Also, see Manning and Chézy equation for other ways to estimate boundary resistance. Detail in \cite{ICH2304}
-\end{note}
-Then, the equation on the whole cross-section
-\begin{eqbox2}{}{Saint-Venant Equation}
-\begin{gather*}
-B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0\\
-\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
-\end{gather*}
-\end{eqbox2}
-\section{Dimensional analysis}
-We can caracterize a wave by four parameter
-\begin{itemize}
-\item Wave length ($\lambda$ or $L_0$)
-\item Wave Period ($T_0$)
-\item Flow velocity ($U_0$)
-\item Water depth ($h$ or $D_0$)
-\end{itemize}
-If we look at the Sain-Venant equation, by inspection is evident that the storage ($B\frac{\partial h}{\partial t}$) and volume transport($\frac{\partial Q}{\partial s})$ terms cannot be neglected. 
-
-
-Lets consider the \textit{importance} of the local inertia and use it to normalize the effect of other terms in the momentum equation
-\begin{eqbox}
-\begin{gather*}
-\text{Normalized local inertia}\propto\left(\frac{U}{T}\right)/\left(\frac{ U}{T}\right)= 1\\
-\text{Normalized Advective Inertia}\propto \left(U\frac{U}{L}\right)/\left(\frac{U}{T}\right)=\frac{UT_0}{L}\approx Fr\\
-\text{Normalized Gravity forcing}\propto \left(g\frac{H_0}{L_0}\right)/\left(\frac{U}{T}\right)= \frac{gH_0T_0}{L_0U_0}\\
-\text{Normalized Resistance}\propto \left(c_f\frac{U_0^2}{D_0}\right)/\left(\frac{ U}{T}\right)=c_f\frac{U_0T_0}{D_0}
-\end{gather*}
-\end{eqbox}
-In general the adjective inertia and/or resistance can be neglected, is then useful to define the ratio between them
-\begin{eqbox}
-\begin{align*}
-\sigma = c_f\frac{U_0}{D_0}\frac{T_0}{2\pi}=c_f\frac{U_0}{\omega D_0}
-\end{align*}
-\end{eqbox}
-Let's define the velocity of a wave relative to the flow as
-\begin{eqbox2}{}{Celerity}
-For shallow water the propagation speed (phase velocity) can be estimated as 
-\begin{align*}
-c_p\approx\sqrt{gh}
-\end{align*}
-For deep water, $\frac{D}{\lambda}>0.5}$
-\begin{align*}
-c_p\approx \frac{g}{2\pi}T
-\end{align*}
-\end{eqbox2}
-\section{Classification/Characterization of long waves}
-In practice we consider a wave as \textit{long} if $\frac{L}{D_0}> 20$.
-{\color{magenta}\subsection{Translatory waves}}
-These waves are formed when control structures, such as gates, valves, etc are manipulated.
-
-{\color{magenta}\subsection{Tsunami wave}}
-Impulsive wave to due tsunami. Can be produced to either  an mega-rupture tsunami or due to an earthquake-produced landslide. 
-\begin{itemize}
-\item $\lambda \sim  10^{2-3}$ km
-\item $h\sim 10^{3}$ km
-\item $T\sim 10-20 $ mins
-\item Then, $c\sim 10^2 m/ s $
-\item Then, $\sigma\sim 10^{-4}$
-\end{itemize}
-
-{\color{magenta}\subsection{Seiches}}
-Natural oscilation in lakes and basins, due to geometric, gravitational and atmopheric variations. 
-\begin{itemize}
-\item $\lambda \sim  20$ km
-\item $h\sim 10$ m
-\item $T\sim 20 $ mins
-\item Then, $c\sim 10 m/s$
-\item Then, $\sigma\sim 10^{-2}$
-\end{itemize}
-
-{\color{magenta}\subsection{Tides}}
-Produce to gravitational effects of the moon and sun.
-In the ocean
-\begin{itemize}
-\item $\lambda \sim  8-9 \times 10^3$ km
-\item $h\sim 3-5 \times 10^3$ km
-\item $T\sim 745 $ mins
-\item Then, $c\sim 200 m/s$
-\item Then, $\sigma\sim 10^{-3}$
-\end{itemize}
-The resitance factor of tides in costal areas, channels, tide flats could be in the order of $\sigma\sim [10^{-1},10^{1}]$ 
-
-{\color{magenta}\subsection{Flood waves}}
-Cause by excesive precipitation or sudden melting of snow.
-\begin{itemize}
-\item $\lambda \sim   10^{2-3}$ km
-\item $h\sim 1-2\times 10$ m
-\item $T\sim 3-5\times 10^3 $ mins
-\item Then, $c\sim 7 m/s$
-\item The effect of bed friction is usually considerable in the order of $ \sigma \sim 5 \times 10^{1}$
-\end{itemize}
-
-{\color{magenta}\section{Wave propagation}}
-Let's consider a canal with a gate that separates two piezometric levels. If we open the gate, a translatory wave will propagate, the water will flow from the \textit{higher} to the \textit{lower} level , creating a positive amplitude wave in the \textit{lower} side and a negative amplitude in the \textit{higher} side.
-
-We will define the amplitude of the wave (respect to the piezometric level at $t_0$) as $\zeta$\\
-\begin{eqbox2}{}{Simplied wave propagation}
-Lets consider a control volume such that 
-$$h(s_1,t)=h_0+\zeta \quad || \quad  h(s_2,t)=h_0$$
-Using the  mass conservation principle (volume, if we consider $\rho$ to be constant)
-\begin{align*}
-B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}\approx&  B\frac{\zeta}{\Delta t}+\frac{Q}{\Delta s}\\
-\approx & B\zeta\Delta s = Q\Delta t \longrightarrow   Q=Bc\zeta
-\end{align*}
-Then, for the momentum equation ignoring the resistance and advective acceleration terms
-\begin{align*}
-\frac{\partial Q}{\partial t}+gA_c\frac{\partial h}{\partial s}\approx&\frac{ Q}{\Delta t}+gA_c\frac{\Delta h}{\Delta s}\\
-\approx& \frac{ Q}{\Delta t}+gA_c\frac{\zeta}{\Delta s}
-\longrightarrow gA_c\zeta=cQ
-\end{align*}
-
-\begin{note}
-Considering a rectangular cross section we obtained the expresion for the celerity that we mentioned before
-\end{note}
-
-\end{eqbox2}
-Lets re-examine the Saint-Venant equation
-\begin{align*}
-B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0
-\end{align}
-\begin{align*}
-\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
-\end{align*}
-For low and long waves we can neglected advective acceleration and boundary resistance term
-\begin{align*}
-\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) \approx 0\\
-c_f\frac{|Q|Q}{A_cR}\approx 0
-\end{align*}
-Assuming a constant rectangular cross-section and combining the equation we get the \\
-\begin{eqbox2}{}{Elementary wave equation}
-\begin{align*}
-\frac{\partial^2 h}{\partial t^2}-\frac{gA_c}{B}\frac{\partial^2h}{\partial s^2}=0\\
-\frac{\partial^2 h}{\partial t^2}-c^2\frac{\partial^2h}{\partial s^2}=0\\
-\end{align*}
-\end{eqbox2}
-\section{General solution: d'Alembert}
-The general solution to the elementary wave equation is 
-\begin{eqbox2}{}{d'Alembert's solution}
-\begin{align*}
-h(s,t)=h^+(s-ct)+h^-(s+ct)
-\end{align*}
-\end{eqbox2}
-The solution is the superposition fo two waves trvaleing in opposite directions.
-\subsection{{\color{magenta}Canal with close end}}\\
-
-As the wave approaches the end of the canal, locally 
-\begin{align*}
-Q=\delta Q^++\delta Q^- =Bc(\delta h^+-\delta h^-)=0
-\longrightarrow \delta h^+= \delta h^- 
-\end{align*}
-We know that the solution is the superposition of the waves travelling in opposite directions then  we get \textit{fully positive reflection}
-
-\begin{align*}
-h=\delta h^++\delta h^-=2\delta h^+
-\end{align*}
-\subsection{{\color{magenta}Canal connected to reservoir}}
-
-As the wave approaches the reservoir , locally 
-\begin{align*}
-\delta h=\delta h^++ \delta h^-=0\longrightarrow \delta h^+=- \delta h^-
-\end{align*}
-We know that the solution is the superposition of the waves travelling in opposite directions then  we get \textit{fully negative reflection}
-\subsection{{\color{magenta}Canal with rapidily varying cross-section}}\\
-The transition is caracterized by a discontinous cross-section.
-
-Qualitatively we can expected \textit{partial reflection}, and that is exactly what we get.
-
-Defining compatibility conditions in the transition
-\begin{align*}
-\text{Continuous water level at the transition}&\longrightarrow\delta h_t=\delta h_i+\delta h_r\\
-\text{Continuous discharge at the transition}&\longrightarrow\delta Q_t=\delta Q_i+\delta Q_r
-\end{align*}
-We define the folowing adimensional parameters
-\begin{gather*}
-r_t=\frac{\delta h_t}{\delta h_i}\\
-r_r=\frac{\delta h_r}{\delta h_i}\\
-\gamma=\frac{B_2c_2}{B_1c_1}=\sqrt{\frac{A_{c,2}B_2}{A_{c,1}B_1}}
-\end{gather*}
-Then, the compatibility conditions are expressed as 
-\begin{gather*}
-r_t=1+r_r\\
-\gamma r_t=1-r_r
-\end{gather*}
-Then, the reflected and transmitted wave ratios are 
-\begin{eqbox}
-\begin{align*}
-r_r=&\frac{1-\gamma}{1+\gamma}\\
-r_t=&\frac{2}{1+\gamma}=1+r_r
-\end{align*}
-\end{eqbox}
-\subsubsection{Multiple Channels}
-If the abrupt transition consist of multiple channel, we can extend the previous principle, we define an \textit{equivalent channel} such that 
-\begin{eqbox}
-\begin{gather*}
-B^*c^*=\sum B_ic_i
-\end{gather*}
-\end{eqbox}
-Then applying conservation of mass and mometunm in the transmitted channel, we determine the height/discharge in each channel
-\begin{note}
-We are assuming that the wave is \textit{insensitive to changes in propagation direction}. 
-Also, see example of how how having a side close channel the affect the reflection int the transmitted and original channel, in  Unsteady Flow, p.50.
-\end{note}
-\subsection{{\color{magenta}Gradually varying cross-section}} \\
-See Green's law.
-\end{itemize}
-\section{Periodic Waves}
-In the previous section we considered the case of a single wave, let it be a transatory wave or a single wave, lets extend the same concepts to a periodic wave.\\
-\begin{eqbox2}{}{Periodic wave}
-\begin{align*}
-\zeta^+(s,t)=&\hat{\zeta}\cos \left(\frac{2\pi}{L} (s-ct)\right) \\
-\zeta^+(s,t)=&\hat{\zeta}\cos(ks-\omega t)
-\end{align*}
-With: 
-\begin{align*}
-\text{Wave number}(k) &:=\frac{2\pi}{L}\\
-\text{Angular frequency}(\omega) &:=\frac{2\pi}{T}
-\end{align*}
-\end{eqbox2}
-\subsection{{\color{magenta}Canal with closed end}}
-The boundary condition is 
-$$Q=\delta Q^++\delta Q^- $$
-Using the d'Alembert method,considering th boundary conditions
-\begin{gather*}
-\zeta=\zeta^++\zeta^-\\
-\zeta=2\hat{\zeta}\cos(ks)\cos(\omega t)
-\end{gather*}
-\subsection{{\color{magenta}Closed basin}}
-The boundary condition is 
-$$ Q=0$$
-Then the antinodes of the wave are on the boundaries, then 
-\begin{gather*}
-k_n=\frac{n\pi}{\ell}
-\end{gather*}
-
-Because we are dealing with un-forced oscillations, the natural frequencies are 
-
-\begin{gather*}
-\frac{\omega_n}{k_n}=\sqrt{\frac{gA_c}{B}}\\
-\omega_n=k_n\sqrt{\frac{gA_c}{B}}
-\end{gather*}
-\subsection{{\color{magenta}Semi-closed basin connected to reservoir}}
-At the close end 
-$$ Q=0$$
-and at the reservoir
-$$ \zeta=0$$
-Then, to fullfil this condition, at all times there is a antinode in the closed end, and a node in the reservoir end.
-\begin{gather*}
-k_n\mathcal{l}=\frac{1}{2}\pi+n\pi
-\end{gather*}
-And the natural frequencies are  
-
-\begin{gather*}
-\omega_n= \left(\frac{1}{2}\pi+n\pi \right)\frac{1}{\ell}\sqrt{\frac{gA_c}{B}}
-\end{gather*}
-\subsection{{\color{magenta}Semi-closed basin connected to tidal see}}
-At the close end 
-$$ Q=0$$
-and at the sea-basin interface
-$$ \zeta(\ell,t)=\zeta_{sea}$$
-The oscillation in the basin are forced by the oscillation of the tide, then
-\begin{gather*}
-\zeta(0,t)=\frac{\zeta(\ell,t)}{|\cos k\ell|} $$
-\end{gather*}
-Then we get resonance when
-\begin{gather*}
-\cos k\ell\rightarrow 0 \Longrightarrow \zeta(0,t)\rightarrow \infty
-\end{gather*}
-For small basins,
-$$(\ell\ll L \quad \text{or} \quad  k\ell\ll 2\pi)\Longrightarrow \cos(k\ell)\approx 1$$
-Then \textit{"the water level responds almost in unison to the tidal forcing at
-the mouth, rising and falling with the tide but being virtually horizontal at all times"}(Unsteady Flow in Open Channels,2017), this phenomenom is called {\color{magenta}Pumping or Helmholtz mode}
 \newpage
+
 \chapter{Diffusion: Heat Conduction}
-Using the master conservation equation for tha case of energy, if we only consider internal energy (in this case temperature)
+Using the master conservation equation for the case of energy, if we only consider internal energy (in this case temperature)
 \begin{eqbox}
 \begin{gather*}
 \frac{\partial Q}{\partial t} =-\nabla \cdot q
@@ -1262,7 +1294,7 @@ q=\lambda\nabla T
 \end{gather*}
 $\lambda$: Thermal conductivity
 \end{eqbox2}
-If we ignore advection, radiation and convection mechanism, we can define the heat difussion equation
+If we ignore advection, radiation and convection mechanism, we can define the heat diffusion equation
 
 \begin{eqbox2}{red}{Simplified Heat Transfer or Heat Diffusion}
 \begin{align*}
