@@ -633,7 +633,7 @@ Let's consider
 
 
 
-\begin{exbox}{}{Horizontal flow through 1D soil layer}
+\subsection{flow through 1D soil layer}
 
 
 The soil has hydraulic conductivity $k$,and the potential in the boundaries are $P_1$ and $P_2$, therefore it is a Dirichlet problem.
@@ -653,8 +653,8 @@ Applying Boundary conditions
 \begin{align*}
 h(x)=\left(\frac{P_2-P_1}{L}\right)x+P_1
 \end{align*}
-\end{exbox}
-\begin{exbox}{}{Horizontal flow through 1D soil, with discontinuity in soil properties}\\
+
+\subsection{flow through 1D soil, with discontinuity in soil properties}\\
 Because the hydraulic conductivity is discontinuous in the layer, it is easier to consider the problem as 2 problems of 1D isotropic soil, but applying boundary conditions in the interface as to preserve the conservation of mass principle.
 \begin{note}
 If we did not care about the distribution, but only about the global behavior, we could have used the equivalent hydraulic conductivity.
@@ -684,9 +684,9 @@ h_2'(x_2)=\frac{P_2-P_3}{L}x+P_3\\
 k_1\frac{\partial h_1'(0)}{\partial x_1}=k_2\frac{\partial h_2'(0)}{\partial x_2}
 \end{align*}
 \end{note}
-\end{exbox}
 
-\begin{exbox}{}{Vertical 1D flow through isotropic layer}\\
+
+\subsection{Vertical 1D flow through isotropic layer}\\
 Considering the boundary condition of no flux in the bottom and no pressure in the top, and that the energy is 
 \begin{align*}
 h(z)=gz+\frac{v(z)^2}{2}+\frac{P(z)}{\rho(z)}\approx gz+\frac{P(z)}{\rho}\
@@ -699,7 +699,7 @@ P_{top}=&P_{atm}+0\\
 P_{bottom}=&P_{atm}+P_{bottom}
 \end{align*}
 But atmospheric pressure usually affects both boundary condition. 	
-\end{note}
+
 We know from problem 1 that the solution to 1D flow  is 
 \begin{align*}
 kh+C_1x+C_2=& \,0
@@ -717,7 +717,7 @@ h(z)=\rho g (z_{top}-z)
 In problems involving atmospheric transport, we need to remember that $g(z)$ and $\rho (z)$. See \cite{ICH2304} for examples.
 \end{note}
 \end{exbox}
-\begin{exbox}{}{Radial flow}\\
+\subsection{Radial flow}\\
 The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \citep{MAT1620} for the Laplace operator in any coordinate systems}.
 \begin{align*}
 k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}+\frac{1}{r^2}\frac{\partial h^2}{\partial \theta^2}\right)=0
@@ -728,7 +728,6 @@ k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}
 h=C_1\ln r+C_2
 \end{gather}
 
-\end{exbox}
 
 \section{Case study: Static deformation of a bar with distributed
 elastic foundation}
@@ -1161,7 +1160,6 @@ With:
 \end{align*}
 \end{eqbox2}
 \subsection{Boundary conditions}
-Similarly\\
 \textbf{{\color{magenta}Canal with closed end}}\\
 The boundary condition is 
 $$Q=\delta Q^++\delta Q^- $$
@@ -1216,8 +1214,8 @@ $$(\ell\ll L \quad \text{or} \quad  k\ell\ll 2\pi)\Longrightarrow \cos(k\ell)\ap
 Then \textit{"the water level responds almost in unison to the tidal forcing at
 the mouth, rising and falling with the tide but being virtually horizontal at all times"}(\cite{unsteady}), this phenomenon is called {\color{magenta}Pumping or Helmholtz mode}
 \section{Case Study: Dispersive wave in foundation pile}
-We derived the equation of motion in last section
-\begin{eqbox2}{}{Klein-Gordon equation}
+We previously derived the equation of motion for the bar 
+\begin{eqbox2}{}{ "Telegraph  equation"}
 \begin{gather*}
 \frac{1}{c^2_0}\frac{\partial^2u_z}{\partial t^2}-\frac{\partial u_z}{\partial z^2}+\kappa_d^2u_z-q_z=0\\
 c^2_0=\frac{E}{\rho}\\
@@ -1227,7 +1225,7 @@ c^2_0=\frac{E}{\rho}\\
 This wave equation is dispersive, therefore we cannot use the d'Alambert method to solve it. 
 Lets consider a SDOF system
 \begin{eqbox2}{}{SDOF: Undamped, Harmonic Excitation}
-We know that the response of a undamped system, due to an harmonic excitation is:
+We know that the response of a undamped system, due to an harmonic excitation is simply the modulated signal shifted in time, or simply
 
 \begin{gather*}
 u(t)=Re[\tilde{u}(\omega)\exp(i\omega t)]
@@ -1268,7 +1266,16 @@ $$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat t-kz)}+C_2e^{i(\ome
 The solutions is a evanescent wave 
 $$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{-\mu z}e^{ i\omega t}+C_2e^{-\mu z}e^{i\omega t}$$
 \end{itemize}
-This is analogous to the damped/critically damped/over-damped behavior that we are familiar in Structural Dynamics
+This is analogous to the damped/critically damped/over-damped behavior that we are familiar in Structural Dynamics. 
+Lets consider to different boundary conditions
+\subsection{Boundary Conditions: Infinite Pile}
+We can easily deduce two boundary conditions. First, the Normal force is the "top face" is opposite to the driving force by simple summation of force. Second, because the pie is infinite the deformation at the end is null ( radiation condition), mathematically 
+\begin{gather*}
+EA\frac{\partial u}{\partial z}\lvert_{z=0}=-Re\{\hat{F}_0 e^{i\omega t}\} \\
+u_z\lvert_{z=\infty}=0
+
+\end{gather*}
+
 \newpage
 \newpage
 
