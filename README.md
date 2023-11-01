@@ -8,3 +8,6 @@ Please make a new branch for every new version of the course (every year).
 Any question/suggestion let me know
 
 PS. I might grant admin acces to UBASE if people actually use this repo.
+
+For problems with reference [?], compile with pdflatex, then Bibtex the pdflatex again.
+Similar to toc, compile pdflatex twice to add toc
