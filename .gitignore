@@ -2,6 +2,8 @@
 *.pyc
 *.bbl
 *.out
+*.synctex.gz
+*.gz
 *.synctex
 *.toc
 *.aux
