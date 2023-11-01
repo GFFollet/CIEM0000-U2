@@ -312,7 +312,7 @@ The elastic properties of the material can be also expressed with the Lamé cons
 \end{gather*}
 
 
-
+\newpage
 \section{Balance Laws}
 Let's consider an intensive property $f$, then
 \begin{eqbox}
@@ -369,7 +369,7 @@ In gases, enthalpy is used instead
 \end{align*}
 \end{eqbox2}
 
-
+\newpage
 \section{Simplifications/Reduction of balance laws}
 \subsection{Simplified differential form}
 As we previously stated, the master conservation principle is not used in practice instead we use simplified  equation in differential form.
@@ -541,6 +541,7 @@ Lets consider a wall loaded vertically, such that it can be considered to be in 
 \begin{gather*}
 \rho d \frac{\partial^2 \bar{u}_x}{\partial t^2}=\frac{Ed}{1-\nu^2}\frac{\partial^2 \bar{u}_x}{\partial z}+p_z
 \end{gather*}
+\newpage
 \section{Case Study: Darcy's law and potential flow}
 Let consider the conservation of mass ( volume assuming that the density is constant) for a control volume we get  
 \begin{eqbox2}{red}{Continuity equation}
@@ -575,7 +576,7 @@ Combining Dacry's Law into the continuity equation we get
 k\nabla^2h=0
 \end{gather*}
 \end{eqbox2}
-
+\newpage
 \section{Case Study: Simplified flow through soil}
 Lets consider tha case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
 \begin{eqbox2}{}{Effective stress} 
@@ -596,7 +597,7 @@ For permanent flow
 \end{eqbox2}
 With 
 $I_1=\varepsilon_v$
-
+\newpage
 \section{Case Study: Flow to a well}
 Let's consider
 \begin{itemize}
@@ -633,7 +634,7 @@ h(x)=\left(\frac{P_2-P_1}{L}\right)x+P_1
 \begin{exbox}{}{Horizontal flow through 1D soil, with discontinuity in soil properties}\\
 Because the hydraulic conductivity is discontinuous in the layer, it is easier to consider the problem as 2 problems of 1D isotropic soil, but applying boundary conditions in the interface as to preserve the conservation of mass principle.
 \begin{note}
-If we did not care about the distribution, but only about the global behaviour, we could have used the equivalent hydraulic conductivity \nl{out here eq for series and paralle soil layers)
+If we did not care about the distribution, but only about the global behaviour, we could have used the equivalent hydraulic conductivity.
 \begin{gather*}
 k_{eq}^h=\frac{\Sigma k_id_i}{\Sigma d_i}\\
 k_{eq}^v=\frac{\Sigma d_i}{\Sigma \frac{d_i}{k_i}}\
@@ -690,7 +691,7 @@ We get
 h(z)=\rho g (z_{top}-z)
 \end{align*}
 \begin{note}
-In problems involving atmospheric transport, we need to remember that $g(z)$ and $\rho(z)$. See \citep{ICH2304} for examples.
+In problems involving atmospheric transport, we need to remember that $g(z)$ and $\rho (z)$. See \cite{ICH2304} for examples.
 \end{note}
 \end{exbox}
 \begin{exbox}{}{Radial flow}\\
@@ -706,8 +707,128 @@ h=C_1\ln r+C_2
 
 \end{exbox}
 \newpage
+\section{Case study: Static deformation of a bar with distributed
+elastic foundation}
+Let's consider an elastic pile foundation, with
+\begin{itemize}
+\item Axial stiffness: $EA$
+\item Distributed spring stiffness: $\chi$, accounting for soil resistance 
+\item Discrete spring: $K$, accounting for soil resistance at the tip
+\item External force: $F_0$
 
+\end{itemize}
+\begin{exbox}{}{Displacement Field}
+\textbf{Kinematics}\\
+It is trivial to see that the displacement field of the bar is equal to the displacement field of the later soil 
+\begin{align*}
+u_z^{bar}=u_z^{soil}=u_z
+\end{align*}
+And also that the displacement in the tip is equal to the deformation of the soil under the tip
+\begin{align*}
+\frac{du_z(L)}{dz}=\delta_{tip}
+\end{align*}
 
+\textbf{Action-Deformation}\\
+We have three different action-deformation relationships
+\begin{itemize}
+\item Bar\\
+$$\sigma_{bar}=EA\left(\frac{du_z}{dz}\right)$$
+
+\item \textit{Skin force} (Soil) 
+$$\sigma_{soil}=\chi u_z$$
+\begin{note}
+Strictly, $ \sigma_{soil}=\chi\frac{du_z'}{dz'}$, but the deformation for every \textit{spring} is $\frac{du_z'}{dz'}=u_z-u_z^0$, and in the continuum $u_z^0=0$, then the deformation of every \textit{spring} is just the displacement of the bar at that point}\\
+\end{note}
+\item  \textit{Tip force} (Soil)\\
+$$F_{tip}=K\left(\frac{du_z(L)}{dz}\right)$$
+\end{itemize}
+\textbf{Equilibrium}\\
+From the conservation of momentum in a 1D static situation
+\begin{align*}
+\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) +q_z=0\\
+\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) -\chi u_z=0
+\end{align*}
+We have the stiffness of the soil and the pile expressed in different forms, it may be useful to solve the problem in terms of the ratio of soil/bar stiffness($\kappa^2=\frac{\chi}{EA}$)
+\begin{align*}
+\frac{d^2u_z}{dz^2} -\kappa^2 u_z=0
+\end{align*}
+\textbf{General solution }\\
+The solution is 
+\begin{align*}
+u_z(z)=C_1 e^{\kappa z}+C_1 e^{-\kappa z}
+\end{align*}
+\textbf{Boundary Conditions}\\
+The boundary conditions are the deformation in the top and bottom
+\begin{align*}
+\left( EA\frac{du_z}{dz}\right)\left|_{z=0}&=-F_0\\
+\left( EA\frac{du_z}{dz}\right)\left|_{z=L}&=-Ku_z\|_{z=L}\
+\end{align*}
+Then we get that 
+\begin{gather*}
+C_1=-\frac{F_0}{EA\kappa} \frac{Re^{-2\kappa L}}{1+e^{-2\kappa L}}\\
+C_2= \frac{F_0}{EA\kappa} \frac{1}{1+e^{-2\kappa L}}
+\end{gather*}
+with 
+\begin{align*}
+R=\frac{K-EA\kappa}{K+EA\kappa}
+\end{align*}
+\end{exbox}
+\newpage
+\section{Dispersive wave in foundation pile}
+We derived the equation fo motion in last section
+\begin{eqbox2}{}{Klein-Gordon equation}
+\begin{gather*}
+\frac{1}{c^2_0}\frac{\partial^2u_z}{\partial t^2}-\frac{\partial u_z}{\partial z^2}+\kappa_d^2u_z-q_z=0\\
+c^2_0=\frac{E}{\rho}\\
+\kappa^2_d=\frac{\xi}{EA}=\frac{\xi}{c^2_0\rho A}
+\end{gather*}
+\end{eqbox2}
+This wave equation is dispersive, therefore we cannot use the d'Alambert method to solve it. 
+Lets consider a SDOF system
+\begin{eqbox2}{}{SDOF: Undamped, Harmonic Exitation}
+We know that the response of a undamped system, due to an harmonic exitation is:
+
+\begin{gather*}
+u(t)=Re[\tilde{u}(\omega)\exp(i\omega t)]
+\end{gather*}
+with 
+\begin{gather*}
+\tilde{u}=\hat{u} e^{i\alpha}\\
+\hat{u}=\vert \frac{1}{k-m\omega^2}\vert \hat{F}_0\\
+\end{gather*} 
+\[\alpha = \begin{cases} 
+          0 & \omega\leq \sqrt{\frac{k}{m}} \\
+          \pi &\sqrt{\frac{k}{m}}\leq \omega \\
+       \end{cases}
+    \] 
+\end{eqbox2}
+Replacing in the original equation we get 
+\begin{gather*}
+\frac{d^2\tilde{u}}{dz^2}+\left(\frac{\omega^2}{c_0^2}-\kappa_d\right)\tilde{u}=0
+\end{gather*}
+The solution of the ODE is known to be 
+\begin{gather*}
+\tide{u}(z,\omega)=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\
+\gamma=\frac{1}{c}\sqrt{\omega^2-(c\kappa)^2}=\frac{1}{c}\sqrt{\omega^2-\omega_c^2}
+\end{gather*}
+The response depends on the value of $\gamma$, let's suppose that 
+\[\gamma = \begin{cases} 
+          k  & \omega_c\leq \omega \\
+          -i\mu &\omega\leq \omega_c \\
+       \end{cases}
+    \] 
+    
+Then we can characterize the spatial response in term of $\gamma$, if 
+\begin{itemize}
+\item $\gamma=k$ \\
+The solution is a propagating harmonic wave
+$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat t-kz)}+C_2e^{i(\omega t+kz)}$$
+\item $\gamma=-i\mu$ \\
+The solutions is a evanescent wave 
+$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{-\mu z}e^{ i\omega t}+C_2e^{-\mu z}e^{i\omega t}$$
+\end{itemize}
+This is analogous to the damped/critically damped/overdamped behaviour that we are familiar in Structural Dynamics
+\newpage
 \chapter{Waves: Non-steady flow}
 \section{Equations of motion}
 Let's assume an hydrostatic vertical pressure distribution.
@@ -1122,7 +1243,7 @@ If we ignore advection, radiation and convection mechanism, we can define the he
 
 \begin{eqbox2}{red}{Simplified Heat Transfer or Heat Diffusion}
 \begin{align*}
-\frac{\partial Q}{\partial t} =-\labda\nabla^2T\\
+\frac{\partial Q}{\partial t} =-\lambda\nabla^2T\\
 \frac{\partial T}{\partial t}-\alpha \left(\frac{\partial^2T}{\partial x^2}+\frac{\partial^2T}{\partial y^2}+\frac{\partial^2T}{\partial z^2}\right)=0
 \end{align*}
 \end{eqbox2}
@@ -1131,128 +1252,6 @@ If we ignore advection, radiation and convection mechanism, we can define the he
 
 \section{Static deformation of a bar with distributed
 elastic foundation}
-Let's consider an elastic pile foundation, with
-\begin{itemize}
-\item Axial stiffness: $EA$
-\item Distributed spring stiffness: $\chi$, accounting for soil resistance 
-\item Discrete spring: $K$, accounting for soil resistance at the tip
-\item External force: $F_0$
-
-\end{itemize}
-\begin{exbox}{}{Displacement Field}
-\textbf{Kinematics}\\
-It is trivial to see that the displacement field of the bar is equal to the displacement field of the later soil 
-\begin{align*}
-u_z^{bar}=u_z^{soil}=u_z
-\end{align*}
-And also that the displacement in the tip is equal to the deformation of the soil under the tip
-\begin{align*}
-\frac{du_z(L)}{dz}=\delta_{tip}
-\end{align*}
-
-\textbf{Action-Deformation}\\
-We have three different action-deformation relationships
-\begin{itemize}
-\item Bar\\
-$$\sigma_{bar}=EA\left(\frac{du_z}{dz}\right)$$
-
-\item \textit{Skin force} (Soil) 
-$$\sigma_{soil}=\chi u_z$$
-\begin{note}
-Strictly, $ \sigma_{soil}=\chi\frac{du_z'}{dz'}$, but the deformation for every \textit{spring} is $\frac{du_z'}{dz'}=u_z-u_z^0$, and in the continuum $u_z^0=0$, then the deformation of every \textit{spring} is just the displacement of the bar at that point}\\
-\end{note}
-\item  \textit{Tip force} (Soil)\\
-$$F_{tip}=K\left(\frac{du_z(L)}{dz}\right)$$
-\end{itemize}
-\textbf{Equilibrium}\\
-From the conservation of momentum in a 1D static situation
-\begin{align*}
-\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) +q_z=0\\
-\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) -\chi u_z=0
-\end{align*}
-We have the stiffness of the soil and the pile expressed in different forms, it may be useful to solve the problem in terms of the ratio of soil/bar stiffness($\kappa^2=\frac{\chi}{EA}$)
-\begin{align*}
-\frac{d^2u_z}{dz^2} -\kappa^2 u_z=0
-\end{align*}
-\textbf{General solution }\\
-The solution is 
-\begin{align*}
-u_z(z)=C_1 e^{\kappa z}+C_1 e^{-\kappa z}
-\end{align*}
-\textbf{Boundary Conditions}\\
-The boundary conditions are the deformation in the top and bottom
-\begin{align*}
-\left( EA\frac{du_z}{dz}\right)\left|_{z=0}&=-F_0\\
-\left( EA\frac{du_z}{dz}\right)\left|_{z=L}&=-Ku_z\|_{z=L}\
-\end{align*}
-Then we get that 
-\begin{gather*}
-C_1=-\frac{F_0}{EA\kappa} \frac{Re^{-2\kappa L}}{1+e^{-2\kappa L}}\\
-C_2= \frac{F_0}{EA\kappa} \frac{1}{1+e^{-2\kappa L}}
-\end{gather*}
-with 
-\begin{align*}
-R=\frac{K-EA\kappa}{K+EA\kappa}
-\end{align*}
-\end{exbox}
-\newpage
-\section{Dispersive wave in foundation pile}
-We derived the equation fo motion in last section
-\begin{eqbox2}{}{Klein-Gordon equation}
-\begin{gather*}
-\frac{1}{c^2_0}\frac{\partial^2u_z}{\partial t^2}-\frac{\partial u_z}{\partial z^2}+\kappa_d^2u_z-q_z=0\\
-c^2_0=\frac{E}{\rho}\\
-\kappa^2_d=\frac{\xi}{EA}=\frac{\xi}{c^2_0\rho A}
-\end{gather*}
-\end{eqbox2}
-This wave equation is dispersive, therefore we cannot use the d'Alambert method to solve it. 
-Lets consider a SDOF system
-\begin{eqbox2}{}{SDOF: Undamped, Harmonic Exitation}
-We know that the response of a undamped system, due to an harmonic exitation is:
-
-\begin{gather*}
-u(t)=Re[\tilde{u}(\omega)\exp(i\omega t)]
-\end{gather*}
-with 
-\begin{gather*}
-\tilde{u}=\hat{u} e^{i\alpha}\\
-\hat{u}=\vert \frac{1}{k-m\omega^2}\vert \hat{F}_0\\
-\end{gather*} 
-\[\alpha = \begin{cases} 
-          0 & \omega\leq \sqrt{\frac{k}{m}} \\
-          \pi &\sqrt{\frac{k}{m}}\leq \omega \\
-       \end{cases}
-    \] 
-\end{eqbox2}
-Replacing in the original equation we get 
-\begin{gather*}
-\frac{d^2\tilde{u}}{dz^2}+\left(\frac{\omega^2}{c_0^2}-\kappa_d\right)\tilde{u}=0
-\end{gather*}
-The solution of the ODE is known to be 
-\begin{gather*}
-\tide{u}(z,\omega)=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\
-\gamma=\frac{1}{c}\sqrt{\omega^2-(c\kappa)^2}=\frac{1}{c}\sqrt{\omega^2-\omega_c^2}
-\end{gather*}
-The response depends on the value of $\gamma$, let's suppose that 
-\[\gamma = \begin{cases} 
-          k  & \omega_c\leq \omega \\
-          -i\mu &\omega\leq \omega_c \\
-       \end{cases}
-    \] 
-    
-Then we can characterize the spatial response in term of $\gamma$, if 
-\begin{itemize}
-\item $\gamma=k$ \\
-The solution is a propagating harmonic wave
-$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat t-kz)}+C_2e^{i(\omega t+kz)}$$
-\item $\gamma=-i\mu$ \\
-The solutions is a evanescent wave 
-$$u_z(s,t)\sim \tilde{u}_z(s,t)e^{i\omega t}=C_1e^{-\mu z}e^{ i\omega t}+C_2e^{-\mu z}e^{i\omega t}$$
-\end{itemize}
-This is analogous to the damped/critically damped/overdamped behaviour that we are familiar in Structural Dynamics
-\begin{note}
-See CIVIL-467, for the response of damped system to any exitation, with dissipation devices, considering the LTI system in the first order form, and solving in the frequency domain. Also see for numerical methods.
-\end{note}
 
 
 \newpage
@@ -1260,21 +1259,8 @@ See CIVIL-467, for the response of damped system to any exitation, with dissipat
 \bibliography{references.bib}
 
 \newpage
-
-\newpage
-
-
-\chapter{Appendixes}
-\section{Appendix A. Lagreangan and Cauchy Tensor}
-to be completed
-\section*{Appendix B. Math}
-\begin{itemize}
-\item Coordinate System
-\item Integration techniques
-\item ODE techniques
-
-\end{itemize}
 \end{document}
+
 \newpage
 
 
@@ -1291,40 +1277,6 @@ to be completed
 
 
 
-\subsection{A1.Coordinates Systems}\label{coordinates}
-\begin{table}[H]
-\centering
-\begin{tabular}{@{}cccc@{}}
-\toprule
-&Cartesian(x,y,z) & Cylindrical($r,\theta,z$) & Spherical($r,\theta,\phi$) \\ \midrule
-Coordinate Transform&(x,y,z) &($r\cos\theta,r\sin\theta,z$)&($r\sin\theta\cos\phi,r\sin\theta\sin   \phi,r\cos\theta$)\\
-$\nabla f$&$\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right)$ & $\left(\frac{\partial f}{\partial r},\frac{1}{r}\frac{\partial f}{\partial \theta},\frac{\partial f}{\partial z} \right)$  & $\left(\frac{\partial f}{\partial r},\frac{1}{r}\frac{\partial f}{\partial \theta},\frac{1}{r\sin\theta}\frac{\partial f}{\partial z} \right)$  \\
-\bottomrule
-\end{tabular}
-\end{table}
-See Jacobian matrix($\mathcal{J}$ in Calc II notes for an arbitrary \textbf{any} coordinate system
-\section*{A2. Integral}
-Integrtion by part
-common integrations
-
-\section{Assignement 1}
-\begin{exbox}
-Consider that 
-\begin{itemize}
-\item $\varepsilon_{xx}=\varepsilon_{yy}$=0
-\item Soil Properties are $\rho$,E,$\nu$
-\item Neglect selft weight(\gamma)
-\item Stiff bedrock
-\item Applied stress $(p(x,y)=p_0$
-Then we need to answer the following questions
-\begin{enumerate}
-\item Determine the relation between the vertical stress $\sigma_{zz}$ and vertical strain $\varepsilon_{zz}$​\\
-From the generalized hook equation we get that 
-\begin{align*}
-\sigma_{zz}=\frac{E}{(1+\nu)(1-2\nu)}((1-\nu \varepsilon_{zz}))
-\end{align*}
-\end{enumerate}
-\end{exbox}
 
 
 

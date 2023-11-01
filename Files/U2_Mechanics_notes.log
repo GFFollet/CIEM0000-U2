@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.3.4)  31 OCT 2023 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.3.4)  1 NOV 2023 06:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1374,9 +1374,6 @@ command, so I can't give any explicit help.
 Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
-
-LaTeX Warning: Citation `ICE2114' on page 2 undefined on input line 154.
-
 [2]
 
 ! LaTeX Error: Unicode character − (U+2212)
@@ -1496,15 +1493,6 @@ LaTeX Font Info:    Trying to load font information for TS1+stix on input line
 (C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/stix\ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
-
-LaTeX Warning: Citation `CIVIL448' on page 4 undefined on input line 279.
-
-
-LaTeX Warning: Citation `ICE2614' on page 4 undefined on input line 280.
-
-
-LaTeX Warning: Citation `CIVIL467' on page 4 undefined on input line 281.
-
 ! Undefined control sequence.
 l.287 ...symbol{\sigma}=\boldsymbol{C}(\boldsysbol
                                                   {\varepsilon-\varepsilon_0...
@@ -1523,7 +1511,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[4]
+[4] [5]
 
 ! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
 to ignore it. Perhaps you misspelled it.
@@ -1535,9 +1523,6 @@ Type  H <return>  for immediate help.
 l.330 \begin{note}
                   
 (That was another \errmessage.)
-
-
-LaTeX Warning: Citation `ICE2114' on page 5 undefined on input line 331.
 
 ! Undefined control sequence.
 <argument>  \boldsymbol {L}=\int _V \boldysmbol 
@@ -1588,15 +1573,12 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5] [6] [7]
+[6] [7] [8] [9]
 Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
-[8] [9]
-
-LaTeX Warning: Citation `ICE2614' on page 10 undefined on input line 586.
-
+[10] [11] [12]
 
 ! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
 to ignore it. Perhaps you misspelled it.
@@ -1605,11 +1587,11 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.589 \begin{note}
+l.590 \begin{note}
                   
 (That was another \errmessage.)
 
-[10]
+[13]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1617,7 +1599,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.634 B
+l.635 B
        ecause the hydraulic conductivity is discontinuous in the layer, it i...
 
 Your command was ignored.
@@ -1632,29 +1614,9 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.635 \begin{note}
+l.636 \begin{note}
                   
 (That was another \errmessage.)
-
-! Undefined control sequence.
-l.636 ...the equivalent hydraulic conductivity \nl
-                                                  {out here eq for series an...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.641 \end{note}
-                
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
 
 
 ! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
@@ -1664,11 +1626,11 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.650 \begin{note}
+l.651 \begin{note}
                   
 (That was another \errmessage.)
 
-[11]
+[14]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1676,7 +1638,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.666 C
+l.667 C
        onsidering the boundary condition of no flux in the bottom and no pre...
 
 Your command was ignored.
@@ -1691,7 +1653,7 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.670 \begin{note}
+l.671 \begin{note}
                   
 (That was another \errmessage.)
 
@@ -1703,19 +1665,11 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.692 \begin{note}
+l.693 \begin{note}
                   
 (That was another \errmessage.)
 
-! Undefined control sequence.
-l.693 ...ber that $g(z)$ and $\rho(z)$. See \citep
-                                                  {ICH2304} for examples.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+[15]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1723,7 +1677,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.697 T
+l.698 T
        he Laplace Flow equation  works in any dimension and coordinates syst...
 
 Your command was ignored.
@@ -1733,7 +1687,7 @@ or  <return>  to continue without it.
 ! Undefined control sequence.
 <argument> ...{\relax }}\ignorespaces  See \citep 
                                                   {MAT1620} for the Laplace ...
-l.697 ...place operator in any coordinate systems}
+l.698 ...place operator in any coordinate systems}
                                                   .
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1742,24 +1696,23 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-! LaTeX Error: \begin{gather*} on input line 702 ended by \end{gather}.
+! LaTeX Error: \begin{gather*} on input line 703 ended by \end{gather}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.705 \end{gather}
+l.706 \end{gather}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 713--717
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 734--735
 
  []
 
-[14]
 
 ! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
 to ignore it. Perhaps you misspelled it.
@@ -1768,13 +1721,214 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.769 \begin{note}
+l.739 \begin{note}
                   
 (That was another \errmessage.)
 
-[15]
+! Extra }, or forgotten \endgroup.
+l.740 ...he displacement of the bar at that point}
+                                                  \\
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 740--741
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 742--743
+
+ []
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.765 \end{align*}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.765 \end{align*}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.765 \end{align*}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.765 \end{align*}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.765 \end{align*}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[17] [18]
+! Undefined control sequence.
+<argument>  \tide 
+                  {u}(z,\omega )=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\ \ga...
+l.813 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument>  \tide 
+                  {u}(z,\omega )=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\ \ga...
+l.813 \end{gather*}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.825 ...de{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat
+                                                   t-kz)}+C_2e^{i(\omega t+k...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 834--838
+
+ []
+
+[21]
+
+! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
+to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.890 \begin{note}
+                  
+(That was another \errmessage.)
+
+[22]
 ! Too many }'s.
-l.813 \subsection{Boundary Resistance}}
+l.934 \subsection{Boundary Resistance}}
                                        
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
@@ -1787,16 +1941,13 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.824 \begin{note}
+l.945 \begin{note}
                   
 (That was another \errmessage.)
 
-
-LaTeX Warning: Citation `ICH2304' on page 16 undefined on input line 826.
-
-[16]
+[23]
 ! Extra }, or forgotten $.
-l.867 For deep water, $\frac{D}{\lambda}>0.5}
+l.988 For deep water, $\frac{D}{\lambda}>0.5}
                                              $
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1804,13 +1955,13 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[17]
-Overfull \hbox (6.80807pt too wide) in paragraph at lines 878--880
+[24]
+Overfull \hbox (6.80807pt too wide) in paragraph at lines 999--1001
 \T1/stix/m/n/10.95 Impulsive wave to due tsunami. Can be pro-duced to ei-ther a
 n mega-rupture tsunami or due to an earthquake-
  []
 
-[18]
+[25]
 
 ! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
 to ignore it. Perhaps you misspelled it.
@@ -1819,65 +1970,65 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.938 \begin{note}
-                  
-(That was another \errmessage.)
-
-
-! LaTeX Error: \begin{align*} on input line 944 ended by \end{align}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.946 \end{align}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[19]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.971 
-      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.990 T
-       he transition is caracterized by a discontinous cross-section.
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[20]
-
-! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
-to ignore it. Perhaps you misspelled it.
-
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1025 \begin{note}
+l.1059 \begin{note}
                    
 (That was another \errmessage.)
 
 
-Overfull \hbox (8.60678pt too wide) in paragraph at lines 1024--1028
+! LaTeX Error: \begin{align*} on input line 1065 ended by \end{align}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1067 \end{align}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[26]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1092 
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1111 T
+        he transition is caracterized by a discontinous cross-section.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[27]
+
+! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
+to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1146 \begin{note}
+                   
+(That was another \errmessage.)
+
+
+Overfull \hbox (8.60678pt too wide) in paragraph at lines 1145--1149
 []\T1/stix/m/n/10.95 Then ap-ply-ing con-ser-va-tion of mass and mome-tunm in t
 he trans-mit-ted chan-nel, we de-ter-mine the height/dis-
  []
@@ -1889,7 +2040,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1030 S
+l.1151 S
         ee Green's law.
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1902,7 +2053,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1031 \end{itemize}
+l.1152 \end{itemize}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1911,22 +2062,22 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.1031 \end{itemize}
+l.1152 \end{itemize}
                     
 Things are pretty mixed up, but I think the worst is over.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1154--1165
 
  []
 
-[21]
+[28]
 Missing character: There is no l in font stix-mathcal!
 Missing character: There is no l in font stix-mathcal!
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1089 \end{gather*}
+l.1210 \end{gather*}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1937,7 +2088,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing { inserted.
 <inserted text> 
                 {
-l.1089 \end{gather*}
+l.1210 \end{gather*}
                     
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -1946,7 +2097,7 @@ Try to go on, since this might almost work.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1089 \end{gather*}
+l.1210 \end{gather*}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1957,282 +2108,35 @@ my insertion and my current dilemma will both disappear.
 ! Missing { inserted.
 <inserted text> 
                 {
-l.1089 \end{gather*}
+l.1210 \end{gather*}
                     
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1112
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1233
 
  []
 
-! Undefined control sequence.
-<argument> ...c {\partial Q}{\partial t} =-\labda 
-                                                  \nabla ^2T\\ \frac {\parti...
-l.1127 \end{align*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...c {\partial Q}{\partial t} =-\labda 
-                                                  \nabla ^2T\\ \frac {\parti...
-l.1127 \end{align*}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 1156--1157
-
- []
-
-
-! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
-to ignore it. Perhaps you misspelled it.
-
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1161 \begin{note}
-                   
-(That was another \errmessage.)
-
-! Extra }, or forgotten \endgroup.
-l.1162 ...e displacement of the bar at that point}
-                                                  \\
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
-
- []
-
-! Extra }, or forgotten \right.
-<template> }
-            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1187 \end{align*}
-                   
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \right.
-<template> }
-            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1187 \end{align*}
-                   
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \right.
-<template> }
-            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1187 \end{align*}
-                   
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \right.
-<template> }
-            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1187 \end{align*}
-                   
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1187 \end{align*}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-[24] [25]
-! Undefined control sequence.
-<argument>  \tide 
-                  {u}(z,\omega )=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\ \ga...
-l.1235 \end{gather*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument>  \tide 
-                  {u}(z,\omega )=C_1e^{-i\gamma z} +C_2e^{(i\gamma z)}\\ \ga...
-l.1235 \end{gather*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.1247 ...e{u}_z(s,t)e^{i\omega t}=C_1e^{i(\omegat
-                                                   t-kz)}+C_2e^{i(\omega t+k...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[26]
-
-! Package pgfkeys Error: I do not know the key '/tcb/ragedleft' and I am going 
-to ignore it. Perhaps you misspelled it.
-
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1253 \begin{note}
-                   
-(That was another \errmessage.)
-
-[27] (U2_Mechanics_notes.bbl
+[30] [31] (U2_Mechanics_notes.bbl
 bibitemlist
-) [28] [29]
+) [32]
 \tf@toc=\write6
 \openout6 = `U2_Mechanics_notes.toc'.
 
  (U2_Mechanics_notes.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `U2_Mechanics_notes.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `U2_Mechanics_notes.out':
-(rerunfilecheck)             Before: 713989F618504DD9911A673E6DC10E82;4271
-(rerunfilecheck)             After:  525D347F160C9DF20019C83555D84779;4367.
+Package rerunfilecheck Info: File `U2_Mechanics_notes.out' has not changed.
+(rerunfilecheck)             Checksum: 82D2AC6C00D161199FD85703F3FA57BA;4463.
  ) 
 Here is how much of TeX's memory you used:
- 32843 strings out of 478584
- 604967 string characters out of 2844402
- 914699 words of memory out of 3000000
- 50465 multiletter control sequences out of 15000+600000
+ 32842 strings out of 478584
+ 604949 string characters out of 2844402
+ 906845 words of memory out of 3000000
+ 50463 multiletter control sequences out of 15000+600000
  563704 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,19n,104p,458b,1372s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,19n,104p,517b,1372s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/gabri/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix/stix-ts1.e
 nc}{C:/Users/gabri/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix/stix-t1.e
 nc}<C:/Users/gabri/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix/STIXGe
@@ -2250,9 +2154,9 @@ s/type1/public/stix/stix-mathrm.pfb><C:/Users/gabri/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/gabri/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb><C:/Users/gabri/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/stix/stix-mathtt.pfb>
-Output written on U2_Mechanics_notes.pdf (30 pages, 355917 bytes).
+Output written on U2_Mechanics_notes.pdf (33 pages, 359288 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
