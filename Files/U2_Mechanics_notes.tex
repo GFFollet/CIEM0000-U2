@@ -119,24 +119,15 @@ CIEM0000 Interdisciplinary mechanics is the first course for all students enroll
 The classes were imparted by the following professors
 \begin{align*}
 \textbf{Continuum mechanics - Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
-\textbf{Linear waves}&\text{Robert Jan Labeur \& Karel van Dalen}\\
+\textbf{Linear waves: }&\text{Robert Jan Labeur \& Karel van Dalen}\\
 \textbf{Diffusion- Heat Conduction: }&\text{Phil Vardon}\\
 \textbf{Amplitude dependant waves: }&\text{Robert Jan Labeur \& Ludovic Leclercq}
 \end{align*} 
-This document is intended to be a community project from the MSc student at TU Delft, hopefully this document will be used, improved and extended in the following years. 
-Please, feel free to either download, share and modified this document, the \textit{.tex} files are available  in \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}
+
+Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}
 \section*{Contributors}
 Again, if this document helped you, consider reporting or fixing any mistake you may have found, from simple spelling errors ( I'm sure there will be  lot of them) to more substantial changes.
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lllll@{}}
-\toprule
-Contribution  & Name           & Date    & Email              &  \\ \midrule
-First Version & Gabriel Follet & 2023-Q1 & gfollet@tudelft.nl &  \\
-\bottomrule
-\end{tabular}
-\end{table}
 \newpage
 \tableofcontents
 \newpage
@@ -633,7 +624,7 @@ Let's consider
 
 
 
-\subsection{flow through 1D soil layer}
+\subsection{Flow through 1D soil layer}
 
 
 The soil has hydraulic conductivity $k$,and the potential in the boundaries are $P_1$ and $P_2$, therefore it is a Dirichlet problem.
@@ -654,7 +645,7 @@ Applying Boundary conditions
 h(x)=\left(\frac{P_2-P_1}{L}\right)x+P_1
 \end{align*}
 
-\subsection{flow through 1D soil, with discontinuity in soil properties}\\
+\subsection{Flow through 1D soil, with discontinuity in soil properties}\\
 Because the hydraulic conductivity is discontinuous in the layer, it is easier to consider the problem as 2 problems of 1D isotropic soil, but applying boundary conditions in the interface as to preserve the conservation of mass principle.
 \begin{note}
 If we did not care about the distribution, but only about the global behavior, we could have used the equivalent hydraulic conductivity.
@@ -718,7 +709,7 @@ In problems involving atmospheric transport, we need to remember that $g(z)$ and
 \end{note}
 \end{exbox}
 \subsection{Radial flow}\\
-The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \citep{MAT1620} for the Laplace operator in any coordinate systems}.
+The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \cite{MAT1620} for the Laplace operator in any coordinate systems}.
 \begin{align*}
 k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}+\frac{1}{r^2}\frac{\partial h^2}{\partial \theta^2}\right)=0
 \end{align*}
@@ -739,7 +730,7 @@ Let's consider an elastic pile foundation, with
 \item External force: $F_0$
 
 \end{itemize}
-\begin{exbox}{}{Displacement Field}
+
 \textbf{Kinematics}\\
 It is trivial to see that the displacement field of the bar is equal to the displacement field of the later soil 
 \begin{align*}
@@ -794,7 +785,6 @@ with
 \begin{align*}
 R=\frac{K-EA\kappa}{K+EA\kappa}
 \end{align*}
-\end{exbox}
 \newpage
 
 \chapter{Linear Waves }
@@ -1294,23 +1284,53 @@ $c$: Specific heat capacity\\
 $\rho$: Density\\
 
 \end{eqbox}
-And considering that the flow of heat is proportional to the temperature gradient(Conduction)
+And considering that the flow of heat is proportional to the temperature gradient (conduction)
 \begin{eqbox2}{}{Fourier's Law}
 \begin{gather*}
-q=\lambda\nabla T
+q=\alpha\nabla T
 \end{gather*}
 $\lambda$: Thermal conductivity
 \end{eqbox2}
-If we ignore advection, radiation and convection mechanism, we can define the heat diffusion equation
+If we ignore advection, radiation and convection mechanisms, we can define the heat diffusion equation
 
 \begin{eqbox2}{red}{Simplified Heat Transfer or Heat Diffusion}
-\begin{align*}
-\frac{\partial Q}{\partial t} =-\lambda\nabla^2T\\
-\frac{\partial T}{\partial t}-\alpha \left(\frac{\partial^2T}{\partial x^2}+\frac{\partial^2T}{\partial y^2}+\frac{\partial^2T}{\partial z^2}\right)=0
-\end{align*}
+\begin{gather*}
+\frac{\partial T}{\partial t} =\alpha\nabla^2T\\
+\end{gather*}
 \end{eqbox2}
-\newpage
+Solving the equation is more difficult than the continuity equation, but we can still find an analytic solution
+\section{Homogeneous BC}
+Lets consider homogeneous boundary conditions,and know initial value, and lets assume that 
+\begin{gather*}
+T(x,t)=v(x)w(t)
+\end{gather*}
+Then 
+\begin{gather*}
+v(0)w(t)=0 \text{ only if } v(0)=0\\
+v(L)w(L)=0 \text{ only if } w(L)=0\\
+\end{gather*}
 
+If we replace the new expression for $T$ in the differential equation and separate the spacial from the temporal variables
+\begin{gather*}
+\frac{\partial T}{\partial t} =\alpha\nabla^2T\\
+\frac{1}{\alpha w(t)}\frac{\partial w(t)}{\partial t}=\frac{\nabla^2 v(x)}{v(x)}
+\end{gather*}
+Because the equation is linear and we separate variable we can \textit{say} that the temporal variables equals to a constant, and the spacial variable to the same constant(P), where P does not depend neither on $t$ or $x$
+\begin{gather*}
+\frac{1}{\alpha w(t)}\frac{\partial w(t)}{\partial t}=-P\\
+\frac{\nabla^2 v(x)}{v(x)}=-P
+\end{gather*}
+
+Using separation of variable, for the temporal part we get that 
+\begin{gather*}
+w(t)=e^{-\alpha P t}e^C_1
+\end{gather*} 
+and for the spatial part 
+\begin{gather*}
+v(x)=C_2 \cos(\sqrt{Px})+C_3\sin(\sqrt{Px})
+\end{gather*}
+
+\newpage
 
 \bibliography{references.bib}
 
