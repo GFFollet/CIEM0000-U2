@@ -112,7 +112,7 @@
 \end{titlingpage}
 %----------------------------------------------%
 \section*{Preface}
-The following notes are based on the classes imparted at TU Delft during the first quarter of the year 2023.
+The following notes are based on the classes imparted at TU Delft during the first quarter of 2023.
 CIEM0000 Interdisciplinary mechanics is the first course for all students enrolled in the Civil Engineering MSc.
  As the name implies, the content covered a wide range of mechanics problems. The course is organized in 14 topics, but I decide to forgo that structure and instead divide the course into 4 chapters.
 
@@ -125,8 +125,7 @@ The classes were imparted by the following professors
 \end{align*} 
 
 Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}\\
-If this document helped you, consider fixing any mistake you may have found and making a commit to the repo, from simple spelling errors (I'm sure there will be a lot of mistakes specially spelling) 
-
+If this document helped you, consider fixing any mistake you may have found and making a commit to the repo, from simple spelling errors (I'm sure there will be a lot of mistakes them )
 \newpage
 \tableofcontents
 \newpage
@@ -633,7 +632,7 @@ For saturated clays soils, the rate of secondary consolidation can be estimated 
  $C_v=\dfrac{k}{m_v\rho g}$\\
  $m_v=\dfrac{(1-2\nu)(1+v)}{E(1-\nu)}$\\
  
- The equation can be solved analytically with the tools that we will learn in the {\color{magenta}Diffusion Section}, but in practice it is usually solved using graphical methods. See \cite{ICE2604} for detail of graphical methods, load ramp correction, pre(over)consolidated clays consideration, and estimation of $C_v$ from field data.
+ The equation can be solved analytically with the tools that we will learn in the {\color{magenta}Diffusion Section}, but in practice it is usually solved using graphical methods. See \cite{ICE2604} for detail of graphical methods, load ramp correction,primary consolidation, pre(over)consolidated clays considerations, and estimation of $C_v$ from field data.
 \end{eqbox2}
 \section{Case Study: Flow to a well}
 Let's consider
@@ -650,11 +649,12 @@ Let's consider
 \subsection{Flow through 1D soil layer}
 
 
-The soil has hydraulic conductivity $k$,and the potential in the boundaries are $P_1$ and $P_2$, therefore it is a Dirichlet problem.
+The soil has hydraulic conductivity $k$, and the potential in the boundaries are $P_1$ and $P_2$, therefore it is a Dirichlet problem.
 
-Using the Laplace Flow equation and considering that the problem is 1D
-\begin{align*}
-k\frac{\partial^2 h}{\partial x^2}=0\qquad \text{and}\qquad h|^{0=P_1}_{L=P_2}
+Using the Laplace Flow equation and considering that the problem is 1D with the following boundary conditions
+\begin{gather*}
+k\frac{\partial^2 h}{\partial x^2}=0\\
+h|^{0=P_1}_{L=P_2}
 \end{align*}
 Integrating
 \begin{gather*}
@@ -677,14 +677,14 @@ k_{eq}^h=\frac{\Sigma k_id_i}{\Sigma d_i}\\
 k_{eq}^v=\frac{\Sigma d_i}{\Sigma \frac{d_i}{k_i}}\
 \end{gather*}
 \end{note}
-Then, similarly to the last problem 
-\begin{align*}
-k_1\frac{\partial^2 h_1(x)}{\partial x^2}=&\,0 \\
-k_2\frac{\partial^2 h_2(x)}{\partial x^2}=&\,0 \\
-h_1(0)=&\,P_1\\
-h_2(L)=&\,P_2 \\
-k_1\frac{\partial h_1(L/2)}{\partial x}=&\,k_2\frac{\partial h_2(L/2)}{\partial x}
-\end{align*}
+Then, similar to last problem the problem to solve is 
+\begin{gather*}
+k_1\frac{\partial^2 h_1(x)}{\partial x^2}=\,0 \\
+k_2\frac{\partial^2 h_2(x)}{\partial x^2}=\,0 \\
+h_1(0)=\,P_1\\
+h_2(L)=\,P_2 \\
+k_1\frac{\partial h_1(L/2)}{\partial x}=\,k_2\frac{\partial h_2(L/2)}{\partial x}
+\end{gather*}
 \begin{note}
 Depending on the complexity of the situation, it may be useful to define local coordinates systems to simplify the algebra, for example
 \begin{align*}
@@ -712,7 +712,7 @@ In addition, the \textit{no-pressure} boundary condition  refers to \textit{rela
 P_{top}=&P_{atm}+0\\
 P_{bottom}=&P_{atm}+P_{bottom}
 \end{align*}
-But atmospheric pressure usually affects both boundary condition. 	
+But atmospheric pressure almost always affects both boundary condition. 	
 
 We know from problem 1 that the solution to 1D flow  is 
 \begin{align*}
@@ -728,20 +728,33 @@ We get
 h(z)=\rho g (z_{top}-z)
 \end{align*}
 \begin{note}
-In problems involving atmospheric transport, we need to remember that $g(z)$ and $\rho (z)$. See \cite{ICH2304} for examples.
+In some problems  $g(z)$ and $\rho (z)$. See \cite{ICH2304} for examples in atmospheric transport.
 \end{note}
 \end{exbox}
 \subsection{Radial flow}\\
-The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \cite{MAT1620} for the Laplace operator in any coordinate systems}.
+The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \cite{MAT1620} for the Laplace operator in an arbitrary coordinate system}.
 \begin{align*}
 k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}+\frac{1}{r^2}\frac{\partial h^2}{\partial \theta^2}\right)=0
 \end{align*}
-Because the situation is radially symmetric($\frac{\partial h^2}{\partial \theta^2}=0$)
+Because the situation is radially symmetric ($\frac{\partial h^2}{\partial \theta^2}=0$)
 \begin{gather*}
 k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}\right)=0\\
 h=C_1\ln r+C_2
 \end{gather}
-
+In some cases, the boundary condition inside the well is the pump capacity (fixed flux). Usually the pump flow is related to the needed amount of water flow in the community. For a cylindrical well 
+\begin{gather*}
+Q_1=-\int q_1\,dA\\
+Q_1=-q_1\int\,dA\\
+Q_1=-q_1(2\pi rH)
+\end{gather*}
+Then, it is evident that the boundary condition in the well-soil interface is 
+\begin{gather*}
+q|_{r_1}=q_1\\
+k\frac{\partial h}{\partial r}|_{r_1}=-q_1\\
+\frac{\partial h}{\partial r}|_{r_1}=-\frac{q_1}{k}\\
+\end{gather*}
+If we plot the potential distribution in term of the radius from the well can see why there are laws restricting the distance between wells, as the the effects of \textit{my well} on the aquifer can affect my \textit{neighbor}.\\
+Because $h$ is linear in $r$ we can use superposition to quantify the pressure distribution of multiple wells.
 
 \section{Case study: Static deformation of a bar with distributed
 elastic foundation}
@@ -1292,8 +1305,9 @@ u_z\lvert_{z=\infty}=0
 \newpage
 \newpage
 
-\chapter{Diffusion: Heat Conduction}
-Using the master conservation equation for the case of energy, if we only consider internal energy (in this case temperature)
+\chapter{Diffusion}
+Lets initially consider the conservation of energy.\\
+Using the master conservation equation only considering internal energy (in this case temperature)
 \begin{eqbox}
 \begin{gather*}
 \frac{\partial Q}{\partial t} =-\nabla \cdot q
