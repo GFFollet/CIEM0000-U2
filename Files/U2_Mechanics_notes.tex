@@ -118,14 +118,15 @@ CIEM0000 Interdisciplinary mechanics is the first course for all students enroll
 
 The classes were imparted by the following professors
 \begin{align*}
-\textbf{Continuum mechanics - Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
+\textbf{Continuum mechanics - Basics: }& \text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
 \textbf{Linear waves: }&\text{Robert Jan Labeur \& Karel van Dalen}\\
 \textbf{Diffusion: }&\text{Phil Vardon}\\
 \textbf{Amplitude dependant waves: }&\text{Robert Jan Labeur \& Ludovic Leclercq}
 \end{align*} 
 
-Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}\\
-If this document helped you, consider fixing any mistake you may have found and making a commit to the repo, from simple spelling errors (I'm sure there will be a lot of mistakes them )
+Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \begin{gather*} \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}
+\end{gather*}\\
+If this document helped you, consider fixing any mistake you may have found and making a commit to the repo (I'm sure there will be a lot of them , specially spelling mistakes)
 \newpage
 \tableofcontents
 \newpage
@@ -634,7 +635,7 @@ For saturated clays soils, the rate of secondary consolidation can be estimated 
  
  The equation can be solved analytically with the tools that we will learn in the {\color{magenta}Diffusion Section}, but in practice it is usually solved using graphical methods. See \cite{ICE2604} for detail of graphical methods, load ramp correction,primary consolidation, pre(over)consolidated clays considerations, and estimation of $C_v$ from field data.
 \end{eqbox2}
-\section{Case Study: Flow to a well}
+\section{Case Study: Flow in soil}
 Let's consider
 \begin{itemize}
 \item Saturated soils
@@ -731,7 +732,7 @@ h(z)=\rho g (z_{top}-z)
 In some problems  $g(z)$ and $\rho (z)$. See \cite{ICH2304} for examples in atmospheric transport.
 \end{note}
 \end{exbox}
-\subsection{Radial flow}\\
+\subsection{Radial flow in well}\\
 The Laplace Flow equation  works in any dimension and coordinates system\footnote{ See \cite{MAT1620} for the Laplace operator in an arbitrary coordinate system}.
 \begin{align*}
 k\left(\frac{\partial^2h}{\partial r^2}+\frac{1}{r}\frac{\partial h}{\partial r}+\frac{1}{r^2}\frac{\partial h^2}{\partial \theta^2}\right)=0
@@ -784,9 +785,9 @@ We have three different action-deformation relationships
 $$\sigma_{bar}=EA\left(\frac{du_z}{dz}\right)$$
 
 \item \textit{Skin force} (Soil) 
-$$\sigma_{soil}=\chi u_z$$
+$$f_{soil}=-\chi u_z$$
 \begin{note}
-Strictly, $ \sigma_{soil}=\chi\frac{du_z'}{dz'}$, but the deformation for every \textit{spring} is $\frac{du_z'}{dz'}=u_z-u_z^0$, and in the continuum $u_z^0=0$, then the deformation of every \textit{spring} is just the displacement of the bar at that point}\\
+Strictly, $ f_{soil}=\chi\frac{du_z'}{dz'}$, but the deformation for every \textit{spring} is $\frac{du_z'}{dz'}=u_z-u_z^0$, and in the continuum $u_z^0=0$, then the deformation of every \textit{spring} is just the displacement of the bar at that point}\\
 \end{note}
 \item  \textit{Tip force} (Soil)\\
 $$F_{tip}=K\left(\frac{du_z(L)}{dz}\right)$$
@@ -794,8 +795,8 @@ $$F_{tip}=K\left(\frac{du_z(L)}{dz}\right)$$
 \textbf{Equilibrium}\\
 From the conservation of momentum in a 1D static situation
 \begin{align*}
-\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) +q_z=0\\
-\frac{d}{dz}\left( EA\frac{du_z}{dz}\right) -\chi u_z=0
+ EA\frac{d^2u_z}{d^2z} +q_z=0\\
+EA\frac{d^2u_z}{d^2z} -\chi u_z=0
 \end{align*}
 We have the stiffness of the soil and the pile expressed in different forms, it may be useful to solve the problem in terms of the ratio of soil/bar stiffness($\kappa^2=\frac{\chi}{EA}$)
 \begin{align*}
@@ -810,9 +811,12 @@ u_z(z)=C_1 e^{\kappa z}+C_1 e^{-\kappa z}
 The boundary conditions are the deformation in the top and bottom
 \begin{align*}
 \left( EA\frac{du_z}{dz}\right)\left|_{z=0}&=-F_0\\
-\left( EA\frac{du_z}{dz}\right)\left|_{z=L}&=-Ku_z\|_{z=L}\
+\left( EA\frac{du_z}{dz}\right)\left|_{z=L}&=-Ku_z|_{z=L}\
 \end{align*}
-Then we get that 
+If wanted to consider the case of a \textit{stiff} rock layer at the bottom, the second boundary conditions would be
+
+$$u_z|_L=0 $$
+We will focus on the elastic case at this time, and we get that
 \begin{gather*}
 C_1=-\frac{F_0}{EA\kappa} \frac{Re^{-2\kappa L}}{1+e^{-2\kappa L}}\\
 C_2= \frac{F_0}{EA\kappa} \frac{1}{1+e^{-2\kappa L}}
@@ -825,8 +829,7 @@ R=\frac{K-EA\kappa}{K+EA\kappa}
 
 \chapter{Linear Waves }
 \section{Equations of motion}
-Let's assume an hydrostatic vertical pressure distribution and constant density,
-From the conservation of momentum equation in 1D we get\\
+Lets consider the case of one dimensional(constant width,cross section discharge, constant height along width) long waves(wave length>>water depth$\longrightarrow$ hydrostatic pressure distribution).
 \begin{eqbox2}{}{Unitary discharge}
 $$q(s,t)=\int_{z_b}^{h(t)} v_s\, dz$$
 \end{eqbox2}
@@ -837,24 +840,19 @@ Q(s,t)=&\int_{A(t)} v_s\, dA
 \end{align*}
 \end{eqbox2}
 
-Using the conservation of mass (volume if we consider incompressible flow) we get 
-\begin{align*}
-\frac{\partial A(s,t)}{\partial t}+\frac{\partial Q(s,t)}{\partial s}&=0
-\end{align*}
+Using the conservation of mass (volume if we consider incompressible flow)and considering the 1D assumptions
+\begin{gather*}
+\frac{\partial A(s,t)}{\partial t}+\frac{\partial Q(s,t)}{\partial s}=0\\
+\end{gather*}
 
-In channel flow, our main concern is the piezometric height ($h$), therefore is useful to use the following expression
-
-\begin{align*}
-\frac{\partial A(s,t)}{\partial t}&=\frac{\partial A}{\partial h}\frac{\partial h}{\partial t}=B(s,t)\frac{\partial h}{\partial t}
-\end{align*}
-
-If we consider small flow velocities, and/or small, semi-enclosed areas
+If we consider small flow velocities, and/or small, semi-enclosed areas, the global conservation of mass reduces to 
 \begin{eqbox2}{}{Small-basin approximation}
 \begin{align*}
 \frac{\partial h}{\partial s} \approx 0\longrightarrow Q(t)\approx A_b \frac{dh_b}{dt}
 \end{align*}
+Which intuitively makes sense, \textit{the increase of depth is proportional to the amount of water that enters the basin}
 \end{eqbox2}
- 
+\subsection{Integral formulation}
 As we saw in the continuum mechanics chapter, the integral version of the conservation principle is more general and powerful that the differential one, but in most cases, assuming a number of symmetries, the differential conservation is more useful. Nevertheless, we will briefly consider the integral case. Lets start with the continuity equation for permanent flow in 1D, and integrate it in the vertical direction
 \begin{gather*}
 \int_{z_b}^{h(t)}\left(\frac{\partial \rho}{\partial t}+\rho \nabla v\right)=0 \\
@@ -886,7 +884,8 @@ The kinematic conditions are zero if we consider them to be \textit{streamlines}
 the kinematic condition terms that involve temporal derivatives are zero because we assumed that the velocity normal to the flow is zero for the surface and seabed, the other terms relate to the fact that we assume that  a fluid particle approaching the seabed will move alongside it (cannot go into the seabed) and a fluid particle moving towards the surface will move along the surface ( not splash-out). \\
 The density assumption is usually adequate for canals, but may not appropriated in the presence of temperature/salinity gradients.
 \end{note}
-Considering that the density is uniform throughout the cross-section 
+\subsection{Differential formulation}
+Considering that the density is uniform throughout the cross-section, we can transform the integral formulation into the differential formulation that we saw at the beginning of the chapter
 \begin{eqbox2}{}{Mass Balance equation}
 \begin{gather*}
 \frac{\partial}{\partial t} \int\limits _{z_b}^{h(t)} \rho\, dz+\frac{\partial}{\partial x}\int\limits_{z_b}^{h(t)} \rho v_x \,dz= 0\\
@@ -894,7 +893,7 @@ Considering that the density is uniform throughout the cross-section
 \frac{\partial d(t)}{\partial t}+\frac{\partial q}{\partial x}=0\\
 \end{gather*}
 \end{eqbox2}
-Similarly to mechanics of solids , using  the mass balance and the conservation of momentum we get 
+Similarly to mechanics of solids, combining the mass balance and the conservation of momentum we get 
 \begin{eqbox2}{}{Euler equation}
 For incompressible, uniform density,negligible viscous stresses, and only gravity as an external force we get 
 
@@ -902,7 +901,7 @@ For incompressible, uniform density,negligible viscous stresses, and only gravit
 \frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}+\frac{1}{\rho}\frac{\partial p}{\partial x_i}=g_i
 \end{align*}
 \end{eqbox2}
-So far, the equations of motion are formulated in a Cartesian coordinate system, but for geometries different than a straight canal, it can become algebraically tedious to work on ${\hat{x},\hat{y},\hat{z})$, therefore we introduce the natural coordinate system.
+So far, the equations of motion are formulated in a Cartesian coordinate system, but for geometries different than a straight canal, it can become algebraically tedious to work on ${\hat{x},\hat{y},\hat{z}$, therefore we introduce the natural coordinate system.
 \begin{itemize}[]
 \item $R$= Radius of curvature
 \item $\hat{s} $ = Flow direction
@@ -916,6 +915,9 @@ So far, the equations of motion are formulated in a Cartesian coordinate system,
 \frac{\partial v_n}{\partial t}+\frac{v_s^2}{R}+g\frac{\partial h}{\partial n}=0\\
 \frac{\partial v_b}{\partial t}+g\frac{\partial h}{\partial b}=0
 \end{gather*}
+$+\sum \frac{\partial \tau}{\partial x}+\frac{\partial \tau}{\partial t} $ \\
+The resistance terms in differential form can be obtained but as they are influenced by viscosity, turbulence, boundary conditions,etc. See \citep{unsteady} chapter 10.5 for ways to estimates some of these terms.\\
+As we will see, under 1D and long waves hypothesis, we can estimate a cross averaged resistance. 
 \end{eqbox2}
 \section{Long Waves}
 Let's consider the case of a 1D \textit{long waves} with a constant cross section piezometric level, then we can assume that
@@ -924,10 +926,13 @@ Let's consider the case of a 1D \textit{long waves} with a constant cross sectio
 \item Negligible surface slope $\longrightarrow \frac{\partial h}{\partial n}\approx 0$
 \item Acceleration only in $\hat{s}$
 \item $\frac{\partial h}{\partial s}$ is constant within the cross-section
-\item Considering cross-section averaged velocity $U=\int_A v \, dA/\int dA$
+\item Considering cross-section averaged velocity $U$
 \end{itemize}
+\begin{gather*}
+\frac{\partial U}{\partial t}+U\frac{\partial v_s}{\partial s}+g\frac{\partial h}{\partial s}+f_r=0
+\end{gather*}
 \subsection{Boundary Resistance}}
-So far, we have only considered conservative forces, we can easily identify at least two types of non-conservative forces, exactly as we did with the master conservation principle, we have the volume force($\Sigma$) and the surface force($\phi$).
+So far, we have only considered conservative forces, we can easily identify at least two types of non-conservative forces, exactly as we did with the master conservation principle, we have the volume force ($\Sigma$) and the surface force($\phi$).
 If we ignore for now the volumetric forces(turbulence,etc), and ignore the air-water interaction we get the frictional force of the canal walls/bed
 (wet perimeter).
 \begin{align*}
@@ -935,20 +940,23 @@ F_r=\tau_b P=\rho c_f|U|UP
 \end{align*}
 All the other forces have been expressed as force per unit mass, then 
 \begin{align*}
-\frac{F_r}{\rho A_c}=\frac{\rho c_f|U|UP}{\rho A_c}=c_f\frac{|U|U}{R}
+f_r=\frac{F_r}{\rho A_c}=\frac{\rho c_f|U|UP}{\rho A_c}=c_f\frac{|U|U}{R}
 \end{align*}
 \begin{note}
 This assumes that $c_f$ is constant in the wet perimeter, which is not always the case. See Orton's  and Lotter's method for compound cross-sections.\\
 Also, see Manning and Chézy equation for other ways to estimate boundary resistance. Detail in \cite{ICH2304}
 \end{note}
-Then, the equation on the whole cross-section
+\subsection{Saint-Venant Equations}
+Then, the cross section averaged equation of motion considering boundary resistance is 
 \begin{eqbox2}{}{Saint-Venant Equation}
 \begin{gather*}
-B\frac{\partial h}{\partial t}+\frac{\partial Q}{\partial s}=0\\
-\frac{\partial Q}{\partial t}+\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right) +gA_c\frac{\partial h}{\partial s}+c_f\frac{|Q|Q}{A_cR}=0
+\underbrace{B\frac{\partial h}{\partial t}}_\text{mass storage}+\underbrace{\frac{\partial Q}{\partial s}}_\text{discharge gradient}=0\\
+\underbrace{\frac{\partial Q}{\partial t}}_\text{local acceleration}+\underbrace{\frac{\partial}{\partial s}\left( \frac{Q^2}{A_c}\right)}_\text{advective acceleration} +\underbrace{gA_c\frac{\partial h}{\partial s}}_\text{pressure gradient}+\underbrace{c_f\frac{|Q|Q}{A_cR}}_\text{boundary resistance}=0
 \end{gather*}
+The equations are coupled, and we need boundary and initial conditions to solve the problem.
 \end{eqbox2}
 \section{Dimensional analysis}
+Depending on the type of wave we may be able to disregard, one/some of the terms. Using some very simple dimensional analysis we can estimate how the terms relate to each other.
 We can characterize a wave by four parameter
 \begin{itemize}
 \item Wave length ($\lambda$ or $L_0$)
@@ -956,10 +964,13 @@ We can characterize a wave by four parameter
 \item Flow velocity ($U_0$)
 \item Water depth ($h$ or $D_0$)
 \end{itemize}
-If we look at the Saint-Venant equation, by inspection is evident that the storage ($B\frac{\partial h}{\partial t}$) and volume transport($\frac{\partial Q}{\partial s})$ terms cannot be neglected. 
+If we look at the Saint-Venant equation, by inspection is evident that the mass storage and discharge gradient terms cannot be neglected, then the relationship between them is 
+\begin{gather*}
+B\frac{H_0}{T_0}\approx \frac{BU_0D_0}{L_0}\longrightarrow H_0\approx Fr\cdot D_0
+\end{gather*}
 
 
-Lets consider the \textit{importance} of the local inertia and use it to normalize the effect of other terms in the momentum equation
+Lets consider the \textit{importance} of the local acceleration and use it to normalize the effects of the other terms.
 \begin{eqbox}
 \begin{gather*}
 \text{Normalized local inertia}\propto\left(\frac{U}{T_0}\right)/\left(\frac{ U}{T_0}\right)= 1\\
@@ -986,11 +997,11 @@ c_p\approx \frac{g}{2\pi}T
 \end{align*}
 \end{eqbox2}
 \section{Classification/Characterization of long waves}
-In practice we consider a wave as \textit{long} if $\frac{L_0}{D_0}> 20$.
-{\color{magenta}\subsection{Translatory waves}}
-These waves are formed when control structures, such as gates, valves, etc are manipulated.
+In practice we consider a wave as \textit{long} if $\frac{L_0}{D_0}> 20$.\\
+{\color{magenta}\textbf{Translatory waves}}\\
+These waves are formed when control structures, such as gates, valves, etc are manipulated.\\
 
-{\color{magenta}\subsection{Tsunami wave}}
+{\color{magenta}\textbf{Tsunami wave}}\\
 Impulsive wave to due tsunami. Can be produced to either  an mega-rupture tsunami or due to an earthquake-produced landslide. 
 \begin{itemize}
 \item $\lambda \sim  10^{2-3}$ km
@@ -998,9 +1009,9 @@ Impulsive wave to due tsunami. Can be produced to either  an mega-rupture tsunam
 \item $T\sim 10-20 $ mins
 \item Then, $c\sim 10^2 m/ s $
 \item Then, $\sigma\sim 10^{-4}$
-\end{itemize}
+\end{itemize}\\
 
-{\color{magenta}\subsection{Seiches}}
+{\color{magenta}\textbf{Seiches}}\\
 Natural oscilation in lakes and basins, due to geometric, gravitational and atmospheric variations. 
 \begin{itemize}
 \item $\lambda \sim  20$ km
@@ -1008,9 +1019,9 @@ Natural oscilation in lakes and basins, due to geometric, gravitational and atmo
 \item $T\sim 20 $ mins
 \item Then, $c\sim 10 m/s$
 \item Then, $\sigma\sim 10^{-2}$
-\end{itemize}
+\end{itemize}\\
 
-{\color{magenta}\subsection{Tides}}
+{\color{magenta}\textbf{Tides}}\\
 Produce to gravitational effects of the moon and sun.
 In the ocean
 \begin{itemize}
@@ -1020,9 +1031,9 @@ In the ocean
 \item Then, $c\sim 200 m/s$
 \item Then, $\sigma\sim 10^{-3}$
 \end{itemize}
-The resistance factor of tides in coastal areas, channels, tide flats could be in the order of $\sigma\sim [10^{-1},10^{1}]$ 
+The resistance factor of tides in coastal areas, channels, tide flats could be in the order of $\sigma\sim [10^{-1},10^{1}]$ .\\
 
-{\color{magenta}\subsection{Flood waves}}
+{\color{magenta}\textbf{Flood waves}}\\
 Cause by excessive precipitation or sudden melting of snow.
 \begin{itemize}
 \item $\lambda \sim   10^{2-3}$ km
@@ -1032,7 +1043,7 @@ Cause by excessive precipitation or sudden melting of snow.
 \item The effect of bed friction is usually considerable in the order of $ \sigma \sim 5 \times 10^{1}$
 \end{itemize}
 
-{\color{magenta}\section{Wave propagation}}
+{\color{magenta}\section{Non dispersive wave propagation}}
 Let's consider a canal with a gate that separates two piezometric levels. If we open the gate, a translatory wave will propagate, the water will flow from the \textit{higher} to the \textit{lower} level , creating a positive amplitude wave in the \textit{lower} side and a negative amplitude in the \textit{higher} side.
 
 We will define the amplitude of the wave (respect to the piezometric level at $t_0$) as $\zeta$\\
@@ -1074,6 +1085,8 @@ Assuming a constant rectangular cross-section and combining the equation we get 
 \frac{\partial^2 h}{\partial t^2}-\frac{gA_c}{B}\frac{\partial^2h}{\partial s^2}=0\\
 \frac{\partial^2 h}{\partial t^2}-c^2\frac{\partial^2h}{\partial s^2}=0\\
 \end{align*}
+It may be useful to remember that  for constant width canals
+$$\frac{A_c}{B}=d\frac{B_c}{B}$$
 \end{eqbox2}
 \section{General solution: d'Alembert}
 The general solution to the elementary wave equation is 
