@@ -120,13 +120,12 @@ The classes were imparted by the following professors
 \begin{align*}
 \textbf{Continuum mechanics - Basics: }&\text{Karel van Dalen \& Ad Reniers\&  Phil Vardon}\\
 \textbf{Linear waves: }&\text{Robert Jan Labeur \& Karel van Dalen}\\
-\textbf{Diffusion- Heat Conduction: }&\text{Phil Vardon}\\
+\textbf{Diffusion: }&\text{Phil Vardon}\\
 \textbf{Amplitude dependant waves: }&\text{Robert Jan Labeur \& Ludovic Leclercq}
 \end{align*} 
 
-Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}
-\section*{Contributors}
-Again, if this document helped you, consider reporting or fixing any mistake you may have found, from simple spelling errors ( I'm sure there will be  lot of them) to more substantial changes.
+Feel free to either download, share and/or modified this document, the \textit{.tex} files are available  in\\ \textbf{{\color{magenta}\href{https://github.com/GFFollet/CIEM0000-U2.git}{https://github.com/GFFollet/CIEM0000-U2.git}}}\\
+If this document helped you, consider fixing any mistake you may have found and making a commit to the repo, from simple spelling errors (I'm sure there will be a lot of mistakes specially spelling) 
 
 \newpage
 \tableofcontents
@@ -234,6 +233,7 @@ Then, the rotation of a fluid element is
 \begin{align*}
 \boldsymbol{\Omega}=&\nabla \times \boldsymbol{v}
 \end{align*}
+\subsection{Basic tensor properties}
 From linear algebra we know that we can change basis such that
 \begin{align*}
 \boldsymbol{\varepsilon}'=Q\boldsymbol{\varepsilon}Q^T
@@ -254,15 +254,16 @@ Using the Lagrange multipliers method, we get the problem is equivalent to an ei
 \left(\boldsymbol{\varepsilon-\lambda I} \right)N=0 \qquad \text{where} \vert N\vert=1
 \end{equation*}
 \end{eqbox}
-\begin{note}
-The fact that we can always find a basis such that we can diagonalize the strain/stress tensor, means that we can find a frame of reference (or direction) in which there is no shear or only shear. In many cases we can just reduce the problem to principal stresses.
-\end{note}
 As the name suggests, the invariants of a tensor are properties of the tensor that do not depend on the basis, the most common ones are
 \begin{align*}
 I_1 =&\,\text{tr}(\boldsymbol{\varepsilon})\\
 I_2=\, &\frac{1}{2}\left(\text{tr}(\boldsymbol{\varepsilon})^2-\text{tr}(\boldsymbol{\varepsilon^2})\right)\\
 I_3=\, &\text{det}(\boldsymbol{\varepsilon})
 \end{align*}
+\begin{note}
+The fact that we can diagonalize the strain/stress tensor, means that we can find a frame of reference (or direction) in which there is no shear or only shear. In many cases we can just reduce the problem to principal stresses.\\
+Tensor invariants are very useful in soil mechanics, but there we consider the Effective Stress Tensor and its invariants ($J_1,J_2,J_3$), see \cite{ICE2614} for details)
+\end{note}
 
 
 
@@ -293,9 +294,9 @@ Where $\boldsymbol{C}$ is the Stiffness matrix.
 \begin{note}
 In most civil engineering  problems Hook's Law is sufficiently accurate, except  maybe in 
 \begin{itemize}
-\item (Foliated) Rock masses, the isotropic hypothesis is not accurate, we may need up to 21 elastic constant. Using ultrasonic/seismic methods we can determine the elastic constant in multiple direction\cite{CIVIL448}.
-\item Soil Mechanics, in particular when the clay content is important it is necessary to use elasto-plastic models \cite{ICE2614}.
-\item Earthquake Engineering, even without going for the full nonlinear modeling, implementing a hybrid approach using plastic hinges (elastoplasticity) may reduce the complexity but yield accurate enough results, same for the design of metallic dissipation devices\cite{CIVIL467}.
+\item (Foliated) Rock masses, the isotropic hypothesis is not accurate, we may need up to 21 elastic constant. Using ultrasonic/seismic methods we can determine the elastic constant in multiple direction, see \cite{CIVIL448} for detail in how to obtain this parameters.
+\item Soil Mechanics, in particular when the clay content is important it is necessary to use elasto-plastic models, eg. Cam Clay in \cite{ICE2614}.
+\item Earthquake Engineering, even without going for the full nonlinear modeling, implementing a hybrid approach using plastic hinges (elastoplasticity) may reduce the complexity but yield accurate enough results to design,(obviously we need the nonlinear modeling to validate the design but using an hybrid approach can reduce time and money (same for the design of metallic dissipation devices), see\cite{CIVIL467} and \cite{ICE3753} for introduction/basics.
 \end{itemize}
 \end{note}
 It may be useful to include the effect of temperature and initial stress (prestressed structures)
@@ -335,13 +336,13 @@ Let's consider an intensive property $f$, then
 F=\int_\mathcal{B} f\rho \,dV
 \end{equation*}
 \end{eqbox}
-Where $F$ is the equivalent extensive property,then, we can express multiple conservation laws through the following equation 
+Where $F$ is the equivalent extensive property, then we can express multiple conservation laws through the following equation 
 \begin{eqbox2}{red}{Master Balance Principle}
 \begin{equation*}
 \frac{DF}{Dt}=\frac{D}{Dt}\int_\mathcal{B} f(x,t)\, dV=\int_{\partial \mathcal{B}}\phi(x,t,\hat{n})\,dS +\int_\mathcal{B} \Sigma(x,t) \,dV
 \end{equation*}
 \end{eqbox2}
-The Surface($\phi$) and Volume($\Sigma$) density terms represent the external \textit{forces}. 
+The Surface($\phi$) and Volume($\Sigma$) density terms represent the surface and volumetric flows. 
 \begin{note}
 The previous equation is extremely general and not really used in practice , but I think is necessary to at least know the proper formulation, see \cite{ICE2114} for full proof.
 \end{note}
@@ -391,9 +392,9 @@ As we previously stated, the master conservation principle is not used in practi
 \begin{gather*}
 \frac{\partial Q}{\partial t}=-\frac{\partial q_x}{\partial x}-\frac{\partial q_y}{\partial y}-\frac{\partial q_z}{\partial z}
 \end{gather*}
-Which essentially translates, "The variation of $Q$ is equal to the fluxes through the boundaries"
+Which essentially translates to , \textit{The variation of $Q$ is equal to the fluxes through the boundaries}
 \end{eqbox2}
-Then the conservation laws are
+Using this simplified formulation, some commonly used conservation laws are
 \begin{eqbox2}{red}{Simplified Mass Conservation}
 If we choose 
 \begin{gather*}
@@ -424,7 +425,7 @@ If we consider that the density is constant,and that the velocity is
 \begin{gather*}
 v_i=\frac{\partial u_i}{\partial t}
 \end{gather*}
-Also, if we consider that the spacial-temporal cross term are negligible
+If we decide that the spacial-temporal cross term are negligible
 \begin{gather*}
 \frac{\partial v_j( \rho v_j)}{\partial x_i}=\rho\frac{\partial}{\partial x_i}\left(\frac{\partial  u_i \partial  u_j}{\partial t^2}\right)\approx 0
 \end{gather*}
@@ -443,8 +444,8 @@ We get the linearize momentum equation
 k\nabla^2h=0
 \end{align*}
 \end{eqbox2}
-{\color{magenta}\subsection{Dimensional reduction}}
-In many cases, we don't really care about the response of the system in all direction. The magnitude of the response in some direction could be negligible or because of symmetries in the system, nevertheless, in many cases we are interested in the 2D system or even in the 1D response. 
+\subsection{Dimensional reduction}
+In many cases, we don't really care about the response of the system in all direction. The magnitude of the response in some direction could be negligible or because of symmetries in the system we could expect them to be, nevertheless, in many cases we are interested in 2D system or even in the 1D. 
 
 \begin{eqbox2}{}{Plane Stress}
 Assuming that there are no stress in the out-of-plane direction,
@@ -489,7 +490,7 @@ At first glance, everything seems consistent, but if we consider the linearized 
 \rho \frac{\partial^2u_y}{\partial t^2}=\frac{\partial\sigma_{xy}}{\partial x}+\frac{\partial\sigma_{yy}}{\partial y}+\frac{\partial\sigma_{zy}}{\partial z}+f_y\\ \\
 \rho \frac{\partial^2u_y}{\partial t^2}=0
 \end{gather*}
-However that implies that there is now acceleration, which is only true in the static case
+However that implies that there is no acceleration, which is only true in the static case
 \end{eqbox2}
 \begin{eqbox2}{}{Plane Strain}
 Assuming that there are no strain in the out-of-plane direction,
@@ -557,21 +558,21 @@ Lets consider a wall loaded vertically, such that it can be considered to be in 
 \end{gather*}
 
 \section{Case Study: Darcy's law and potential flow}
-Let consider the conservation of mass ( volume assuming that the density is constant) for a control volume we get  
-\begin{eqbox2}{red}{Continuity equation}
-\begin{gather*}
-\frac{\partial \rho}{\partial t}=-\nabla q\\
-\frac{\partial \rho}{\partial t}=-\rho \nabla v\\
-\end{gather*}
-Considering that there is no storage capacity we get
+Let consider the conservation of mass (volume, assuming that the density is constant) for a control volume we get  
+\begin{eqbox2}{red}{Continuity Equation}
+\begin{align*}
+\frac{\partial \rho}{\partial t}=&-\nabla q\\
+\frac{\partial \rho}{\partial t}=&-\rho \nabla v\\
+\end{align*}
+Considering that there is no storage capacity  and steady state we get
 \begin{gather*}
 \rho \nabla v=0
 \end{gather*}
 \end{eqbox2}
 
-Lets remember that the simplest model for flow is the potential flow, also known as Darcy's Law, it says that "\textit{water flow from a higher energy state to a lower one}"
+Lets remember that the simplest model for flow is the potential flow, also known as Darcy's Law, it says that "\textit{water flows between energy gradients}"
 
-Lets define the potential or head as
+Lets define the potential (energy) or head as
 \begin{gather*}
 \Psi=h=z+\frac{p}{\rho g}+\frac{1}{2}\frac{U^2}{2g}\\
 \end{gather*}
@@ -584,34 +585,56 @@ q=-k\nabla h
 \end{gather*}
 $k$: Hydraulic conductivity 
 \end{eqbox2} 
-Combining Darcy's Law into the continuity equation we get 
+Combining Darcy's Law with the Continuity Equation we get 
 \begin{eqbox2}{}{Laplace's Fluids Law}
 \begin{gather*}
 k\nabla^2h=0
 \end{gather*}
 \end{eqbox2}
-
-\section{Case Study: Simplified flow through soil}
+We know that the water flow between the \textit{soil grains} then we can estimate the flow velocity as 
+\begin{gather*}
+v=\frac{q}{n}
+\end{gather*}
+With $n: $ Porosity
+\begin{note}
+In rocks, we have to be careful about porosity vs connected porosity and permeability vs hydraulic conductivity.\end{note} 
+\section{Case Study: Simplified flow through deformable soil}
 Lets consider the case of fully saturated soil, and no chemical of mechanical interaction/degradation of the soil due to the flow/presence of water. We also know that soil fails in term of effective stresses, then it is convenient to define the effective stress tensor as
 \begin{eqbox2}{}{Effective stress} 
 \begin{align*}
 \sigma'=\sigma-\boldsymbol{I}u_w
 \end{align*}
 \end{eqbox2}
-In Soil mechanics it may be  useful to consider the invariants of the effective stress tensor, which are analogous to the stress tensor's but are called $J_1$ $J_2$ and $J_3$ respectively, which are used in failure criteria\cite{ICE2614}.
-
-For the continuity equation we previously assumed that$\phi\neq0 \text{and} \Sigma=0$) but from the first chapter we know that the medium can deform, therefore the control volume can deform and we have to include the change of volume in the continuity equation
-\begin{note}
-In rocks, we have to be careful about porosity vs connected porosity and permeability vs hydraulic conductivity.\end{note} 
+As we mentioned before, in soil mechanics it is useful to consider the invariants of the effective stress tensor, which are analogous to the stress tensor's but called $J_1$ $J_2$ and $J_3$ respectively.\\
+For the continuity equation we previously assumed that $ \Sigma=0$) but from the first chapter we know that the medium can deform, therefore the control volume can deform and we have to include the change of volume in the continuity equation
 \begin{eqbox2}{red}{Deformable medium - Continuity Equation}
 For permanent flow
 \begin{align*}
-\frac{\varepsilon_v}{\partial t}=-k \nabla^2 h
+\frac{\varepsilon_v}{\partial t}=-\frac{k}{\rho g} \nabla^2 h
 \end{align*}
 \end{eqbox2}
 With 
 $I_1=\varepsilon_v$
 
+Lets consider the case of 1D consolidation due to an external stress,considering that the soil properties are constant
+
+\begin{gather*}
+\frac{\sigma_{zz}'}{\partial x}=-\frac{\partial p_e}{\partial z1}\\
+\frac{E(1-\nu)}{(1-2\nu)(1+\nu)}\frac{\partial \varepsilon_{zz}}{\partial z}=-\frac{\partial p_e}{\partial z}\\
+ \frac{\partial }{\partial t}\left(\int\frac{E(1-\nu)}{(1-2\nu)(1+\nu)}\frac{\partial \varepsilon_{zz}}{\partial z}\, dz\right) =\frac{\partial}{\partial t} \left(\int -\frac{\partial p_e}{\partial z}\, dz\right) \\
+\frac{E(1-\nu)}{(1-2\nu)(1+\nu)}\frac{\partial \varepsilon_{zz}}{\partial t}=-\frac{\partial p_e}{\partial t}\
+\end{gather*}
+In the 1D case the continuity equation in deformable medium simplifies to , $\varepsilon_v=\text{tr}(\varepsilon)=\varepsilon_{zz}$, replacing in the previous equation we get 
+\begin{eqbox2}{}{Therzaghi's time rate consolidation}
+For saturated clays soils, the rate of secondary consolidation can be estimated from
+\begin{gather*}
+\frac{\partial p_e}{\partial t}=C_v \frac{\partial^2 p_e}{\partial z^2}
+\end{gather*}
+ $C_v=\dfrac{k}{m_v\rho g}$\\
+ $m_v=\dfrac{(1-2\nu)(1+v)}{E(1-\nu)}$\\
+ 
+ The equation can be solved analytically with the tools that we will learn in the {\color{magenta}Diffusion Section}, but in practice it is usually solved using graphical methods. See \cite{ICE2604} for detail of graphical methods, load ramp correction, pre(over)consolidated clays consideration, and estimation of $C_v$ from field data.
+\end{eqbox2}
 \section{Case Study: Flow to a well}
 Let's consider
 \begin{itemize}
