@@ -1,0 +1,49 @@
+\documentclass[a4paper, 11pt,article,oneside]{memoir}%,openany
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
+
+\checkandfixthelayout
+\usepackage[utf8]{inputenc} 
+\setcounter{tocdepth}{2}
+%--------------------------------------%
+
+%------Misc Packages-------------------%
+\usepackage[T1]{fontenc} 
+\usepackage{calrsfs}
+\usepackage{pifont}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[breakable]{tcolorbox}
+    \tcbuselibrary{skins}
+    \tcbuselibrary{breakable}
+\usepackage{stix}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage[final]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{listings}
+
+
+
+\begin{document}
+
+\begin{gather*}
+\frac{\partial \phi}{\partial t}=D\nabla^2\phi\\
+\frac{\partial \phi}{\partial t}=D\frac{\partial^2\phi}{\partial x^2}\\
+\int_\Omega \frac{\partial \phi}{\partial t}\, d\Omega=D\int_\Gamma \frac{\partial\phi}{\partial x}\cdot \hat{n} \,d\Gamma\\
+\int_\Omega \frac{\partial \phi}{\partial t}\, d\Omega=D\int_W \frac{\partial\phi}{\partial x}(-1) \,d\Gamma_W+D\int_E \frac{\partial\phi}{\partial x}(1) \,d\Gamma_E\\
+\int_\Omega \frac{\partial \phi}{\partial t}\, d\Omega=D\left[ \left(\frac{\partial \phi}{\partial x}\right)_E-\left(\frac{\partial \phi}{\partial x}\right)_W\right] \Delta y 
+\end{gather*}
+Central diff $\frac{\partial \phi}{\partial x}$
+\begin{gather*}
+\frac{\partial\phi}{\partial x}\approx\frac{\phi_{i+1}-\phi_{i}}{\Delta x}
+\end{gather*}
+\begin{gather*}
+\int_\Omega \frac{\partial \phi}{\partial t}\, d\Omega=D\left[ \left(\frac{\phi_{i+1}-\phi_{i}}{\Delta x}\right)_E-\left(\frac{\phi_{i}-\phi_{i-1}}{\Delta x}\right)_W\right] \Delta y \\
+\int_\Omega \frac{\partial \phi}{\partial t}\, d\Omega=D\left[ \frac{\phi_{i+1}-2\phi_{i}+\phi_{i-1}}{\Delta x}\right] \Delta y \\
+\end{gather*}
+\end{document}

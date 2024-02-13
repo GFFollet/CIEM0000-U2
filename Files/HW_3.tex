@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{caption, subcaption}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+\usepackage[hidelinks=true]{hyperref}
+\usepackage{gensymb}
+\usepackage{lastpage}
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{placeins}
+\usepackage{tabularx,booktabs}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{fixltx2e}
+\usepackage{textgreek}
+\usepackage{wrapfig}
+\usepackage{color,soul}
+\usepackage{gensymb}
+\usepackage{dsfont}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\setcounter{secnumdepth}{4}
+
+
+
+\begin{document}
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Seismic Isolation: Pre-Design Procedure}
+\lhead{CIVIL 467-Advanced Structural Dynamics}
+\setcounter{page}{1} 
+\fancyfoot[R]{\thepage}
+
+\maketitle
+\newpage
+\begin{center}
+\Large{Seismic Isolation: Pre-Design Procedure}\\
+\vspace{0.3cm}
+\large{Gabriel Follet}\\
+\vspace{0.5cm}
+\large {CIVIL 467 - Advanced Structural Dynamics \\
+\vspace{0.2cm}
+    Professor : Juan Carlos de la Llera}\\
+\end{center}
+\begin{enumerate}
+\item{Vertical Frequency - Vertical Stiffness}\\
+Most code impose a minimum value for the vertical frequency  and from the required value we can obtain the minimum vertical stiffness.
+\item{Lateral Period- Lateral Stiffness}\\
+From the required period, and considering the approximation of a rigid body motion for the structure, we can say that the period of the structure is the period of the isolation system, and from there define the minimum lateral stiffness
+\item{Axial Loads - Area}\\
+From the properties of the rubber and the axial load demand ( short and long term) it is possible to estimate the minimum area for each isolator
+\item{Lateral displacement - Rubber Height}\\
+From the maximum deformation and the lateral stiffness we can easily obtain the required  height($H_r$ of the isolator)
+\item{Shear deformation - Rubber Thickness}\\
+From the properties of the material we can get the maximum shear deformation. The shear deformation due to the lateral force we have just computed, we just need to include the compression induced shear deformation\footnote{Consider short term load combination, and effective area}, which depends on the shape factor, and therefore the thickness of the rubber
+\item{Number of layers}\\
+Form the recently obtain height of rubber and thickness of rubber, define the number of layers
+\item {Steel Shims Thickness}\\
+From the axial stress in the rubber estimate the axial stress in the steel shims and compute the minimum thickness of the steel.
+\item{Stability}\\
+Define the thickness of the outer plates/shims and compute the isolator total height. Then check the following limit state
+\begin{enumerate}
+    \item Buckling due to vertical load
+    \item Buckling due to vertical and lateral load
+    \item Rollover
+\end{enumerate}
+\item {Checks}\\
+Once the isolation has been predesign it is necessary to perform a Non-linear time-history analysis to check all limits state and iterate until all conditions are satisfied\footnote{ Check traction in devices}
+\end{enumerate}
+\end{document}
